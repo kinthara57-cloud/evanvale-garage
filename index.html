@@ -8,12 +8,6 @@
   <!-- ฟอนต์แนวอเมริกันหน่อย -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <!-- ใช้โลโก้เพจเป็น favicon ด้วย -->
-  <link rel="icon" href="/images/evanvale-logo.png" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/evanvale-logo.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/evanvale-logo.png">
-  <link rel="apple-touch-icon" href="/images/evanvale-logo.png">
-
   <style>
     :root {
       --bg-main: #050508;
@@ -97,6 +91,7 @@
       border-radius: 50%;
       border: 2px solid var(--accent-red);
       object-fit: cover;
+      background: #050508;
       box-shadow: 0 0 24px rgba(229, 57, 53, 0.6);
     }
 
@@ -879,7 +874,7 @@
     <div class="nav-container">
       <div class="brand">
         <!-- ใส่โลโก้เพจแทนตัว EV -->
-        <img src="/images/evanvale-logo.png" alt="Evan Vale Garage Logo" class="brand-logo">
+        <img src="images/evanvale-logo.png?v=1" alt="Evan Vale Garage Logo" class="brand-logo">
         <div class="brand-text">
           <div class="brand-title">EVAN VALE GARAGE</div>
           <div class="brand-sub">garage p • nongbua rayong</div>
@@ -1072,7 +1067,7 @@
       <div class="works-grid">
         <!-- รูปตัวอย่าง แก้ src เป็นรูปงานจริงของอู่ -->
         <article class="work-card">
-          <img class="work-photo" src="/images/work-ford-t6.jpg" alt="งาน Ford 2.2 T6">
+          <img class="work-photo" src="images/work-ford-t6.jpg" alt="งาน Ford 2.2 T6">
           <div class="work-body">
             <div class="work-title">Ford 2.2 T6 • งานถ่ายน้ำมันเครื่องครบชุด</div>
             <div class="work-meta">
@@ -1083,7 +1078,7 @@
         </article>
 
         <article class="work-card">
-          <img class="work-photo" src="/images/work-clutch.jpg" alt="งานคลัตช์ ผ้าผสมหวี 2 ชั้น">
+          <img class="work-photo" src="images/work-clutch.jpg" alt="งานคลัตช์ ผ้าผสมหวี 2 ชั้น">
           <div class="work-body">
             <div class="work-title">งานคลัตช์ • ผ้าผสมหวี 2 ชั้น + กลึงฟลายวีล</div>
             <div class="work-meta">
@@ -1094,7 +1089,7 @@
         </article>
 
         <article class="work-card">
-          <img class="work-photo" src="/images/work-suspension.jpg" alt="งานช่วงล่าง โหลดเตี้ย">
+          <img class="work-photo" src="images/work-suspension.jpg" alt="งานช่วงล่าง โหลดเตี้ย">
           <div class="work-body">
             <div class="work-title">กระบะโหลดเตี้ย • เซ็ตช่วงล่าง วิ่งใช้งานจริง</div>
             <div class="work-meta">
@@ -1105,7 +1100,7 @@
         </article>
       </div>
       <p style="font-size:11px;color:var(--text-muted);margin-top:8px;">
-        <strong>/images/</strong> แทนรูปตัวอย่างด้วยรูปงานจริงของอู่
+        <strong>images/</strong>
       </p>
     </section>
 
@@ -1179,7 +1174,7 @@
                   <button type="button" class="btn-small btn-small-primary" onclick="copyBookingText();">
                     คัดลอกข้อความจองคิว
                   </button>
-                  <!-- ปุ่มเปิดเพจเป็นสีฟ้าเหมือนปุ่มคัดลอก -->
+                  <!-- ปุ่มเปิดเพจเป็นสีฟ้า จะไม่ดำแล้ว -->
                   <button type="button" class="btn-small btn-small-primary" onclick="openFacebookPage();">
                     เปิดเพจ Facebook เพื่อส่งข้อความ
                   </button>
