@@ -352,8 +352,9 @@
       height: 210px;
       border-radius: 16px;
       border: 1px solid rgba(255, 255, 255, 0.18);
+      /* ใช้โปสเตอร์ evanvale-cover.jpg เป็นพื้นหลัง */
       background-image: linear-gradient(120deg, rgba(0,0,0,0.3), rgba(0,0,0,0.8)),
-        url("https://images.pexels.com/photos/3806274/pexels-photo-3806274.jpeg?auto=compress&cs=tinysrgb&w=1200");
+        url("images/evanvale-cover.jpg");
       background-size: cover;
       background-position: center;
       box-shadow: 0 18px 36px rgba(0, 0, 0, 0.85);
@@ -1088,7 +1089,6 @@
         <!-- งานที่ 1: รีโว่ 2.8 4x4 ยกครัช -->
         <article class="work-card">
           <div class="work-photos-grid">
-            <!-- เปลี่ยนชื่อไฟล์ตามของจริงในโฟลเดอร์ images -->
             <img src="images/revo-clutch-1.jpg" alt="รีโว่ 2.8 4x4 ยกครัช ภาพชุดคลัทช์เก่า–ใหม่">
             <img src="images/revo-clutch-2.jpg" alt="รีโว่ 2.8 4x4 แผ่นคลัทช์เก่ากับใหม่เปรียบเทียบ">
             <img src="images/revo-clutch-3.jpg" alt="รีโว่ 2.8 4x4 ระหว่างทำงานหน้างาน">
@@ -1203,7 +1203,6 @@
                   <button type="button" class="btn-small btn-small-primary" onclick="copyBookingText();">
                     คัดลอกข้อความจองคิว
                   </button>
-                  <!-- ปุ่มเปิดเพจให้เป็นสีฟ้าเหมือนกัน -->
                   <button type="button" class="btn-small btn-small-primary" onclick="openFacebookPage();">
                     เปิดเพจ Facebook เพื่อส่งข้อความ
                   </button>
@@ -1334,7 +1333,7 @@
     }
 
     updateCountdown();
-    setInterval(updateCountdown, 30000); // อัปเดตทุก 30 วินาทีพอ
+    setInterval(updateCountdown, 30000);
   })();
 
   // =========================
@@ -1344,7 +1343,7 @@
 
   function generateBookingText() {
     const name = document.getElementById('name').value.trim();
-    const phone = document.getElementById('phone').value.trim();
+       const phone = document.getElementById('phone').value.trim();
     const vehicle = document.getElementById('vehicle').value;
     const date = document.getElementById('date').value.trim();
     const details = document.getElementById('details').value.trim();
@@ -1356,7 +1355,6 @@
       return;
     }
 
-    // สร้างรหัสคิวง่าย ๆ
     const now = new Date();
     const y = now.getFullYear();
     const m = String(now.getMonth() + 1).padStart(2, "0");
@@ -1377,7 +1375,7 @@
       "",
       `รบกวนช่วยเช็กคิวว่างและยืนยันวัน–เวลาให้ด้วยนะครับ 🙏`,
       `รหัสคำขอ: ${bookingCode}`
-    ].filter(Boolean); // ตัดช่องว่างที่ไม่ได้ใช้ออก
+    ].filter(Boolean);
 
     summary.value = textLines.join("\n");
     box.style.display = "flex";
