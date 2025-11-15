@@ -678,12 +678,13 @@
     .btn-small {
       padding: 6px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      background: rgba(5, 7, 14, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      background: linear-gradient(135deg, #1e2533, #111522);
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       cursor: pointer;
+      color: #f5f5f5;
     }
 
     .btn-small-primary {
@@ -694,6 +695,7 @@
 
     .btn-small:hover {
       transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
     }
 
     /* CONTACT CARD */
@@ -1101,7 +1103,7 @@
         </article>
       </div>
       <p style="font-size:11px;color:var(--text-muted);margin-top:8px;">
-        <strong>images/</strong> ← โฟลเดอร์รูปงานจริงของอู่
+        <strong>images/</strong> ← เอารูปงานจริงของอู่มาใส่ตรงนี้
       </p>
     </section>
 
@@ -1305,7 +1307,7 @@
     }
 
     updateCountdown();
-    setInterval(updateCountdown, 30000); // อัปเดตทุก 30 วินาที
+    setInterval(updateCountdown, 30000); // อัปเดตทุก 30 วินาทีพอ
   })();
 
   // =========================
@@ -1348,7 +1350,7 @@
       "",
       `รบกวนช่วยเช็กคิวว่างและยืนยันวัน–เวลาให้ด้วยนะครับ 🙏`,
       `รหัสคำขอ: ${bookingCode}`
-    ].filter(Boolean);
+    ].filter(Boolean); // ตัดช่องว่างที่ไม่ได้ใช้ออก
 
     summary.value = textLines.join("\n");
     box.style.display = "flex";
@@ -1379,7 +1381,7 @@
 
   function openFacebookPage() {
     if (!facebookPageUrl) {
-      alert("ยังไม่ได้ใส่ลิงก์เพจจริงในระบบเลยครับ");
+      alert("ยังไม่ได้ตั้งค่าลิงก์เพจจริงในโค้ดครับ");
       return;
     }
     window.open(facebookPageUrl, "_blank");
