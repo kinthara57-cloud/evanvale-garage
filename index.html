@@ -310,6 +310,31 @@
       font-weight: 500;
     }
 
+    /* COUNTDOWN */
+    .countdown-box {
+      margin-top: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-size: 11px;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      background: rgba(5, 8, 16, 0.85);
+    }
+
+    .countdown-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      font-size: 10px;
+    }
+
+    .countdown-time {
+      font-weight: 600;
+      color: #ffffff;
+    }
+
     .hero-right {
       position: relative;
     }
@@ -502,6 +527,13 @@
       color: var(--text-muted);
     }
 
+    /* REAL WORKS IMAGES */
+    .work-photo {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     /* BOOKING */
     .booking {
       display: grid;
@@ -590,11 +622,17 @@
     .booking-footer {
       margin-top: 10px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
       gap: 10px;
       font-size: 11px;
       color: var(--text-muted);
+    }
+
+    .booking-footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
     }
 
     .booking-hours {
@@ -602,6 +640,63 @@
       color: var(--text-muted);
     }
 
+    .booking-generated {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(2, 6, 17, 0.92);
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .booking-generated label {
+      color: var(--text-muted);
+    }
+
+    #bookingSummary {
+      width: 100%;
+      min-height: 90px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(3, 6, 14, 0.95);
+      padding: 7px 9px;
+      color: #ffffff;
+      font-size: 11px;
+      resize: vertical;
+    }
+
+    .booking-generated-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .btn-small {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(5, 7, 14, 0.95);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+    }
+
+    .btn-small-primary {
+      border-color: var(--accent-blue);
+      background: linear-gradient(135deg, var(--accent-blue), #42a5f5);
+      color: #fff;
+    }
+
+    .btn-small:hover {
+      transform: translateY(-1px);
+    }
+
+    /* CONTACT CARD */
     .contact-card {
       background: rgba(2, 6, 17, 0.9);
       border-radius: var(--radius-xl);
@@ -788,7 +883,8 @@
       </div>
       <nav class="nav-links">
         <a href="#services">Services</a>
-        <a href="#works">Garage Work</a>
+        <a href="#works">Concept Work</a>
+        <a href="#realworks">Real Jobs</a>
         <a href="#booking">Booking</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
@@ -824,12 +920,18 @@
           <div class="badge"><div class="badge-pill"></div> Transparent Pricing</div>
         </div>
 
+        <!-- COUNTDOWN TO NEW YEAR -->
+        <div class="countdown-box">
+          <span class="countdown-label">COUNTDOWN TO NEW YEAR GARAGE GOAL</span>
+          <span class="countdown-time" id="newYearCountdown">-- วัน -- ชม. -- นาที</span>
+        </div>
+
         <div class="hero-actions">
           <button class="btn-primary" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">
             จองคิวเข้าอู่ (Demo)
           </button>
-          <button class="btn-ghost" onclick="document.getElementById('works').scrollIntoView({behavior: 'smooth'})">
-            ดูผลงานตัวอย่าง
+          <button class="btn-ghost" onclick="document.getElementById('realworks').scrollIntoView({behavior: 'smooth'})">
+            ดูรูปงานจริงจากอู่
           </button>
         </div>
 
@@ -912,11 +1014,11 @@
       </div>
     </section>
 
-    <!-- WORKS / GALLERY -->
+    <!-- CONCEPT WORKS -->
     <section id="works" class="section">
       <div class="section-header">
-        <h2 class="section-title">GARAGE WORK</h2>
-        <p class="section-sub">ตัวอย่างสไตล์งานที่อยากให้เกิดขึ้นจริงในอู่ • ตอนนี้ใช้รูป Mockup แทนภาพงานที่บ้าน</p>
+        <h2 class="section-title">GARAGE WORK • CONCEPT</h2>
+        <p class="section-sub">ตัวอย่างสไตล์งานในฝัน • ใช้รูป Mockup อารมณ์อเมริกันประกอบก่อน</p>
       </div>
       <div class="works-grid">
         <article class="work-card">
@@ -954,26 +1056,77 @@
       </div>
     </section>
 
+    <!-- REAL WORKS FROM GARAGE P -->
+    <section id="realworks" class="section">
+      <div class="section-header">
+        <h2 class="section-title">REAL JOBS • GARAGE P</h2>
+        <p class="section-sub">
+          โซนนี้ไว้ลงรูปงานจริงจากอู่ช่างป๊อปที่บ้าน เช่น งานฟอร์ด T6, รีโว่, วางเกียร์, ผ้าคลัตช์ ฯลฯ
+          แค่เปลี่ยนรูปด้านล่างเป็นรูปของมึงเอง
+        </p>
+      </div>
+      <div class="works-grid">
+        <!-- รูปตัวอย่าง แก้ src เป็นรูปงานจริงของอู่ -->
+        <article class="work-card">
+          <img class="work-photo" src="images/work-ford-t6.jpg" alt="งาน Ford 2.2 T6">
+          <div class="work-body">
+            <div class="work-title">Ford 2.2 T6 • งานถ่ายน้ำมันเครื่องครบชุด</div>
+            <div class="work-meta">
+              <span>ลงงานเก่าในเพจ</span>
+              <span>Engine Service</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <img class="work-photo" src="images/work-clutch.jpg" alt="งานคลัตช์ ผ้าผสมหวี 2 ชั้น">
+          <div class="work-body">
+            <div class="work-title">งานคลัตช์ • ผ้าผสมหวี 2 ชั้น + กลึงฟลายวีล</div>
+            <div class="work-meta">
+              <span>Gear & Clutch</span>
+              <span>Real Job</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <img class="work-photo" src="images/work-suspension.jpg" alt="งานช่วงล่าง โหลดเตี้ย">
+          <div class="work-body">
+            <div class="work-title">กระบะโหลดเตี้ย • เซ็ตช่วงล่าง วิ่งใช้งานจริง</div>
+            <div class="work-meta">
+              <span>Suspension</span>
+              <span>Daily Use</span>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:8px;">
+        *ไฟล์ด้านบนเป็นแค่ตัวอย่างชื่อไฟล์ แค่เอารูปงานจริงใส่ในโฟลเดอร์ <strong>images/</strong> แล้วแก้ชื่อไฟล์ในโค้ดให้ตรง ก็จะกลายเป็นแกลเลอรีงานจริงของอู่มึงเลย*
+      </p>
+    </section>
+
     <!-- BOOKING -->
     <section id="booking" class="section">
       <div class="section-header">
         <h2 class="section-title">BOOKING</h2>
-        <p class="section-sub">ฟอร์มจองคิวตัวอย่าง • ไว้พร้อมเมื่อไหร่ค่อยเชื่อมไลน์หรือโทรศัพท์จริง</p>
+        <p class="section-sub">
+          ระบบจองคิวแบบง่าย ๆ สไตล์เว็บเติมเกม: กรอกฟอร์ม → สร้างข้อความจองคิว → กดคัดลอก → กดไปเพจ → วางรอช่างตอบคิวให้
+        </p>
       </div>
       <div class="booking">
         <div class="booking-card">
           <div class="booking-label">REQUEST A SLOT</div>
           <div class="booking-title">จองคิวเข้าอู่ (ตัวอย่าง)</div>
           <div class="booking-desc">
-            แบบฟอร์มนี้เอาไว้ลองวางระบบจองคิว ลองกรอกเล่น ๆ ได้ก่อน
-            วันหนึ่งถ้าเปิดใช้จริงจะปรับให้ส่งข้อมูลเข้าไลน์หรืออีเมลอู่ที่บ้าน
+            ฟอร์มนี้เอาไว้ให้ลูกค้า <strong>กรอกรายละเอียด</strong> แล้วระบบจะสร้าง
+            <strong>ข้อความจองคิว</strong> ให้กดคัดลอกไปส่งในเพจ Facebook ของอู่
           </div>
 
-          <form>
+          <form onsubmit="return false;">
             <div class="booking-grid">
               <div class="form-field">
                 <label for="name">ชื่อเล่น / ชื่อลูกค้า</label>
-                <input id="name" type="text" placeholder="เช่น ริว, Evan, ฯลฯ">
+                <input id="name" type="text" placeholder="เช่น ริว, พี่เอก, คุณต้น ฯลฯ">
               </div>
               <div class="form-field">
                 <label for="phone">เบอร์โทร / ไลน์</label>
@@ -996,19 +1149,40 @@
               </div>
               <div class="form-field full-row">
                 <label for="details">รายละเอียดงานที่อยากทำ</label>
-                <textarea id="details" placeholder="เช่น โหลดเตี้ย, เปลี่ยนคลัตช์, เช็คช่วงล่าง, จูนเครื่อง ฯลฯ"></textarea>
+                <textarea id="details" placeholder="เช่น ถ่ายน้ำมันเครื่อง, เปลี่ยนคลัตช์, เช็คช่วงล่าง, มีเสียงดัง ฯลฯ"></textarea>
               </div>
             </div>
 
             <div class="booking-footer">
-              <div>
-                <button type="button" class="btn-primary">
-                  ส่งคำขอ (Demo)
+              <div class="booking-footer-top">
+                <button type="button" class="btn-primary" onclick="generateBookingText();">
+                  สร้างข้อความจองคิว
                 </button>
+                <span style="font-size:11px;color:var(--text-muted);">
+                  *กดสร้างก่อน แล้วค่อยกดคัดลอกข้อความไปส่งในเพจ*
+                </span>
               </div>
               <div class="booking-hours">
                 เวลาเปิด–ปิด (ปัจจุบันอู่ที่บ้าน):<br>
-                <strong>ประมาณ 09:00 – 19:00</strong> • เปิดเกือบทุกวัน (หยุดตามคิวงาน/ธุระ)
+                <strong>ประมาณ 07:30 – 19:30</strong> • เปิดเกือบทุกวัน (หยุดตามคิวงาน/ธุระ)
+              </div>
+
+              <!-- กล่องข้อความจองคิวที่สร้าง -->
+              <div class="booking-generated" id="bookingGeneratedBox">
+                <label for="bookingSummary">ข้อความจองคิว (คัดลอกไปส่งในเพจได้เลย)</label>
+                <textarea id="bookingSummary" readonly></textarea>
+                <div class="booking-generated-actions">
+                  <button type="button" class="btn-small btn-small-primary" onclick="copyBookingText();">
+                    คัดลอกข้อความจองคิว
+                  </button>
+                  <button type="button" class="btn-small" onclick="openFacebookPage();">
+                    เปิดเพจ Facebook เพื่อส่งข้อความ
+                  </button>
+                </div>
+                <span style="font-size:10px;color:var(--text-muted);margin-top:4px;">
+                  หลังจากกดเปิดเพจแล้ว ให้กดวาง (Paste) ข้อความนี้ในแชทเพจ
+                  แล้วรอช่างตอบคิวและยืนยันวัน–เวลาอีกที
+                </span>
               </div>
             </div>
           </form>
@@ -1033,7 +1207,10 @@
           <div class="contact-row">
             <div>
               <div class="contact-label">SOCIAL</div>
-              <div class="contact-value">@evanvale / เพจอู่ (จะใส่ลิงก์จริงภายหลัง)</div>
+              <div class="contact-value">
+                เพจ: Evan Vale Garage - อู่ช่างป๊อป ระยอง<br>
+                (ใส่ลิงก์เพจจริงในสคริปต์ด้านล่างตรงตัวแปร <strong>facebookPageUrl</strong>)
+              </div>
             </div>
           </div>
           <p>
@@ -1096,5 +1273,114 @@
     </div>
   </footer>
 </div>
+
+<script>
+  // =========================
+  // COUNTDOWN TO NEW YEAR
+  // =========================
+  (function() {
+    const countdownEl = document.getElementById('newYearCountdown');
+    if (!countdownEl) return;
+
+    function updateCountdown() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const target = new Date(year + 1, 0, 1, 0, 0, 0); // 1 Jan ปีหน้า
+      const diff = target - now;
+
+      if (diff <= 0) {
+        countdownEl.textContent = "HAPPY NEW YEAR GARAGE!";
+        return;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / (3600 * 24));
+      const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+
+      countdownEl.textContent = days + " วัน " + hours + " ชม. " + minutes + " นาที";
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 30000); // อัปเดตทุก 30 วินาทีพอ
+  })();
+
+  // =========================
+  // BOOKING TEXT GENERATOR
+  // =========================
+  const facebookPageUrl = "https://www.facebook.com/evanvalegarage"; 
+  // แก้ลิงก์ด้านบนเป็นลิงก์เพจจริงของมึง
+
+  function generateBookingText() {
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const vehicle = document.getElementById('vehicle').value;
+    const date = document.getElementById('date').value.trim();
+    const details = document.getElementById('details').value.trim();
+    const box = document.getElementById('bookingGeneratedBox');
+    const summary = document.getElementById('bookingSummary');
+
+    if (!name || !phone || vehicle === "เลือกประเภทรถ") {
+      alert("กรุณากรอกชื่อ เบอร์โทร/ไลน์ และเลือกประเภทรถก่อนนะครับ 🙏");
+      return;
+    }
+
+    // สร้างรหัสคิวง่าย ๆ
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, "0");
+    const d = String(now.getDate()).padStart(2, "0");
+    const hh = String(now.getHours()).padStart(2, "0");
+    const mm = String(now.getMinutes()).padStart(2, "0");
+    const codeRand = Math.floor(100 + Math.random() * 900);
+    const bookingCode = `EVG-${y}${m}${d}-${hh}${mm}-${codeRand}`;
+
+    const textLines = [
+      "คิวจองซ่อมรถที่ EVAN VALE GARAGE x อู่ช่างป๊อป ระยอง",
+      "",
+      `ชื่อ: ${name}`,
+      `เบอร์โทร / ไลน์: ${phone}`,
+      `ประเภทรถ: ${vehicle}`,
+      date ? `วันที่สะดวกโดยประมาณ: ${date}` : "",
+      details ? `รายละเอียดงานที่อยากทำ: ${details}` : "",
+      "",
+      `รบกวนช่วยเช็กคิวว่างและยืนยันวัน–เวลาให้ด้วยนะครับ 🙏`,
+      `รหัสคำขอ: ${bookingCode}`
+    ].filter(Boolean); // ตัดช่องว่างที่ไม่ได้ใช้ออก
+
+    summary.value = textLines.join("\n");
+    box.style.display = "flex";
+    summary.focus();
+    summary.select();
+  }
+
+  function copyBookingText() {
+    const summary = document.getElementById('bookingSummary');
+    if (!summary || !summary.value.trim()) {
+      alert("ยังไม่มีข้อความให้คัดลอกครับ ลองกดปุ่ม 'สร้างข้อความจองคิว' ก่อนเนอะ");
+      return;
+    }
+
+    summary.select();
+    summary.setSelectionRange(0, 99999);
+
+    try {
+      const ok = document.execCommand('copy');
+      if (!ok && navigator.clipboard) {
+        navigator.clipboard.writeText(summary.value);
+      }
+      alert("คัดลอกข้อความจองคิวเรียบร้อยแล้วครับ นำไปวางในแชทเพจได้เลย");
+    } catch (e) {
+      alert("เบราว์เซอร์ไม่รองรับการคัดลอกอัตโนมัติ ให้กดค้างแล้วเลือกคัดลอกเอาเองนะครับ");
+    }
+  }
+
+  function openFacebookPage() {
+    if (!facebookPageUrl || facebookPageUrl === "https://www.facebook.com/evanvalegarage") {
+      alert("ยังไม่ได้ตั้งลิงก์เพจจริงในโค้ดเลย แก้ตัวแปร facebookPageUrl ในสคริปต์ก่อนนะไอหมา 😏");
+    }
+    window.open(facebookPageUrl, "_blank");
+  }
+</script>
 </body>
 </html>
