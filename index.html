@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EVAN VALE GARAGE x อู่ช่างป๊อป | Rayong Garage</title>
 
-  <meta name="description" content="EVAN VALE GARAGE x อู่ช่างป๊อป หนองบัว ระยอง — อู่ซ่อมรถกระบะ รถใช้งาน Big Bike และโหลดเตี้ยสไตล์อเมริกัน พร้อมระบบจองคิวผ่านเว็บและเพจ Facebook">
-
   <!-- ฟอนต์แนวอเมริกันหน่อย -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -30,10 +28,6 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
@@ -154,7 +148,6 @@
       text-transform: uppercase;
       letter-spacing: 0.18em;
       box-shadow: 0 0 18px rgba(25, 118, 210, 0.4);
-      cursor: pointer;
     }
 
     .nav-cta span {
@@ -193,6 +186,8 @@
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: #fff;
+      /* เพิ่มระยะห่างจากหัวข้อใหญ่ เพื่อไม่ให้ดูบังกัน */
+      margin-bottom: 16px;
     }
 
     .hero-tag-dot {
@@ -866,6 +861,11 @@
         order: -1;
       }
 
+      /* เพิ่มระยะระหว่างการ์ดกับข้อความตอนอยู่ในจอมือถือ */
+      .hero-left {
+        margin-top: 16px;
+      }
+
       .nav-links {
         display: none;
       }
@@ -1135,8 +1135,8 @@
         </article>
       </div>
       <p style="font-size:11px;color:var(--text-muted);margin-top:8px;">
-        <strong>หมายเหตุ:</strong> อย่าลืมอัปโหลดรูปจริงไปที่โฟลเดอร์ <code>images/</code> บน GitHub
-        และตั้งชื่อไฟล์ให้ตรงกับที่ใช้ในโค้ดด้านบน
+        <strong>หมายเหตุ:</strong> ตอนนี้อัปโหลดรูปจริงไว้ในโฟลเดอร์ <code>images/</code> แล้ว
+        ถ้าเพิ่มงานใหม่ก็แค่โยนรูปเข้าโฟลเดอร์แล้วเพิ่มการ์ดเหมือนตัวอย่างด้านบน
       </p>
     </section>
 
@@ -1397,26 +1397,14 @@
       return;
     }
 
-    const text = summary.value;
+    summary.select();
+    summary.setSelectionRange(0, 99999);
 
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(text)
-        .then(() => {
-          alert("คัดลอกข้อความจองคิวเรียบร้อยแล้วครับ นำไปวางในแชทเพจได้เลย");
-        })
-        .catch(() => {
-          fallbackCopy(summary);
-        });
-    } else {
-      fallbackCopy(summary);
-    }
-  }
-
-  function fallbackCopy(textarea) {
-    textarea.select();
-    textarea.setSelectionRange(0, 99999);
     try {
-      document.execCommand('copy');
+      const ok = document.execCommand('copy');
+      if (!ok && navigator.clipboard) {
+        navigator.clipboard.writeText(summary.value);
+      }
       alert("คัดลอกข้อความจองคิวเรียบร้อยแล้วครับ นำไปวางในแชทเพจได้เลย");
     } catch (e) {
       alert("เบราว์เซอร์ไม่รองรับการคัดลอกอัตโนมัติ ให้กดค้างแล้วเลือกคัดลอกเอาเองนะครับ");
