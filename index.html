@@ -84,7 +84,6 @@
       gap: 10px;
     }
 
-    /* โลโก้เพจแทนตัว EV */
     .brand-logo {
       width: 34px;
       height: 34px;
@@ -194,14 +193,6 @@
       border-radius: 50%;
       background: #4caf50;
       box-shadow: 0 0 12px rgba(76, 175, 80, 0.9);
-    }
-
-    /* ให้แท็บนี้ไปลอยบนรูปการ์ดฝั่งขวา */
-    .hero-tag-overlay {
-      position: absolute;
-      left: 18px;
-      top: 16px;
-      z-index: 2;
     }
 
     .hero-title {
@@ -360,7 +351,6 @@
       height: 210px;
       border-radius: 16px;
       border: 1px solid rgba(255, 255, 255, 0.18);
-      /* ใช้โปสเตอร์ evanvale-cover.jpg เป็นพื้นหลัง */
       background-image: linear-gradient(120deg, rgba(0,0,0,0.3), rgba(0,0,0,0.8)),
         url("images/evanvale-cover.jpg");
       background-size: cover;
@@ -383,9 +373,10 @@
       font-weight: 600;
     }
 
+    /* ย้ายแท็กลอยไปมุมบนขวา ไม่ทับข้อความข้างล่างแล้ว */
     .hero-floating-tag {
       position: absolute;
-      bottom: 14px;
+      top: 14px;
       right: 18px;
       padding: 7px 12px;
       border-radius: 999px;
@@ -533,7 +524,6 @@
       gap: 4px;
     }
 
-    /* MULTI PHOTOS IN REAL JOBS */
     .work-photos-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -550,7 +540,6 @@
       border: 1px solid rgba(255,255,255,0.08);
     }
 
-    /* REAL WORKS IMAGES */
     .work-photo {
       width: 100%;
       height: auto;
@@ -851,6 +840,89 @@
       flex-wrap: wrap;
     }
 
+    /* AI HELPER BUTTON (DEMO) */
+    .ai-helper-button {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      z-index: 80;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 0 0, rgba(25,118,210,0.8), rgba(5,5,8,0.95));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 18px 30px rgba(0,0,0,0.7);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .ai-helper-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4caf50;
+      box-shadow: 0 0 12px rgba(76,175,80,0.9);
+    }
+
+    .ai-helper-panel {
+      position: fixed;
+      bottom: 76px;
+      right: 18px;
+      z-index: 80;
+      width: 280px;
+      max-width: calc(100% - 36px);
+      padding: 12px 12px 10px;
+      border-radius: 18px;
+      background: rgba(4,8,18,0.96);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.85);
+      font-size: 11px;
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .ai-helper-title {
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    .ai-helper-desc {
+      color: var(--text-muted);
+      font-size: 11px;
+    }
+
+    .ai-helper-questions {
+      margin-top: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .ai-helper-questions button {
+      padding: 6px 8px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(6,10,22,0.95);
+      color: #fff;
+      font-size: 11px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .ai-helper-actions {
+      margin-top: 6px;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 880px) {
       .hero,
@@ -867,6 +939,10 @@
         order: -1;
       }
 
+      .nav-links {
+        display: none;
+      }
+
       .services-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -877,6 +953,16 @@
 
       .work-photos-grid img {
         height: 80px;
+      }
+
+      .ai-helper-panel {
+        right: 12px;
+        bottom: 70px;
+      }
+
+      .ai-helper-button {
+        right: 12px;
+        bottom: 14px;
       }
     }
 
@@ -899,7 +985,6 @@
   <header>
     <div class="nav-container">
       <div class="brand">
-        <!-- ใส่โลโก้เพจแทนตัว EV -->
         <img src="images/evanvale-logo.png" alt="Evan Vale Garage Logo" class="brand-logo">
         <div class="brand-text">
           <div class="brand-title">EVAN VALE GARAGE</div>
@@ -925,7 +1010,10 @@
   <main>
     <section class="hero">
       <div class="hero-left">
-        <!-- ย้าย hero-tag ไปไว้บนรูปแล้ว ตรงนี้เลยไม่ใช้แล้ว -->
+        <div class="hero-tag">
+          <span class="hero-tag-dot"></span>
+          GARAGE P • NONGBUA RAYONG → USA VIBE
+        </div>
         <h1 class="hero-title">
           <span>BIG BIKE & PICKUP</span>
           <span class="hero-title-flag">AMERICAN STYLE GARAGE</span>
@@ -942,7 +1030,6 @@
           <div class="badge"><div class="badge-pill"></div> Transparent Pricing</div>
         </div>
 
-        <!-- COUNTDOWN TO NEW YEAR -->
         <div class="countdown-box">
           <span class="countdown-label">COUNTDOWN TO NEW YEAR GARAGE GOAL</span>
           <span class="countdown-time" id="newYearCountdown">-- วัน -- ชม. -- นาที</span>
@@ -965,20 +1052,14 @@
       <div class="hero-right">
         <div class="hero-card">
           <div class="hero-image-overlay">
-            <!-- hero-tag ลอยบนรูป ไม่บังตัวหนังสือหลักแล้ว -->
-            <div class="hero-tag hero-tag-overlay">
-              <span class="hero-tag-dot"></span>
-              GARAGE P • NONGBUA RAYONG • USA VIBE
-            </div>
-
             <div class="hero-garage"></div>
-            <div class="hero-strip">
-              <span>
-              <span><strong>EVAN VALE</strong> CONCEPT</span>
-            </div>
             <div class="hero-floating-tag">
               <span class="hero-floating-dot"></span>
               REAL WORKSHOP • FUTURE BRAND
+            </div>
+            <div class="hero-strip">
+              <span>NONGBUA • RAYONG GARAGE</span>
+              <span><strong>EVAN VALE</strong> CONCEPT</span>
             </div>
           </div>
         </div>
@@ -1202,7 +1283,6 @@
                 <strong>ประมาณ 07:30 – 19:30</strong> • เปิดเกือบทุกวัน (หยุดตามคิวงาน/ธุระ)
               </div>
 
-              <!-- กล่องข้อความจองคิวที่สร้าง -->
               <div class="booking-generated" id="bookingGeneratedBox">
                 <label for="bookingSummary">ข้อความจองคิว (คัดลอกไปส่งในเพจได้เลย)</label>
                 <textarea id="bookingSummary" readonly></textarea>
@@ -1312,6 +1392,36 @@
   </footer>
 </div>
 
+<!-- AI HELPER (DEMO) -->
+<div class="ai-helper-button" onclick="toggleAiHelper()">
+  <span class="ai-helper-dot"></span>
+  <span>ASK EVAN (AI DEMO)</span>
+</div>
+
+<div class="ai-helper-panel" id="aiHelperPanel">
+  <div class="ai-helper-title">EVAN VALE • ASSIST</div>
+  <div class="ai-helper-desc">
+    ถ้าสงสัยเรื่องบริการ หรืองงขั้นตอนจองคิว ลองดูคำถามตัวอย่างด้านล่าง
+    หรือกดไปที่เพจ Facebook เพื่อถามแอดมิน/ช่างจริง ๆ ได้เลย
+  </div>
+  <div class="ai-helper-questions">
+    <button type="button" onclick="prefillBookingQuestion('อยากถามเรื่องราคาซ่อม / เช็คระยะ');">
+      💬 อยากถามช่วงราคา ซ่อมหรือเช็คระยะ
+    </button>
+    <button type="button" onclick="prefillBookingQuestion('อยากถามคิวว่าง วันเข้าอู่');">
+      📅 อยากรู้ว่ามีคิวว่างวันไหนบ้าง
+    </button>
+    <button type="button" onclick="prefillBookingQuestion('มีเสียงดัง / อาการแปลก ๆ');">
+      🚗 รถมีอาการแปลก ๆ ไม่รู้จะอธิบายยังไง
+    </button>
+  </div>
+  <div class="ai-helper-actions">
+    <button type="button" class="btn-small btn-small-primary" onclick="openFacebookPage();">
+      ไปถามในเพจ Facebook
+    </button>
+  </div>
+</div>
+
 <script>
   // =========================
   // COUNTDOWN TO NEW YEAR
@@ -1323,7 +1433,7 @@
     function updateCountdown() {
       const now = new Date();
       const year = now.getFullYear();
-      const target = new Date(year + 1, 0, 1, 0, 0, 0); // 1 Jan ปีหน้า
+      const target = new Date(year + 1, 0, 1, 0, 0, 0);
       const diff = target - now;
 
       if (diff <= 0) {
@@ -1417,6 +1527,26 @@
       return;
     }
     window.open(facebookPageUrl, "_blank");
+  }
+
+  // =========================
+  // AI HELPER (DEMO)
+  // =========================
+  function toggleAiHelper() {
+    const panel = document.getElementById('aiHelperPanel');
+    if (!panel) return;
+    panel.style.display = (panel.style.display === 'flex') ? 'none' : 'flex';
+  }
+
+  function prefillBookingQuestion(text) {
+    const details = document.getElementById('details');
+    if (!details) return;
+    if (!details.value.trim()) {
+      details.value = text + " — (ช่วยเล่าอาการ / งานที่อยากทำเพิ่มให้อู่หน่อยครับ)";
+    } else {
+      details.value += "\n\n" + text + " — (รายละเอียดเพิ่มเติม)";
+    }
+    details.focus();
   }
 </script>
 </body>
