@@ -84,6 +84,7 @@
       gap: 10px;
     }
 
+    /* โลโก้เพจแทนตัว EV */
     .brand-logo {
       width: 34px;
       height: 34px;
@@ -351,6 +352,7 @@
       height: 210px;
       border-radius: 16px;
       border: 1px solid rgba(255, 255, 255, 0.18);
+      /* ใช้โปสเตอร์ evanvale-cover.jpg เป็นพื้นหลัง */
       background-image: linear-gradient(120deg, rgba(0,0,0,0.3), rgba(0,0,0,0.8)),
         url("images/evanvale-cover.jpg");
       background-size: cover;
@@ -373,10 +375,10 @@
       font-weight: 600;
     }
 
-    /* ย้ายแท็กลอยไปมุมบนขวา ไม่ทับข้อความข้างล่างแล้ว */
+    /* ย้ายแท็กให้มาอยู่ด้านบนรูป ไม่บังตัวหนังสือด้านล่าง */
     .hero-floating-tag {
       position: absolute;
-      top: 14px;
+      top: 8px;
       right: 18px;
       padding: 7px 12px;
       border-radius: 999px;
@@ -524,6 +526,7 @@
       gap: 4px;
     }
 
+    /* MULTI PHOTOS IN REAL JOBS */
     .work-photos-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -540,6 +543,7 @@
       border: 1px solid rgba(255,255,255,0.08);
     }
 
+    /* REAL WORKS IMAGES */
     .work-photo {
       width: 100%;
       height: auto;
@@ -840,90 +844,141 @@
       flex-wrap: wrap;
     }
 
-    /* AI HELPER BUTTON (DEMO) */
-    .ai-helper-button {
+    /* CHAT WIDGET (AI DEMO) */
+    .chat-widget-toggle {
       position: fixed;
       bottom: 18px;
       right: 18px;
-      z-index: 80;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 0 0, rgba(25,118,210,0.8), rgba(5,5,8,0.95));
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 18px 30px rgba(0,0,0,0.7);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-    }
-
-    .ai-helper-dot {
-      width: 7px;
-      height: 7px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
-      background: #4caf50;
-      box-shadow: 0 0 12px rgba(76,175,80,0.9);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: radial-gradient(circle at 0 0, rgba(229, 57, 53, 0.5), rgba(5, 5, 8, 0.98));
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 80;
     }
 
-    .ai-helper-panel {
-      position: fixed;
-      bottom: 76px;
-      right: 18px;
-      z-index: 80;
-      width: 280px;
-      max-width: calc(100% - 36px);
-      padding: 12px 12px 10px;
-      border-radius: 18px;
-      background: rgba(4,8,18,0.96);
-      border: 1px solid rgba(255,255,255,0.14);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.85);
+    .chat-widget-toggle span {
       font-size: 11px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #fff;
+    }
+
+    .chat-widget-panel {
+      position: fixed;
+      bottom: 84px;
+      right: 18px;
+      width: 320px;
+      max-width: calc(100% - 32px);
+      border-radius: 18px;
+      background: rgba(5, 7, 14, 0.98);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
       display: none;
       flex-direction: column;
+      overflow: hidden;
+      z-index: 90;
+    }
+
+    .chat-widget-header {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-widget-header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .chat-widget-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .chat-widget-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .chat-close-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .chat-widget-body {
+      padding: 10px 10px 8px;
+      max-height: 260px;
+      overflow-y: auto;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
       gap: 6px;
     }
 
-    .ai-helper-title {
-      font-family: 'Oswald', sans-serif;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-size: 11px;
+    .chat-msg {
+      max-width: 100%;
+      padding: 7px 9px;
+      border-radius: 12px;
+      line-height: 1.4;
     }
 
-    .ai-helper-desc {
-      color: var(--text-muted);
-      font-size: 11px;
+    .chat-msg-user {
+      align-self: flex-end;
+      background: linear-gradient(135deg, var(--accent-blue), #42a5f5);
     }
 
-    .ai-helper-questions {
-      margin-top: 4px;
+    .chat-msg-bot {
+      align-self: flex-start;
+      background: rgba(10, 12, 20, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .chat-widget-footer {
+      padding: 8px 10px 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
-      flex-direction: column;
-      gap: 4px;
+      gap: 6px;
     }
 
-    .ai-helper-questions button {
-      padding: 6px 8px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(6,10,22,0.95);
+    .chat-input {
+      flex: 1;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(5, 7, 14, 0.95);
+      padding: 6px 9px;
       color: #fff;
+      font-size: 12px;
+      outline: none;
+    }
+
+    .chat-send-btn {
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--accent-red), #ff7043);
+      color: #fff;
+      padding: 6px 12px;
       font-size: 11px;
-      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
       cursor: pointer;
     }
 
-    .ai-helper-actions {
-      margin-top: 6px;
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    /* RESPONSIVE */
     @media (max-width: 880px) {
       .hero,
       .booking,
@@ -954,16 +1009,6 @@
       .work-photos-grid img {
         height: 80px;
       }
-
-      .ai-helper-panel {
-        right: 12px;
-        bottom: 70px;
-      }
-
-      .ai-helper-button {
-        right: 12px;
-        bottom: 14px;
-      }
     }
 
     @media (max-width: 600px) {
@@ -985,6 +1030,7 @@
   <header>
     <div class="nav-container">
       <div class="brand">
+        <!-- ใส่โลโก้เพจแทนตัว EV -->
         <img src="images/evanvale-logo.png" alt="Evan Vale Garage Logo" class="brand-logo">
         <div class="brand-text">
           <div class="brand-title">EVAN VALE GARAGE</div>
@@ -1030,6 +1076,7 @@
           <div class="badge"><div class="badge-pill"></div> Transparent Pricing</div>
         </div>
 
+        <!-- COUNTDOWN TO NEW YEAR -->
         <div class="countdown-box">
           <span class="countdown-label">COUNTDOWN TO NEW YEAR GARAGE GOAL</span>
           <span class="countdown-time" id="newYearCountdown">-- วัน -- ชม. -- นาที</span>
@@ -1283,6 +1330,7 @@
                 <strong>ประมาณ 07:30 – 19:30</strong> • เปิดเกือบทุกวัน (หยุดตามคิวงาน/ธุระ)
               </div>
 
+              <!-- กล่องข้อความจองคิวที่สร้าง -->
               <div class="booking-generated" id="bookingGeneratedBox">
                 <label for="bookingSummary">ข้อความจองคิว (คัดลอกไปส่งในเพจได้เลย)</label>
                 <textarea id="bookingSummary" readonly></textarea>
@@ -1392,33 +1440,31 @@
   </footer>
 </div>
 
-<!-- AI HELPER (DEMO) -->
-<div class="ai-helper-button" onclick="toggleAiHelper()">
-  <span class="ai-helper-dot"></span>
-  <span>ASK EVAN (AI DEMO)</span>
+<!-- CHAT WIDGET (AI DEMO) -->
+<div class="chat-widget-toggle" onclick="toggleChatWidget()">
+  <span>AI HELP</span>
 </div>
 
-<div class="ai-helper-panel" id="aiHelperPanel">
-  <div class="ai-helper-title">EVAN VALE • ASSIST</div>
-  <div class="ai-helper-desc">
-    ถ้าสงสัยเรื่องบริการ หรืองงขั้นตอนจองคิว ลองดูคำถามตัวอย่างด้านล่าง
-    หรือกดไปที่เพจ Facebook เพื่อถามแอดมิน/ช่างจริง ๆ ได้เลย
+<div class="chat-widget-panel" id="chatWidgetPanel">
+  <div class="chat-widget-header">
+    <div class="chat-widget-header-left">
+      <div class="chat-widget-title">EVAN AI (DEMO)</div>
+      <div class="chat-widget-sub">ถามเรื่องคิวซ่อม / บริการ / เวลาทำการ</div>
+    </div>
+    <button class="chat-close-btn" onclick="toggleChatWidget()">×</button>
   </div>
-  <div class="ai-helper-questions">
-    <button type="button" onclick="prefillBookingQuestion('อยากถามเรื่องราคาซ่อม / เช็คระยะ');">
-      💬 อยากถามช่วงราคา ซ่อมหรือเช็คระยะ
-    </button>
-    <button type="button" onclick="prefillBookingQuestion('อยากถามคิวว่าง วันเข้าอู่');">
-      📅 อยากรู้ว่ามีคิวว่างวันไหนบ้าง
-    </button>
-    <button type="button" onclick="prefillBookingQuestion('มีเสียงดัง / อาการแปลก ๆ');">
-      🚗 รถมีอาการแปลก ๆ ไม่รู้จะอธิบายยังไง
-    </button>
+  <div class="chat-widget-body" id="chatBody">
+    <div class="chat-msg chat-msg-bot">
+      สวัสดีครับ 👋 ผมเป็นเอไอช่วยตอบคำถามเบื้องต้นของ EVAN VALE GARAGE<br>
+      ลองพิมพ์ถามเช่น: <br>
+      • เวลาทำการ<br>
+      • มีรับรถบิ๊กไบค์ไหม<br>
+      • ค่าบริการเริ่มต้นประมาณเท่าไหร่
+    </div>
   </div>
-  <div class="ai-helper-actions">
-    <button type="button" class="btn-small btn-small-primary" onclick="openFacebookPage();">
-      ไปถามในเพจ Facebook
-    </button>
+  <div class="chat-widget-footer">
+    <input id="chatInput" class="chat-input" type="text" placeholder="พิมพ์คำถามของคุณ..." onkeydown="if(event.key==='Enter'){sendChatMessage();}">
+    <button class="chat-send-btn" onclick="sendChatMessage()">ส่ง</button>
   </div>
 </div>
 
@@ -1433,7 +1479,7 @@
     function updateCountdown() {
       const now = new Date();
       const year = now.getFullYear();
-      const target = new Date(year + 1, 0, 1, 0, 0, 0);
+      const target = new Date(year + 1, 0, 1, 0, 0, 0); // 1 Jan ปีหน้า
       const diff = target - now;
 
       if (diff <= 0) {
@@ -1530,23 +1576,61 @@
   }
 
   // =========================
-  // AI HELPER (DEMO)
+  // CHAT WIDGET (AI DEMO)
   // =========================
-  function toggleAiHelper() {
-    const panel = document.getElementById('aiHelperPanel');
+  function toggleChatWidget() {
+    const panel = document.getElementById('chatWidgetPanel');
     if (!panel) return;
     panel.style.display = (panel.style.display === 'flex') ? 'none' : 'flex';
   }
 
-  function prefillBookingQuestion(text) {
-    const details = document.getElementById('details');
-    if (!details) return;
-    if (!details.value.trim()) {
-      details.value = text + " — (ช่วยเล่าอาการ / งานที่อยากทำเพิ่มให้อู่หน่อยครับ)";
-    } else {
-      details.value += "\n\n" + text + " — (รายละเอียดเพิ่มเติม)";
+  function appendChatMessage(text, isUser) {
+    const body = document.getElementById('chatBody');
+    if (!body) return;
+    const div = document.createElement('div');
+    div.className = 'chat-msg ' + (isUser ? 'chat-msg-user' : 'chat-msg-bot');
+    div.textContent = text;
+    body.appendChild(div);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  function generateBotReply(message) {
+    const msg = message.toLowerCase();
+
+    if (msg.includes("เวลา") || msg.includes("เปิด") || msg.includes("ปิด")) {
+      return "ตอนนี้อู่ที่บ้านเปิดประมาณ 07:30 – 19:30 ครับ แต่บางวันอาจขึ้นกับคิวงาน แนะนำอินบ็อกซ์เพจเพื่อยืนยันเวลาก่อนเอารถเข้า 👍";
     }
-    details.focus();
+
+    if (msg.includes("บิ๊กไบค์") || msg.includes("big bike")) {
+      return "มีแพลนรับงานบิ๊กไบค์ครับ ทั้งงานเช็คระยะ เปลี่ยนของเหลว และแต่งสไตล์เมกา ลองทักเพจบอกรุ่นรถ + งานที่อยากทำไว้ได้เลย เดี๋ยวช่วยเช็กคิวให้ครับ 😁";
+    }
+
+    if (msg.includes("ราคา") || msg.includes("คิดเท่าไหร่") || msg.includes("ค่าบริการ")) {
+      return "ราคาจะขึ้นกับรุ่นรถและงานที่ทำครับ แนะนำส่งรายละเอียดงานคร่าว ๆ + รูปรถให้ทางเพจ แล้วเดี๋ยวประเมินราคาคร่าว ๆ ให้ก่อนได้ครับ ✅";
+    }
+
+    if (msg.includes("จองคิว") || msg.includes("คิว") || msg.includes("เข้าอู่")) {
+      return "ถ้าอยากจองคิว ลองเลื่อนขึ้นไปที่ส่วน BOOKING แล้วกรอกรายละเอียด จากนั้นกด 'สร้างข้อความจองคิว' แล้วส่งไปที่เพจได้เลยครับ 📩";
+    }
+
+    if (msg.includes("ที่ไหน") || msg.includes("อยู่ไหน") || msg.includes("แผนที่")) {
+      return "อู่ตอนนี้อยู่ ต.หนองบัว อ.บ้านค่าย จ.ระยอง ในนาม Garage P ช่างป๊อป ครับ ถ้าเข้าหน้าเพจแล้วทักไปขอโลเคชั่นได้เลย 🚗";
+    }
+
+    return "คำถามนี้ต้องดูรายละเอียดหน้างานนิดนึงครับ แนะนำส่งข้อความไปที่เพจพร้อมรุ่นรถ + รูป/รายละเอียดอาการ เดี๋ยวทางอู่ช่วยดูและตอบให้ละเอียดอีกที 🙏";
+  }
+
+  function sendChatMessage() {
+    const input = document.getElementById('chatInput');
+    if (!input) return;
+    const text = input.value.trim();
+    if (!text) return;
+    appendChatMessage(text, true);
+    input.value = "";
+    setTimeout(() => {
+      const reply = generateBotReply(text);
+      appendChatMessage(reply, false);
+    }, 300);
   }
 </script>
 </body>
