@@ -1481,6 +1481,16 @@
   <span>EVAN VALE AI (DEMO)</span>
 </button>
 
+  ...
+  <!-- FOOTER -->
+  <footer>...</footer>
+</div>
+
+<!-- AI HELP WIDGET (DEMO) -->
+<div class="ai-panel" id="aiPanel">...</div>
+<button class="ai-fab" onclick="toggleAiPanel();">...</button>
+
+<!-- ใส่ SCRIPT ทั้งก้อนนี้ตรงนี้อันเดียวพอ -->
 <script>
   // =========================
   // COUNTDOWN TO NEW YEAR
@@ -1589,28 +1599,14 @@
   }
 
   // =========================
-  // AI HELP WIDGET (DEMO)
+  // CONFIG สำหรับ AI จริง (ฝั่ง BACKEND)
   // =========================
-  function toggleAiPanel(force) {
-    const panel = document.getElementById('aiPanel');
-    if (!panel) return;
-    if (typeof force === 'boolean') {
-      panel.style.display = force ? 'flex' : 'none';
-    } else {
-      panel.style.display = (panel.style.display === 'flex') ? 'none' : 'flex';
-    }
-  }
+  const REAL_AI_ENDPOINT = ""; 
+  // ยังไม่มี backend ก็ปล่อยว่าง "" ไปก่อนแบบนี้แหละ
 
-  function appendAiMessage(text, fromUser) {
-    const box = document.getElementById('aiMessages');
-    if (!box) return;
-    const div = document.createElement('div');
-    div.className = 'ai-msg ' + (fromUser ? 'ai-msg-user' : 'ai-msg-bot');
-    div.textContent = text;
-    box.appendChild(div);
-    box.scrollTop = box.scrollHeight;
-  }
-
+  // =========================
+  // RULE-BASED DEMO BOT (สมองปลอมในเว็บ)
+  // =========================
   function getAiReply(message) {
     const msg = message.toLowerCase();
 
@@ -1637,7 +1633,30 @@
     return 'คำถามนี้อาจละเอียดหน่อย แนะนำให้กดไปที่เพจ Facebook ของอู่แล้วส่งรูป/รายละเอียดเพิ่มในอินบ็อกซ์ได้เลยครับ ผมจะให้ช่างช่วยตอบแบบละเอียดอีกที 🙌';
   }
 
-  function sendAiMessage() {
+  // =========================
+  // AI HELP WIDGET (ส่งข้อความ)
+  // =========================
+  function toggleAiPanel(force) {
+    const panel = document.getElementById('aiPanel');
+    if (!panel) return;
+    if (typeof force === 'boolean') {
+      panel.style.display = force ? 'flex' : 'none';
+    } else {
+      panel.style.display = (panel.style.display === 'flex') ? 'none' : 'flex';
+    }
+  }
+
+  function appendAiMessage(text, fromUser) {
+    const box = document.getElementById('aiMessages');
+    if (!box) return;
+    const div = document.createElement('div');
+    div.className = 'ai-msg ' + (fromUser ? 'ai-msg-user' : 'ai-msg-bot');
+    div.textContent = text;
+    box.appendChild(div);
+    box.scrollTop = box.scrollHeight;
+  }
+
+  async function sendAiMessage() {
     const input = document.getElementById('aiInput');
     if (!input) return;
     const text = input.value.trim();
@@ -1646,10 +1665,29 @@
     appendAiMessage(text, true);
     input.value = '';
 
-    const reply = getAiReply(text);
-    setTimeout(() => {
-      appendAiMessage(reply, false);
-    }, 200);
+    // ถ้ามี REAL_AI_ENDPOINT ให้ลองยิงไป backend จริงก่อน
+    if (REAL_AI_ENDPOINT) {
+      try {
+        const res = await fetch(REAL_AI_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: text })
+        });
+
+        const data = await res.json();
+        const replyText = data.reply || data.answer || 'ระบบ AI ตอบกลับมาไม่ถูกฟอร์แมตครับ';
+        appendAiMessage(replyText, false);
+        return;
+      } catch (err) {
+        console.error(err);
+        appendAiMessage('ตอนนี้ระบบ AI จริงมีปัญหา ใช้โหมดช่วยตอบพื้นฐานในเว็บแทนไปก่อนนะครับ 🙏', false);
+        return;
+      }
+    }
+
+    // ถ้าไม่มี backend หรือยิงไม่ผ่าน → ใช้สมอง DEMO
+    const fallbackReply = getAiReply(text);
+    appendAiMessage(fallbackReply, false);
   }
 </script>
 </body>
