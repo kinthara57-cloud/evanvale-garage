@@ -1379,24 +1379,24 @@
               <div class="contact-value">ต.หนองบัว อ.บ้านค่าย จ.ระยอง • อู่ Garage P ช่างป๊อป (อู่ปัจจุบัน)</div>
             </div>
           </div>
-<div class="contact-row">
-  <div>
-    <div class="contact-label">SOCIAL</div>
-    <div class="contact-value">
-      เพจ:
-      <a href="https://www.facebook.com/share/1KcFHbNt7A/"
-         target="_blank"
-         rel="noopener"
-         style="font-weight:600; color:#42a5f5; text-decoration:underline;">
-        Evan Vale Garage – อู่ช่างป๊อป ระยอง
-      </a>
-      <br>
-      <span style="color:#9ea4b8; font-size:11px;">
-        (คลิกชื่อด้านบนเพื่อเปิดเพจ Facebook ของอู่)
-      </span>
-    </div>
-  </div>
-</div>
+          <div class="contact-row">
+            <div>
+              <div class="contact-label">SOCIAL</div>
+              <div class="contact-value">
+                เพจ:
+                <a href="https://www.facebook.com/share/1KcFHbNt7A/"
+                   target="_blank"
+                   rel="noopener"
+                   style="font-weight:600; color:#42a5f5; text-decoration:underline;">
+                  Evan Vale Garage – อู่ช่างป๊อป ระยอง
+                </a>
+                <br>
+                <span style="color:#9ea4b8; font-size:11px;">
+                  (คลิกชื่อด้านบนเพื่อเปิดเพจ Facebook ของอู่)
+                </span>
+              </div>
+            </div>
+          </div>
           <p>
             ช่องนี้ไว้แปะลิงก์จริงที่มี เช่น Facebook Page ของอู่ที่บ้าน, TikTok, IG, YouTube ฯลฯ
             เพื่อให้ลูกค้าเห็นงานซ่อมและติดต่อได้ง่ายขึ้น
@@ -1457,6 +1457,7 @@
     </div>
   </footer>
 </div>
+
 <!-- AI HELP WIDGET (DEMO) -->
 <div class="ai-panel" id="aiPanel">
   <div class="ai-panel-header">
@@ -1499,10 +1500,123 @@
   <span class="ai-fab-dot"></span>
   <span>EVAN VALE AI (DEMO)</span>
 </button>
-<script>
-  const REAL_AI_ENDPOINT = ""; // ยังไม่มี backend ก็ปล่อยว่าง
 
-  // สมอง DEMO
+<script>
+  // =========================
+  // COUNTDOWN TO NEW YEAR
+  // =========================
+  (function() {
+    const countdownEl = document.getElementById('newYearCountdown');
+    if (!countdownEl) return;
+
+    function updateCountdown() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const target = new Date(year + 1, 0, 1, 0, 0, 0); // 1 Jan ปีหน้า
+      const diff = target - now;
+
+      if (diff <= 0) {
+        countdownEl.textContent = "HAPPY NEW YEAR GARAGE!";
+        return;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / (3600 * 24));
+      const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+
+      countdownEl.textContent = days + " วัน " + hours + " ชม. " + minutes + " นาที";
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 30000);
+  })();
+
+  // =========================
+  // BOOKING TEXT GENERATOR
+  // =========================
+  const facebookPageUrl = "https://www.facebook.com/share/1KcFHbNt7A/";
+
+  function generateBookingText() {
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const vehicle = document.getElementById('vehicle').value;
+    const date = document.getElementById('date').value.trim();
+    const details = document.getElementById('details').value.trim();
+    const box = document.getElementById('bookingGeneratedBox');
+    const summary = document.getElementById('bookingSummary');
+
+    if (!name || !phone || vehicle === "เลือกประเภทรถ") {
+      alert("กรุณากรอกชื่อ เบอร์โทร/ไลน์ และเลือกประเภทรถก่อนนะครับ 🙏");
+      return;
+    }
+
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, "0");
+    const d = String(now.getDate()).padStart(2, "0");
+    const hh = String(now.getHours()).padStart(2, "0");
+    const mm = String(now.getMinutes()).padStart(2, "0");
+    const codeRand = Math.floor(100 + Math.random() * 900);
+    const bookingCode = `EVG-${y}${m}${d}-${hh}${mm}-${codeRand}`;
+
+    const textLines = [
+      "คิวจองซ่อมรถที่ EVAN VALE GARAGE x อู่ช่างป๊อป ระยอง",
+      "",
+      `ชื่อ: ${name}`,
+      `เบอร์โทร / ไลน์: ${phone}`,
+      `ประเภทรถ: ${vehicle}`,
+      date ? `วันที่สะดวกโดยประมาณ: ${date}` : "",
+      details ? `รายละเอียดงานที่อยากทำ: ${details}` : "",
+      "",
+      `รบกวนช่วยเช็กคิวว่างและยืนยันวัน–เวลาให้ด้วยนะครับ 🙏`,
+      `รหัสคำขอ: ${bookingCode}`
+    ].filter(Boolean);
+
+    summary.value = textLines.join("\n");
+    box.style.display = "flex";
+    summary.focus();
+    summary.select();
+  }
+
+  function copyBookingText() {
+    const summary = document.getElementById('bookingSummary');
+    if (!summary || !summary.value.trim()) {
+      alert("ยังไม่มีข้อความให้คัดลอกครับ ลองกดปุ่ม 'สร้างข้อความจองคิว' ก่อนเนอะ");
+      return;
+    }
+
+    summary.select();
+    summary.setSelectionRange(0, 99999);
+
+    try {
+      const ok = document.execCommand('copy');
+      if (!ok && navigator.clipboard) {
+        navigator.clipboard.writeText(summary.value);
+      }
+      alert("คัดลอกข้อความจองคิวเรียบร้อยแล้วครับ นำไปวางในแชทเพจได้เลย");
+    } catch (e) {
+      alert("เบราว์เซอร์ไม่รองรับการคัดลอกอัตโนมัติ ให้กดค้างแล้วเลือกคัดลอกเอาเองนะครับ");
+    }
+  }
+
+  function openFacebookPage() {
+    if (!facebookPageUrl) {
+      alert("ยังไม่ได้ใส่ลิงก์เพจจริงนะครับ");
+      return;
+    }
+    window.open(facebookPageUrl, "_blank");
+  }
+
+  // =========================
+  // CONFIG สำหรับ AI จริง (ฝั่ง BACKEND)
+  // =========================
+  const REAL_AI_ENDPOINT = ""; 
+  // ยังไม่มี backend ก็ปล่อยว่าง "" ไปก่อนแบบนี้แหละ
+
+  // =========================
+  // RULE-BASED DEMO BOT (สมองปลอมในเว็บ)
+  // =========================
   function getAiReply(message) {
     const msg = message.toLowerCase();
 
