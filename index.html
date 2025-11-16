@@ -186,8 +186,6 @@
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: #fff;
-      /* เพิ่มระยะห่างจากหัวข้อใหญ่ เพื่อไม่ให้ดูบังกัน */
-      margin-bottom: 16px;
     }
 
     .hero-tag-dot {
@@ -196,6 +194,14 @@
       border-radius: 50%;
       background: #4caf50;
       box-shadow: 0 0 12px rgba(76, 175, 80, 0.9);
+    }
+
+    /* ให้แท็บนี้ไปลอยบนรูปการ์ดฝั่งขวา */
+    .hero-tag-overlay {
+      position: absolute;
+      left: 18px;
+      top: 16px;
+      z-index: 2;
     }
 
     .hero-title {
@@ -861,15 +867,6 @@
         order: -1;
       }
 
-      /* เพิ่มระยะระหว่างการ์ดกับข้อความตอนอยู่ในจอมือถือ */
-      .hero-left {
-        margin-top: 16px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
       .services-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -928,10 +925,7 @@
   <main>
     <section class="hero">
       <div class="hero-left">
-        <div class="hero-tag">
-          <span class="hero-tag-dot"></span>
-          GARAGE P • NONGBUA RAYONG → USA VIBE
-        </div>
+        <!-- ย้าย hero-tag ไปไว้บนรูปแล้ว ตรงนี้เลยไม่ใช้แล้ว -->
         <h1 class="hero-title">
           <span>BIG BIKE & PICKUP</span>
           <span class="hero-title-flag">AMERICAN STYLE GARAGE</span>
@@ -971,6 +965,12 @@
       <div class="hero-right">
         <div class="hero-card">
           <div class="hero-image-overlay">
+            <!-- hero-tag ลอยบนรูป ไม่บังตัวหนังสือหลักแล้ว -->
+            <div class="hero-tag hero-tag-overlay">
+              <span class="hero-tag-dot"></span>
+              GARAGE P • NONGBUA RAYONG → USA VIBE
+            </div>
+
             <div class="hero-garage"></div>
             <div class="hero-strip">
               <span>NONGBUA • RAYONG GARAGE</span>
@@ -1135,8 +1135,8 @@
         </article>
       </div>
       <p style="font-size:11px;color:var(--text-muted);margin-top:8px;">
-        <strong>หมายเหตุ:</strong> ตอนนี้อัปโหลดรูปจริงไว้ในโฟลเดอร์ <code>images/</code> แล้ว
-        ถ้าเพิ่มงานใหม่ก็แค่โยนรูปเข้าโฟลเดอร์แล้วเพิ่มการ์ดเหมือนตัวอย่างด้านบน
+        <strong>หมายเหตุ:</strong> อย่าลืมอัปโหลดรูปจริงไปที่โฟลเดอร์ <code>images/</code> บน GitHub
+        และตั้งชื่อไฟล์ให้ตรงกับที่ใช้ในโค้ดด้านบน
       </p>
     </section>
 
