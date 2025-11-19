@@ -5,15 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EVAN VALE GARAGE x อู่ช่างป๊อป | Rayong Garage</title>
 
-  <!-- SEO / META -->
-  <meta name="description" content="EVAN VALE GARAGE x อู่ช่างป๊อป อู่ซ่อมรถและ Big Bike ที่หนองบัว บ้านค่าย ระยอง งานเครื่อง ช่วงล่าง เกียร์ กระบะโหลดเตี้ย และสไตล์อเมริกันโปร่งใส เนี๊ยบ น่าเชื่อถือ.">
-  <meta name="keywords" content="อู่ซ่อมรถ ระยอง, อู่บ้านค่าย, หนองบัว, Big Bike Garage, กระบะโหลดเตี้ย, EVAN VALE GARAGE, Garage P ช่างป๊อป, อู่รถกระบะ, อู่บิ๊กไบค์ ระยอง">
-  <meta property="og:title" content="EVAN VALE GARAGE x อู่ช่างป๊อป | Nongbua Rayong Garage">
-  <meta property="og:description" content="Garage P ช่างป๊อป x EVAN VALE GARAGE โปรเจ็กต์อู่สายเมกา Big Bike & Pickup ที่หนองบัว บ้านค่าย ระยอง.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kinthara57-cloud.github.io/evanvale-garage/">
-  <meta property="og:image" content="images/evanvale-cover.jpg">
-
   <!-- ฟอนต์แนวอเมริกันหน่อย -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -554,6 +545,13 @@
       border: 1px solid rgba(255,255,255,0.08);
     }
 
+    /* REAL WORKS IMAGES */
+    .work-photo {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     /* BOOKING */
     .booking {
       display: grid;
@@ -759,15 +757,15 @@
       letter-spacing: 0.14em;
     }
 
-    /* MAP EMBED */
-    .map-embed {
-      margin-top: 8px;
+    /* MAP ใน CONTACT */
+    .contact-map {
+      margin-top: 6px;
       border-radius: 12px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.16);
     }
 
-    .map-embed iframe {
+    .contact-map iframe {
       width: 100%;
       height: 220px;
       border: 0;
@@ -1058,7 +1056,7 @@
     <div class="nav-container">
       <div class="brand">
         <!-- ใส่โลโก้เพจแทนตัว EV -->
-        <img src="images/evanvale-logo.png" alt="Evan Vale Garage Logo" class="brand-logo" loading="lazy" decoding="async">
+        <img src="images/evanvale-logo.png" alt="Evan Vale Garage Logo" class="brand-logo">
         <div class="brand-text">
           <div class="brand-title">EVAN VALE GARAGE</div>
           <div class="brand-sub">garage p • nongbua rayong</div>
@@ -1155,7 +1153,7 @@
             ดูแลเครื่องยนต์ทั้งมอไซค์และรถยนต์ งานเครื่องดีเซล–เบนซิน เน้นวัดจริง ปรับจริง ไม่มั่ว
           </div>
           <div class="service-footer">
-            <div class="service-price">เริ่มต้น – <!-- TODO: ใส่ราคาเริ่มต้นจริง เช่น 800+ --></div>
+            <div class="service-price">เริ่มต้น –</div>
             <a href="#contact" class="service-link">สอบถามราคา</a>
           </div>
         </article>
@@ -1167,7 +1165,7 @@
             จัดทรงกระบะ โหลดเตี้ยเซ็ตหล่อ เน้นขับได้จริง ไม่กัดซุ้ม พร้อมจูนช่วงล่างตามสไตล์ที่เจ้าของรถอยากได้
           </div>
           <div class="service-footer">
-            <div class="service-price">เริ่มต้น – <!-- TODO: ใส่ราคาเริ่มต้นจริง เช่น 1,500+ --></div>
+            <div class="service-price">เริ่มต้น –</div>
             <a href="#contact" class="service-link">สอบถามราคา</a>
           </div>
         </article>
@@ -1179,7 +1177,7 @@
             วางแผนรับรถใหญ่: เปลี่ยนของเหลว เซ็ตแฮนด์ ท่อ แม็กรถ แต่งหล่อฟีล American street ให้ตรงสไตล์เจ้าของ
           </div>
           <div class="service-footer">
-            <div class="service-price">เริ่มต้น – <!-- TODO: ใส่ราคาเริ่มต้นจริงสำหรับ Big Bike --></div>
+            <div class="service-price">เริ่มต้น –</div>
             <a href="#contact" class="service-link">สอบถามราคา</a>
           </div>
         </article>
@@ -1191,7 +1189,7 @@
             ทำความสะอาดทั้งภายใน–ภายนอก ให้รถใช้งานทุกวันดูเหมือนคันโชว์ในลานอเมริกันคาร์มีต
           </div>
           <div class="service-footer">
-            <div class="service-price">เริ่มต้น – <!-- TODO: ระบุราคาเริ่มต้นงานเคลือบสี / ล้างห้องเครื่อง --></div>
+            <div class="service-price">เริ่มต้น –</div>
             <a href="#contact" class="service-link">สอบถามราคา</a>
           </div>
         </article>
@@ -1252,9 +1250,9 @@
         <!-- งานที่ 1: รีโว่ 2.8 4x4 ยกครัช -->
         <article class="work-card">
           <div class="work-photos-grid">
-            <img src="images/revo-clutch-1.jpg" alt="รีโว่ 2.8 4x4 ยกครัช ภาพชุดคลัทช์เก่า–ใหม่" loading="lazy" decoding="async">
-            <img src="images/revo-clutch-2.jpg" alt="รีโว่ 2.8 4x4 แผ่นคลัทช์เก่ากับใหม่เปรียบเทียบ" loading="lazy" decoding="async">
-            <img src="images/revo-clutch-3.jpg" alt="รีโว่ 2.8 4x4 ระหว่างทำงานหน้างาน" loading="lazy" decoding="async">
+            <img src="images/revo-clutch-1.jpg" alt="รีโว่ 2.8 4x4 ยกครัช ภาพชุดคลัทช์เก่า–ใหม่">
+            <img src="images/revo-clutch-2.jpg" alt="รีโว่ 2.8 4x4 แผ่นคลัทช์เก่ากับใหม่เปรียบเทียบ">
+            <img src="images/revo-clutch-3.jpg" alt="รีโว่ 2.8 4x4 ระหว่างทำงานหน้างาน">
           </div>
           <div class="work-body">
             <div class="work-title">Revo 2.8 4x4 • ยกครัชทั้งชุด</div>
@@ -1272,10 +1270,10 @@
         <!-- งานที่ 2: D-Max ตู้ทึบ ยกครัช + อะไหล่รอบเกียร์ -->
         <article class="work-card">
           <div class="work-photos-grid">
-            <img src="images/dmax-clutch-1.jpg" alt="D-Max ตู้ทึบ งานยกครัช ภาพรวมรถ" loading="lazy" decoding="async">
-            <img src="images/dmax-clutch-2.jpg" alt="D-Max ตู้ทึบ อะไหล่ชุดคลัทช์และชิ้นส่วนรอบเกียร์" loading="lazy" decoding="async">
-            <img src="images/dmax-clutch-3.jpg" alt="D-Max ตู้ทึบ ชุดคลัทช์ใหม่" loading="lazy" decoding="async">
-            <img src="images/dmax-clutch-4.jpg" alt="D-Max ตู้ทึบ หน้ารังคลัทช์หลังประกอบ" loading="lazy" decoding="async">
+            <img src="images/dmax-clutch-1.jpg" alt="D-Max ตู้ทึบ งานยกครัช ภาพรวมรถ">
+            <img src="images/dmax-clutch-2.jpg" alt="D-Max ตู้ทึบ อะไหล่ชุดคลัทช์และชิ้นส่วนรอบเกียร์">
+            <img src="images/dmax-clutch-3.jpg" alt="D-Max ตู้ทึบ ชุดคลัทช์ใหม่">
+            <img src="images/dmax-clutch-4.jpg" alt="D-Max ตู้ทึบ หน้ารังคลัทช์หลังประกอบ">
           </div>
           <div class="work-body">
             <div class="work-title">D-Max ตู้ทึบ • ยกครัชหวีสองชั้น ผ้าผสม</div>
@@ -1392,26 +1390,16 @@
           <div class="contact-row">
             <div>
               <div class="contact-label">LOCATION</div>
-              <div class="contact-value">ต.หนองบัว อ.บ้านค่าย จ.ระยอง • อู่ Garage P ช่างป๊อป (อู่ปัจจุบัน)</div>
+              <div class="contact-value">
+                ต.หนองบัว อ.บ้านค่าย จ.ระยอง • อู่ Garage P ช่างป๊อป (อู่ปัจจุบัน)
+              </div>
             </div>
           </div>
-
-          <!-- แผนที่ (ให้ไปเอาโค้ด embed จาก Google Maps มาแทน src ด้านล่าง) -->
-          <div class="map-embed">
-            <!-- TODO: เปลี่ยน src เป็นโค้ด embed จริงจาก Google Maps ของอู่ -->
-            <iframe
-              src="https://www.google.com/maps/embed?pb=YOUR_GOOGLE_MAPS_EMBED_CODE_HERE"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </div>
-
           <div class="contact-row">
             <div>
               <div class="contact-label">SOCIAL</div>
               <div class="contact-value">
                 เพจ:
-                <!-- TODO: ถ้ามี URL เพจจริง (ไม่ใช่ลิงก์ share) ให้เปลี่ยน href ด้านล่าง -->
                 <a href="https://www.facebook.com/share/1KcFHbNt7A/"
                    target="_blank"
                    rel="noopener"
@@ -1425,6 +1413,29 @@
               </div>
             </div>
           </div>
+
+          <!-- MAP ROW -->
+          <div class="contact-row">
+            <div>
+              <div class="contact-label">MAP</div>
+              <div class="contact-value">
+                <div class="contact-map">
+                  <iframe
+                    src="https://www.google.com/maps?q=12.9148342,101.3048164&amp;z=17&amp;output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                  </iframe>
+                </div>
+                <a href="https://maps.app.goo.gl/jZsPhG7qR1MqRbYd7"
+                   target="_blank"
+                   rel="noopener"
+                   style="display:inline-block;margin-top:6px;font-size:11px;color:#42a5f5;text-decoration:underline;">
+                  เปิดเส้นทางใน Google Maps
+                </a>
+              </div>
+            </div>
+          </div>
+
           <p>
             ช่องนี้ไว้แปะลิงก์จริงที่มี เช่น Facebook Page ของอู่ที่บ้าน, TikTok, IG, YouTube ฯลฯ
             เพื่อให้ลูกค้าเห็นงานซ่อมและติดต่อได้ง่ายขึ้น
@@ -1563,7 +1574,6 @@
   // =========================
   // BOOKING TEXT GENERATOR
   // =========================
-  // TODO: ถ้ารู้ URL เพจจริงแล้ว (ไม่ใช่ลิงก์ share) ให้เปลี่ยนค่าด้านล่างเป็นลิงก์เพจนั้น
   const facebookPageUrl = "https://www.facebook.com/share/1KcFHbNt7A/";
 
   function generateBookingText() {
