@@ -76,6 +76,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 18px;
+      position: relative;
     }
 
     .brand {
@@ -114,6 +115,7 @@
       letter-spacing: 0.14em;
     }
 
+    /* Desktop nav */
     .nav-links {
       display: flex;
       gap: 18px;
@@ -148,6 +150,7 @@
       text-transform: uppercase;
       letter-spacing: 0.18em;
       box-shadow: 0 0 18px rgba(25, 118, 210, 0.4);
+      cursor: pointer;
     }
 
     .nav-cta span {
@@ -155,6 +158,71 @@
       opacity: 0.8;
       text-transform: none;
       letter-spacing: normal;
+    }
+
+    /* HAMBURGER (mobile only) */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      padding: 6px 8px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(5, 7, 14, 0.95);
+      cursor: pointer;
+    }
+
+    .nav-toggle-line {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: #ffffff;
+    }
+
+    .nav-toggle span:last-child {
+      width: 12px;
+    }
+
+    /* Mobile menu dropdown */
+    .nav-links-mobile {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 18px;
+      margin-top: 8px;
+      background: rgba(3, 7, 18, 0.98);
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 10px 12px;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      box-shadow: 0 18px 30px rgba(0, 0, 0, 0.85);
+    }
+
+    .nav-links-mobile a {
+      color: var(--text-muted);
+      padding: 4px 0;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav-links-mobile a:hover {
+      color: #ffffff;
+      border-color: var(--accent-red);
+    }
+
+    .nav-links-mobile .nav-cta-mobile {
+      margin-top: 4px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: radial-gradient(circle at 0 0, rgba(25, 118, 210, 0.4), rgba(5, 5, 8, 0.95));
+      font-size: 10px;
+      text-align: center;
+      letter-spacing: 0.18em;
+      color: #ffffff;
     }
 
     /* HERO SECTION */
@@ -352,7 +420,6 @@
       height: 210px;
       border-radius: 16px;
       border: 1px solid rgba(255, 255, 255, 0.18);
-      /* ใช้โปสเตอร์ evanvale-cover.jpg เป็นพื้นหลัง */
       background-image: linear-gradient(120deg, rgba(0,0,0,0.3), rgba(0,0,0,0.8)),
         url("images/evanvale-cover.jpg");
       background-size: cover;
@@ -376,7 +443,7 @@
       font-weight: 600;
     }
 
-    /* ย้ายแท็กนี้ไปไว้ด้านบนของรูป ไม่ให้มาบังข้อความข้างล่าง */
+    /* ย้ายแท็กนี้ไปไว้ด้านบนของรูป */
     .hero-floating-tag {
       position: absolute;
       top: 14px;
@@ -732,6 +799,7 @@
       display: flex;
       justify-content: space-between;
       gap: 8px;
+      flex-wrap: wrap;
     }
 
     .contact-label {
@@ -757,18 +825,19 @@
       letter-spacing: 0.14em;
     }
 
-    /* MAP ใน CONTACT */
-    .contact-map {
+    .contact-map-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       margin-top: 6px;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.16);
-    }
-
-    .contact-map iframe {
-      width: 100%;
-      height: 220px;
-      border: 0;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(66, 165, 245, 0.8);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #42a5f5;
+      background: rgba(3, 10, 24, 0.95);
     }
 
     /* ABOUT */
@@ -1010,8 +1079,13 @@
         order: -1;
       }
 
+      /* ซ่อน nav desktop, ใช้ hamburger + mobile menu แทน */
       .nav-links {
         display: none;
+      }
+
+      .nav-toggle {
+        display: flex;
       }
 
       .services-grid {
@@ -1062,6 +1136,8 @@
           <div class="brand-sub">garage p • nongbua rayong</div>
         </div>
       </div>
+
+      <!-- Desktop nav -->
       <nav class="nav-links">
         <a href="#services">Services</a>
         <a href="#works">Concept Work</a>
@@ -1072,6 +1148,27 @@
         <button class="nav-cta" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">
           BOOK SLOT
           <span>จองคิวเข้าอู่</span>
+        </button>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-toggle" type="button" onclick="toggleMobileNav();">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
+
+      <!-- Mobile dropdown menu -->
+      <nav class="nav-links-mobile" id="mobileNav">
+        <a href="#services" onclick="toggleMobileNav(false)">Services</a>
+        <a href="#works" onclick="toggleMobileNav(false)">Concept Work</a>
+        <a href="#realworks" onclick="toggleMobileNav(false)">Real Jobs</a>
+        <a href="#booking" onclick="toggleMobileNav(false)">Booking</a>
+        <a href="#about" onclick="toggleMobileNav(false)">About</a>
+        <a href="#contact" onclick="toggleMobileNav(false)">Contact</a>
+        <button class="nav-cta-mobile" type="button"
+          onclick="toggleMobileNav(false);document.getElementById('booking').scrollIntoView({behavior: 'smooth'});">
+          BOOK SLOT
         </button>
       </nav>
     </div>
@@ -1392,6 +1489,13 @@
               <div class="contact-label">LOCATION</div>
               <div class="contact-value">
                 ต.หนองบัว อ.บ้านค่าย จ.ระยอง • อู่ Garage P ช่างป๊อป (อู่ปัจจุบัน)
+                <br>
+                <a class="contact-map-button"
+                   href="https://maps.app.goo.gl/jZsPhG7qR1MqRbYd7"
+                   target="_blank"
+                   rel="noopener">
+                  เปิดใน Google Maps
+                </a>
               </div>
             </div>
           </div>
@@ -1413,29 +1517,6 @@
               </div>
             </div>
           </div>
-
-          <!-- MAP ROW -->
-          <div class="contact-row">
-            <div>
-              <div class="contact-label">MAP</div>
-              <div class="contact-value">
-                <div class="contact-map">
-                  <iframe
-                    src="https://www.google.com/maps?q=12.9148342,101.3048164&amp;z=17&amp;output=embed"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                  </iframe>
-                </div>
-                <a href="https://maps.app.goo.gl/jZsPhG7qR1MqRbYd7"
-                   target="_blank"
-                   rel="noopener"
-                   style="display:inline-block;margin-top:6px;font-size:11px;color:#42a5f5;text-decoration:underline;">
-                  เปิดเส้นทางใน Google Maps
-                </a>
-              </div>
-            </div>
-          </div>
-
           <p>
             ช่องนี้ไว้แปะลิงก์จริงที่มี เช่น Facebook Page ของอู่ที่บ้าน, TikTok, IG, YouTube ฯลฯ
             เพื่อให้ลูกค้าเห็นงานซ่อมและติดต่อได้ง่ายขึ้น
@@ -1677,7 +1758,7 @@
     return 'รายละเอียดลึกต้องดูหน้างานนะครับ ส่งรูปไปเพจได้เลย เดี๋ยวผมให้ช่างดูให้ 🙌';
   }
 
-  // เปิด–ปิด panel
+  // เปิด–ปิด panel AI
   function toggleAiPanel(force) {
     const p = document.getElementById('aiPanel');
     if (!p) return;
@@ -1710,7 +1791,6 @@
     appendAiMessage(text, true);
     input.value = '';
 
-    // ถ้ามี backend จริง (อนาคตค่อยเพิ่ม)
     if (REAL_AI_ENDPOINT) {
       try {
         const res = await fetch(REAL_AI_ENDPOINT, {
@@ -1728,8 +1808,19 @@
       }
     }
 
-    // ใช้ DEMO
     appendAiMessage(getAiReply(text), false);
+  }
+
+  // HAMBURGER TOGGLE
+  function toggleMobileNav(force) {
+    const nav = document.getElementById('mobileNav');
+    if (!nav) return;
+
+    if (typeof force === 'boolean') {
+      nav.style.display = force ? 'flex' : 'none';
+    } else {
+      nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
+    }
   }
 </script>
 </body>
