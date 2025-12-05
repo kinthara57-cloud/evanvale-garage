@@ -930,6 +930,174 @@
     }
 
     /* =========================
+       FNaF STYLE BOT FOLLOW MOUSE
+       ========================= */
+    .fnaf-bot-wrapper {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 110px;
+      height: 160px;
+      z-index: 60;
+      pointer-events: none; /* ไม่บังการกดปุ่มอื่น */
+      transform: translate(16px, calc(100vh - 176px));
+    }
+
+    .fnaf-bot {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.8));
+      animation: fnaf-breathe 2.4s ease-in-out infinite;
+    }
+
+    .fnaf-head {
+      position: relative;
+      width: 70px;
+      height: 60px;
+      border-radius: 20px;
+      background: radial-gradient(circle at 30% 20%, #ffcc80, #ff7043);
+      border: 2px solid rgba(0,0,0,0.6);
+    }
+
+    .fnaf-ear {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6d4c41, #4e342e);
+      top: -8px;
+      border: 2px solid rgba(0,0,0,0.6);
+    }
+
+    .fnaf-ear-left {
+      left: 4px;
+    }
+
+    .fnaf-ear-right {
+      right: 4px;
+    }
+
+    .fnaf-eye {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #111;
+      top: 22px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.7);
+      overflow: hidden;
+    }
+
+    .fnaf-eye::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      top: 2px;
+      left: 2px;
+    }
+
+    .fnaf-eye-left {
+      left: 18px;
+    }
+
+    .fnaf-eye-right {
+      right: 18px;
+    }
+
+    .fnaf-mouth {
+      position: absolute;
+      left: 50%;
+      bottom: 10px;
+      transform: translateX(-50%);
+      width: 34px;
+      height: 16px;
+      border-radius: 0 0 14px 14px;
+      background: #3e2723;
+      border-top: 2px solid rgba(0,0,0,0.6);
+    }
+
+    .fnaf-body {
+      position: relative;
+      width: 58px;
+      height: 60px;
+      margin-top: 4px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #6d4c41, #3e2723);
+      border: 2px solid rgba(0,0,0,0.7);
+    }
+
+    .fnaf-arm {
+      position: absolute;
+      width: 18px;
+      height: 40px;
+      background: linear-gradient(180deg, #5d4037, #3e2723);
+      border-radius: 12px;
+      top: 12px;
+      border: 2px solid rgba(0,0,0,0.7);
+      transform-origin: top center;
+    }
+
+    .fnaf-arm-left {
+      left: -8px;
+      animation: fnaf-arm-left 1.2s ease-in-out infinite alternate;
+    }
+
+    .fnaf-arm-right {
+      right: -8px;
+      animation: fnaf-arm-right 1.2s ease-in-out infinite alternate;
+    }
+
+    .fnaf-leg {
+      position: absolute;
+      width: 18px;
+      height: 30px;
+      background: linear-gradient(180deg, #5d4037, #3e2723);
+      border-radius: 10px;
+      bottom: -26px;
+      border: 2px solid rgba(0,0,0,0.7);
+      transform-origin: top center;
+      animation: fnaf-leg 0.6s ease-in-out infinite alternate;
+    }
+
+    .fnaf-leg-left {
+      left: 6px;
+    }
+
+    .fnaf-leg-right {
+      right: 6px;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes fnaf-breathe {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes fnaf-arm-left {
+      0% { transform: rotate(8deg); }
+      100% { transform: rotate(26deg); }
+    }
+
+    @keyframes fnaf-arm-right {
+      0% { transform: rotate(-8deg); }
+      100% { transform: rotate(-26deg); }
+    }
+
+    @keyframes fnaf-leg {
+      0% { transform: rotate(4deg); }
+      100% { transform: rotate(-4deg); }
+    }
+
+    /* =========================
        AI HELP WIDGET (DEMO)
        ========================= */
     .ai-fab {
@@ -1118,6 +1286,11 @@
 
       .ai-fab {
         right: 10px;
+      }
+
+      .fnaf-bot-wrapper {
+        width: 80px;
+        height: 120px;
       }
     }
   </style>
@@ -1602,6 +1775,25 @@
   </footer>
 </div>
 
+<!-- FNaF style bot -->
+<div class="fnaf-bot-wrapper" id="fnafBotWrapper">
+  <div class="fnaf-bot">
+    <div class="fnaf-head">
+      <div class="fnaf-ear fnaf-ear-left"></div>
+      <div class="fnaf-ear fnaf-ear-right"></div>
+      <div class="fnaf-eye fnaf-eye-left" id="fnafEyeL"></div>
+      <div class="fnaf-eye fnaf-eye-right" id="fnafEyeR"></div>
+      <div class="fnaf-mouth"></div>
+    </div>
+    <div class="fnaf-body">
+      <div class="fnaf-arm fnaf-arm-left"></div>
+      <div class="fnaf-arm fnaf-arm-right"></div>
+      <div class="fnaf-leg fnaf-leg-left"></div>
+      <div class="fnaf-leg fnaf-leg-right"></div>
+    </div>
+  </div>
+</div>
+
 <!-- AI HELP WIDGET (DEMO) -->
 <div class="ai-panel" id="aiPanel">
   <div class="ai-panel-header">
@@ -1637,14 +1829,6 @@
     <input id="aiInput" type="text" placeholder="พิมพ์คำถามที่นี่..."
       onkeydown="if(event.key==='Enter'){sendAiMessage();}">
     <button onclick="sendAiMessage();">ส่ง</button>
-  </div>
-
-  <div class="ai-hint">
-    ตัวอย่างคำถามที่ลองพิมพ์ได้ เช่น:<br>
-    • เวลาเปิด–ปิดอู่กี่โมง<br>
-    • อู่อยู่แถวไหน / ขอแผนที่<br>
-    • จองคิวเข้าอู่ยังไง<br>
-    • รับงาน Big Bike ไหม / กระบะโหลดเตี้ยได้แค่ไหน
   </div>
 </div>
 
@@ -1854,6 +2038,61 @@
       nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
     }
   }
+
+  // =========================
+  // FNaF BOT FOLLOW POINTER
+  // =========================
+  (function() {
+    const wrapper = document.getElementById('fnafBotWrapper');
+    if (!wrapper) return;
+
+    const eyeL = document.getElementById('fnafEyeL');
+    const eyeR = document.getElementById('fnafEyeR');
+
+    let targetX = window.innerWidth * 0.18;
+    let targetY = window.innerHeight * 0.75;
+    let currentX = targetX;
+    let currentY = targetY;
+
+    function handlePointer(e) {
+      const clientX = e.clientX ?? (e.touches && e.touches[0] && e.touches[0].clientX);
+      const clientY = e.clientY ?? (e.touches && e.touches[0] && e.touches[0].clientY);
+      if (clientX == null || clientY == null) return;
+      targetX = clientX;
+      targetY = clientY;
+    }
+
+    document.addEventListener('pointermove', handlePointer, { passive: true });
+    document.addEventListener('touchmove', handlePointer, { passive: true });
+
+    function animate() {
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+
+      const botWidth = wrapper.offsetWidth || 110;
+      const botHeight = wrapper.offsetHeight || 160;
+
+      wrapper.style.transform = `translate(${currentX - botWidth / 2}px, ${currentY - botHeight / 2}px)`;
+
+      if (eyeL && eyeR) {
+        const centerX = currentX;
+        const centerY = currentY - botHeight * 0.25;
+        const dx = targetX - centerX;
+        const dy = targetY - centerY;
+        const dist = Math.max(Math.sqrt(dx * dx + dy * dy), 1);
+        const maxOffset = 4;
+        const offX = (dx / dist) * maxOffset;
+        const offY = (dy / dist) * maxOffset;
+
+        eyeL.style.transform = `translate(${offX}px, ${offY}px)`;
+        eyeR.style.transform = `translate(${offX}px, ${offY}px)`;
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  })();
 </script>
 </body>
 </html>
