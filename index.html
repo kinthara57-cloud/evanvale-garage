@@ -930,174 +930,6 @@
     }
 
     /* =========================
-       FNaF STYLE BOT FOLLOW MOUSE
-       ========================= */
-    .fnaf-bot-wrapper {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 110px;
-      height: 160px;
-      z-index: 60;
-      pointer-events: none; /* ไม่บังการกดปุ่มอื่น */
-      transform: translate(16px, calc(100vh - 176px));
-    }
-
-    .fnaf-bot {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.8));
-      animation: fnaf-breathe 2.4s ease-in-out infinite;
-    }
-
-    .fnaf-head {
-      position: relative;
-      width: 70px;
-      height: 60px;
-      border-radius: 20px;
-      background: radial-gradient(circle at 30% 20%, #ffcc80, #ff7043);
-      border: 2px solid rgba(0,0,0,0.6);
-    }
-
-    .fnaf-ear {
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #6d4c41, #4e342e);
-      top: -8px;
-      border: 2px solid rgba(0,0,0,0.6);
-    }
-
-    .fnaf-ear-left {
-      left: 4px;
-    }
-
-    .fnaf-ear-right {
-      right: 4px;
-    }
-
-    .fnaf-eye {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #111;
-      top: 22px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.7);
-      overflow: hidden;
-    }
-
-    .fnaf-eye::after {
-      content: "";
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #fff;
-      top: 2px;
-      left: 2px;
-    }
-
-    .fnaf-eye-left {
-      left: 18px;
-    }
-
-    .fnaf-eye-right {
-      right: 18px;
-    }
-
-    .fnaf-mouth {
-      position: absolute;
-      left: 50%;
-      bottom: 10px;
-      transform: translateX(-50%);
-      width: 34px;
-      height: 16px;
-      border-radius: 0 0 14px 14px;
-      background: #3e2723;
-      border-top: 2px solid rgba(0,0,0,0.6);
-    }
-
-    .fnaf-body {
-      position: relative;
-      width: 58px;
-      height: 60px;
-      margin-top: 4px;
-      border-radius: 20px;
-      background: linear-gradient(180deg, #6d4c41, #3e2723);
-      border: 2px solid rgba(0,0,0,0.7);
-    }
-
-    .fnaf-arm {
-      position: absolute;
-      width: 18px;
-      height: 40px;
-      background: linear-gradient(180deg, #5d4037, #3e2723);
-      border-radius: 12px;
-      top: 12px;
-      border: 2px solid rgba(0,0,0,0.7);
-      transform-origin: top center;
-    }
-
-    .fnaf-arm-left {
-      left: -8px;
-      animation: fnaf-arm-left 1.2s ease-in-out infinite alternate;
-    }
-
-    .fnaf-arm-right {
-      right: -8px;
-      animation: fnaf-arm-right 1.2s ease-in-out infinite alternate;
-    }
-
-    .fnaf-leg {
-      position: absolute;
-      width: 18px;
-      height: 30px;
-      background: linear-gradient(180deg, #5d4037, #3e2723);
-      border-radius: 10px;
-      bottom: -26px;
-      border: 2px solid rgba(0,0,0,0.7);
-      transform-origin: top center;
-      animation: fnaf-leg 0.6s ease-in-out infinite alternate;
-    }
-
-    .fnaf-leg-left {
-      left: 6px;
-    }
-
-    .fnaf-leg-right {
-      right: 6px;
-      animation-delay: 0.3s;
-    }
-
-    @keyframes fnaf-breathe {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-      100% { transform: translateY(0); }
-    }
-
-    @keyframes fnaf-arm-left {
-      0% { transform: rotate(8deg); }
-      100% { transform: rotate(26deg); }
-    }
-
-    @keyframes fnaf-arm-right {
-      0% { transform: rotate(-8deg); }
-      100% { transform: rotate(-26deg); }
-    }
-
-    @keyframes fnaf-leg {
-      0% { transform: rotate(4deg); }
-      100% { transform: rotate(-4deg); }
-    }
-
-    /* =========================
        AI HELP WIDGET (DEMO)
        ========================= */
     .ai-fab {
@@ -1231,6 +1063,211 @@
       padding: 4px 10px 6px;
     }
 
+    /* =========================
+       FNaF HELPER • STAND & TALK
+       ========================= */
+    .fnaf-helper-wrapper {
+      position: fixed;
+      left: 16px;
+      bottom: 20px;
+      z-index: 70;
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      pointer-events: none; /* ไม่บังปุ่มอื่น */
+    }
+
+    .fnaf-helper {
+      position: relative;
+      width: 110px;
+      height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.8));
+      animation: helper-idle 2.6s ease-in-out infinite;
+    }
+
+    .fnaf-helper-head {
+      position: relative;
+      width: 70px;
+      height: 60px;
+      border-radius: 20px;
+      background: radial-gradient(circle at 30% 20%, #f8bbff, #ce6bff);
+      border: 2px solid rgba(0,0,0,0.6);
+    }
+
+    .fnaf-helper-ear {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f8bbff, #b74cff);
+      top: -8px;
+      border: 2px solid rgba(0,0,0,0.6);
+    }
+
+    .fnaf-helper-ear-left { left: 4px; }
+    .fnaf-helper-ear-right { right: 4px; }
+
+    .fnaf-helper-eye {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #111;
+      top: 22px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.7);
+      overflow: hidden;
+    }
+
+    .fnaf-helper-eye::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      top: 2px;
+      left: 2px;
+    }
+
+    .fnaf-helper-eye-left { left: 17px; }
+    .fnaf-helper-eye-right { right: 17px; }
+
+    .fnaf-helper-mouth {
+      position: absolute;
+      left: 50%;
+      bottom: 10px;
+      transform: translateX(-50%);
+      width: 34px;
+      height: 16px;
+      border-radius: 0 0 14px 14px;
+      background: #3e2723;
+      border-top: 2px solid rgba(0,0,0,0.6);
+      overflow: hidden;
+    }
+
+    .fnaf-helper-jaw {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      height: 14px;
+      background: #5d4037;
+      transition: transform 0.15s ease-out;
+    }
+
+    .fnaf-helper.talking .fnaf-helper-jaw {
+      transform: translateY(6px);
+    }
+
+    .fnaf-helper-body {
+      position: relative;
+      width: 58px;
+      height: 60px;
+      margin-top: 4px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #f48fb1, #ad1457);
+      border: 2px solid rgba(0,0,0,0.7);
+    }
+
+    .fnaf-helper-arm {
+      position: absolute;
+      width: 18px;
+      height: 40px;
+      background: linear-gradient(180deg, #ff80ab, #ad1457);
+      border-radius: 12px;
+      top: 12px;
+      border: 2px solid rgba(0,0,0,0.7);
+      transform-origin: top center;
+    }
+
+    .fnaf-helper-arm-left {
+      left: -8px;
+      animation: helper-arm-left 1.2s ease-in-out infinite alternate;
+    }
+
+    .fnaf-helper-arm-right {
+      right: -8px;
+      animation: helper-arm-right 1.2s ease-in-out infinite alternate;
+    }
+
+    .fnaf-helper-leg {
+      position: absolute;
+      width: 18px;
+      height: 30px;
+      background: linear-gradient(180deg, #ff80ab, #ad1457);
+      border-radius: 10px;
+      bottom: -26px;
+      border: 2px solid rgba(0,0,0,0.7);
+      transform-origin: top center;
+      animation: helper-leg 0.6s ease-in-out infinite alternate;
+    }
+
+    .fnaf-helper-leg-left { left: 6px; }
+    .fnaf-helper-leg-right {
+      right: 6px;
+      animation-delay: 0.3s;
+    }
+
+    .fnaf-helper-bubble {
+      max-width: 220px;
+      padding: 8px 10px;
+      border-radius: 14px;
+      background: rgba(10, 14, 30, 0.96);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 11px;
+      color: #f5f5f5;
+      line-height: 1.5;
+      position: relative;
+      opacity: 0;
+      transform: translateY(6px);
+      pointer-events: none;
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    .fnaf-helper-bubble::before {
+      content: "";
+      position: absolute;
+      left: 14px;
+      bottom: -6px;
+      border-width: 6px;
+      border-style: solid;
+      border-color: rgba(10, 14, 30, 0.96) transparent transparent transparent;
+    }
+
+    .fnaf-helper-bubble.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fnaf-helper-bubble strong {
+      color: #ffb74d;
+    }
+
+    @keyframes helper-idle {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes helper-arm-left {
+      0% { transform: rotate(8deg); }
+      100% { transform: rotate(22deg); }
+    }
+
+    @keyframes helper-arm-right {
+      0% { transform: rotate(-6deg); }
+      100% { transform: rotate(-20deg); }
+    }
+
+    @keyframes helper-leg {
+      0% { transform: rotate(3deg); }
+      100% { transform: rotate(-3deg); }
+    }
+
     /* RESPONSIVE */
     @media (max-width: 880px) {
       .hero,
@@ -1288,9 +1325,9 @@
         right: 10px;
       }
 
-      .fnaf-bot-wrapper {
-        width: 80px;
-        height: 120px;
+      .fnaf-helper {
+        width: 90px;
+        height: 130px;
       }
     }
   </style>
@@ -1557,7 +1594,6 @@
             </p>
           </div>
         </article>
-
         <!-- งานที่ 3: D-Max 4JJ1 เปลี่ยนท่อไอดี + ปะเก็น + ล้างไอดี -->
         <article class="work-card">
           <div class="work-photos-grid">
@@ -1775,22 +1811,28 @@
   </footer>
 </div>
 
-<!-- FNaF style bot -->
-<div class="fnaf-bot-wrapper" id="fnafBotWrapper">
-  <div class="fnaf-bot">
-    <div class="fnaf-head">
-      <div class="fnaf-ear fnaf-ear-left"></div>
-      <div class="fnaf-ear fnaf-ear-right"></div>
-      <div class="fnaf-eye fnaf-eye-left" id="fnafEyeL"></div>
-      <div class="fnaf-eye fnaf-eye-right" id="fnafEyeR"></div>
-      <div class="fnaf-mouth"></div>
+<!-- FNaF HELPER (ยืนมุมจอ) -->
+<div class="fnaf-helper-wrapper">
+  <div class="fnaf-helper" id="fnafHelper">
+    <div class="fnaf-helper-head">
+      <div class="fnaf-helper-ear fnaf-helper-ear-left"></div>
+      <div class="fnaf-helper-ear fnaf-helper-ear-right"></div>
+      <div class="fnaf-helper-eye fnaf-helper-eye-left"></div>
+      <div class="fnaf-helper-eye fnaf-helper-eye-right"></div>
+      <div class="fnaf-helper-mouth">
+        <div class="fnaf-helper-jaw"></div>
+      </div>
     </div>
-    <div class="fnaf-body">
-      <div class="fnaf-arm fnaf-arm-left"></div>
-      <div class="fnaf-arm fnaf-arm-right"></div>
-      <div class="fnaf-leg fnaf-leg-left"></div>
-      <div class="fnaf-leg fnaf-leg-right"></div>
+    <div class="fnaf-helper-body">
+      <div class="fnaf-helper-arm fnaf-helper-arm-left"></div>
+      <div class="fnaf-helper-arm fnaf-helper-arm-right"></div>
+      <div class="fnaf-helper-leg fnaf-helper-leg-left"></div>
+      <div class="fnaf-helper-leg fnaf-helper-leg-right"></div>
     </div>
+  </div>
+  <div class="fnaf-helper-bubble" id="fnafHelperBubble">
+    สวัสดีครับ ผมเป็นหุ่นช่วยตอบคำถามของอู่
+    <strong>สงสัยตรงไหน พิมพ์ในช่อง AI ด้านขวาล่างได้เลย</strong> 👀
   </div>
 </div>
 
@@ -1947,7 +1989,7 @@
   // =========================
   // CONFIG สำหรับ AI จริง (ฝั่ง BACKEND)
   // =========================
-  const REAL_AI_ENDPOINT = ""; 
+  const REAL_AI_ENDPOINT = "";
   // ยังไม่มี backend ก็ปล่อยว่าง "" ไปก่อนแบบนี้แหละ
 
   // =========================
@@ -1965,7 +2007,7 @@
     if (msg.includes('จอง') || msg.includes('คิว') || msg.includes('นัด'))
       return 'จองคิวได้ที่ส่วน BOOKING → กรอกฟอร์ม → กดสร้างข้อความ → คัดลอกไปส่งในเพจครับ 🙏';
 
-    if (msg.includes('บิ๊กไบค์') || msg.includes('big bike'))
+    если (msg.includes('บิ๊กไบค์') || msg.includes('big bike'))
       return 'ตอนนี้รับงาน Big Bike มากขึ้น ทั้งซ่อมทั่วไปและแต่งสไตล์เมกา 🔥';
 
     if (msg.includes('โหลดเตี้ย') || msg.includes('กระบะ'))
@@ -2040,58 +2082,61 @@
   }
 
   // =========================
-  // FNaF BOT FOLLOW POINTER
+  // FNaF HELPER • TALK LOGIC
   // =========================
   (function() {
-    const wrapper = document.getElementById('fnafBotWrapper');
-    if (!wrapper) return;
+    const helper = document.getElementById('fnafHelper');
+    const bubble = document.getElementById('fnafHelperBubble');
+    const aiInput = document.getElementById('aiInput');
 
-    const eyeL = document.getElementById('fnafEyeL');
-    const eyeR = document.getElementById('fnafEyeR');
+    if (!helper || !bubble) return;
 
-    let targetX = window.innerWidth * 0.18;
-    let targetY = window.innerHeight * 0.75;
-    let currentX = targetX;
-    let currentY = targetY;
+    let hideTimer = null;
 
-    function handlePointer(e) {
-      const clientX = e.clientX ?? (e.touches && e.touches[0] && e.touches[0].clientX);
-      const clientY = e.clientY ?? (e.touches && e.touches[0] && e.touches[0].clientY);
-      if (clientX == null || clientY == null) return;
-      targetX = clientX;
-      targetY = clientY;
+    const idleLines = [
+      "มีอะไรสงสัยเกี่ยวกับอู่หรือจองคิวไหม? ลองถามในกล่อง AI ด้านขวาล่างได้เลยนะ 👀",
+      "ถ้าไม่แน่ใจว่ารถมีอาการอะไร พิมพ์เล่าอาการคร่าว ๆ ได้ เดี๋ยวช่วยจัดรูปประโยคให้ส่งเพจ 👍",
+      "อยากรู้เรื่องเวลาเปิด–ปิด หรืออยากดูทางไปอู่ ลองพิมพ์ถาม AI ดูได้เลย 🛠️",
+      "ถ้าอยากให้ช่วยร่างข้อความคุยกับลูกค้า/ช่าง ก็พิมพ์ประโยคไทย ๆ ไปก่อน เดี๋ยวช่วยเกลาให้เนียน ๆ ให้ 😎"
+    ];
+
+    const focusLines = [
+      "ลองพิมพ์สิ่งที่สงสัยเกี่ยวกับอู่ หรืออาการรถในช่องนี้ได้เลยนะครับ 🙂",
+      "พิมพ์คำถามเสร็จแล้ว กดปุ่ม 'ส่ง' ข้าง ๆ ได้เลย ผมจะช่วยตอบให้เบื้องต้นก่อน 🧩"
+    ];
+
+    function say(text) {
+      bubble.textContent = text;
+      bubble.classList.add('visible');
+      helper.classList.add('talking');
+
+      if (hideTimer) clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => {
+        bubble.classList.remove('visible');
+        helper.classList.remove('talking');
+      }, 6500);
     }
 
-    document.addEventListener('pointermove', handlePointer, { passive: true });
-    document.addEventListener('touchmove', handlePointer, { passive: true });
+    // พูดเป็นระยะ ๆ ถ้าคนยังอยู่หน้าเว็บ
+    setInterval(() => {
+      if (bubble.classList.contains('visible')) return;
+      const line = idleLines[Math.floor(Math.random() * idleLines.length)];
+      say(line);
+    }, 30000);
 
-    function animate() {
-      currentX += (targetX - currentX) * 0.08;
-      currentY += (targetY - currentY) * 0.08;
+    // เวลาโฟกัสช่อง AI ให้พูดทัก
+    if (aiInput) {
+      aiInput.addEventListener('focus', () => {
+        const line = focusLines[Math.floor(Math.random() * focusLines.length)];
+        say(line);
+      });
 
-      const botWidth = wrapper.offsetWidth || 110;
-      const botHeight = wrapper.offsetHeight || 160;
-
-      wrapper.style.transform = `translate(${currentX - botWidth / 2}px, ${currentY - botHeight / 2}px)`;
-
-      if (eyeL && eyeR) {
-        const centerX = currentX;
-        const centerY = currentY - botHeight * 0.25;
-        const dx = targetX - centerX;
-        const dy = targetY - centerY;
-        const dist = Math.max(Math.sqrt(dx * dx + dy * dy), 1);
-        const maxOffset = 4;
-        const offX = (dx / dist) * maxOffset;
-        const offY = (dy / dist) * maxOffset;
-
-        eyeL.style.transform = `translate(${offX}px, ${offY}px)`;
-        eyeR.style.transform = `translate(${offX}px, ${offY}px)`;
-      }
-
-      requestAnimationFrame(animate);
+      aiInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && aiInput.value.trim()) {
+          say("โอเค เดี๋ยวผมช่วยดูคำถามนี้ให้ ลองรอดูคำตอบด้านในกล่องแชทได้เลยครับ 👌");
+        }
+      });
     }
-
-    animate();
   })();
 </script>
 </body>
