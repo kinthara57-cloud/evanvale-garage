@@ -1063,6 +1063,88 @@
       padding: 4px 10px 6px;
     }
 
+    /* =========================
+       MINI ROBOT WIDGET
+       ========================= */
+    .mini-bot {
+      position: fixed;
+      right: 18px;
+      bottom: 72px; /* ลอยอยู่เหนือปุ่ม AI นิดนึง */
+      z-index: 85;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .bot-body {
+      width: 70px;
+      height: 70px;
+      border-radius: 20px;
+      background: radial-gradient(circle at 30% 30%, #ffffff, #d3d7ff, #222);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+      animation: bot-float 2.2s ease-in-out infinite;
+    }
+
+    .bot-eye {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #111;
+      box-shadow: 0 0 8px rgba(0,255,255,0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bot-eye::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 4px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #00ffff;
+    }
+
+    .bot-mouth {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: 6px;
+      border-radius: 10px;
+      background: linear-gradient(to right, #0f0, #ff0, #f80);
+      opacity: 0.8;
+    }
+
+    .bot-message {
+      max-width: 230px;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 0.8rem;
+      line-height: 1.3;
+      background: rgba(15, 20, 40, 0.95);
+      color: #f5f5f5;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(120, 140, 255, 0.7);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    }
+
+    @keyframes bot-float {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+
     /* RESPONSIVE */
     @media (max-width: 880px) {
       .hero,
@@ -1118,6 +1200,11 @@
 
       .ai-fab {
         right: 10px;
+      }
+
+      .mini-bot {
+        right: 10px;
+        bottom: 110px; /* ดันขึ้นอีกให้ไม่ชนอะไร */
       }
     }
   </style>
@@ -1384,7 +1471,8 @@
             </p>
           </div>
         </article>
-                <!-- งานที่ 3: D-Max 4JJ1 เปลี่ยนท่อไอดี + ปะเก็น + ล้างไอดี -->
+
+        <!-- งานที่ 3: D-Max 4JJ1 เปลี่ยนท่อไอดี + ปะเก็น + ล้างไอดี -->
         <article class="work-card">
           <div class="work-photos-grid">
             <img src="images/4jj1_01.jpg" alt="ชุดอะไหล่ใหม่ D-Max 4JJ1 ท่อไอดี ปะเก็น โอริง">
@@ -1599,6 +1687,18 @@
       </div>
     </div>
   </footer>
+</div>
+
+<!-- MINI ROBOT (FRONTEND ONLY) -->
+<div class="mini-bot" onclick="">
+  <div class="bot-body">
+    <div class="bot-eye"></div>
+    <div class="bot-eye"></div>
+    <div class="bot-mouth"></div>
+  </div>
+  <div class="bot-message" id="botMessage">
+    ยินดีต้อนรับสู่ EVAN VALE GARAGE 🚗
+  </div>
 </div>
 
 <!-- AI HELP WIDGET (DEMO) -->
@@ -1845,6 +1945,33 @@
       nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
     }
   }
+
+  // =========================
+  // MINI ROBOT TEXT CYCLER
+  // =========================
+  (function () {
+    const bot = document.querySelector('.mini-bot');
+    const msgEl = document.getElementById('botMessage');
+    if (!bot || !msgEl) return;
+
+    const messages = [
+      'ยินดีต้อนรับสู่ EVAN VALE GARAGE 🚗',
+      'อยากจองคิวซ่อมหรือแต่ง แวะดูที่ส่วน BOOKING ได้นะครับ 🔧',
+      'มีงานคลัทช์ งานเกียร์ งานไอดี ลองเลื่อนดู REAL JOBS ด้านล่างได้เลย 👀',
+      'มีรูปหน้างานซ่อมอยู่ในเพจ Evan Vale Garage ด้วย ลองกดไปดูได้ครับ 📸',
+      'ดูเว็บนี้ในมือถือก็ได้ แต่อย่าลืมเซฟลิงก์ไว้เวลาอยากเข้ามาดูงานซ่อมอีกนะครับ 🙂'
+    ];
+
+    let index = 0;
+
+    function changeMessage() {
+      index = (index + 1) % messages.length;
+      msgEl.textContent = messages[index];
+    }
+
+    bot.addEventListener('click', changeMessage);
+    setInterval(changeMessage, 10000);
+  })();
 </script>
 </body>
-</html>                                                                                                                                                                                             เพิ่มให้ที
+</html>
