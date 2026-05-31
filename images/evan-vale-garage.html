@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EVAN VALE GARAGE x อู่ช่างป๊อป | Rayong Garage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:        #06060a;
+      --bg2:       #0a0b10;
+      --bg3:       #0f1018;
+      --red:       #e8372c;
+      --red2:      #ff5a4a;
+      --blue:      #1d6fdb;
+      --blue2:     #4a9aff;
+      --gold:      #d4a832;
+      --text:      #f0efee;
+      --muted:     #7a808e;
+      --border:    rgba(255,255,255,0.07);
+      --r:         14px;
+      --ease:      cubic-bezier(.22,.68,0,1.2);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Barlow', system-ui, sans-serif;
+      font-weight: 300;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: .028;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea { font: inherit; }
+
+    /* ────────── SCROLLBAR ────────── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 99px; }
+
+    /* ────────── HEADER ────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      backdrop-filter: blur(18px) saturate(1.4);
+      background: linear-gradient(to bottom, rgba(6,6,10,.97) 0%, rgba(6,6,10,.75) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 22px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: relative;
+    }
+
+    /* brand */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--red);
+      object-fit: cover;
+      box-shadow: 0 0 0 3px rgba(232,55,44,.25), 0 0 20px rgba(232,55,44,.5);
+      flex-shrink: 0;
+    }
+
+    .brand-text { display: flex; flex-direction: column; gap: 1px; }
+
+    .brand-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      letter-spacing: .22em;
+      line-height: 1;
+    }
+
+    .brand-sub {
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      position: relative;
+      padding-bottom: 2px;
+      transition: color .2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--red);
+      transition: width .25s var(--ease);
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-book {
+      padding: 7px 18px;
+      border-radius: 99px;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 0 24px rgba(232,55,44,.45);
+      transition: transform .18s var(--ease), box-shadow .18s;
+    }
+    .nav-book:hover {
+      transform: translateY(-1px) scale(1.03);
+      box-shadow: 0 0 36px rgba(232,55,44,.65);
+    }
+
+    /* mobile toggle */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 99px;
+      transition: all .2s;
+    }
+
+    .nav-mobile {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 22px;
+      width: min(260px, calc(100vw - 32px));
+      background: rgba(8,9,14,.97);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px 14px;
+      flex-direction: column;
+      gap: 6px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 24px 48px rgba(0,0,0,.9);
+    }
+    .nav-mobile.show { display: flex; }
+    .nav-mobile a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 7px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color .15s;
+    }
+    .nav-mobile a:last-of-type { border-bottom: none; }
+    .nav-mobile a:hover { color: var(--text); }
+    .nav-mobile .nav-book-m {
+      margin-top: 6px;
+      padding: 9px 12px;
+      border-radius: 99px;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* ────────── HERO ────────── */
+    .hero {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 40px 22px 60px;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-left { display: flex; flex-direction: column; gap: 20px; }
+
+    /* pill badge */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px;
+      border-radius: 99px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+
+    .dot-green {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #4caf50;
+      box-shadow: 0 0 10px rgba(76,175,80,.9);
+      flex-shrink: 0;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 8px rgba(76,175,80,.9); }
+      50% { box-shadow: 0 0 18px rgba(76,175,80,1); }
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 6.5vw, 72px);
+      line-height: .95;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .hero-title-flag {
+      background: linear-gradient(95deg, var(--red) 0%, #fff 50%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: block;
+    }
+
+    .hero-desc {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.75;
+    }
+    .hero-desc strong { color: var(--text); font-weight: 500; }
+
+    /* tags row */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 5px 12px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: border-color .2s, background .2s;
+    }
+    .tag:hover {
+      border-color: rgba(232,55,44,.4);
+      background: rgba(232,55,44,.06);
+    }
+
+    .tag-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--red), var(--blue));
+      flex-shrink: 0;
+    }
+
+    /* countdown */
+    .countdown {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 16px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+    .countdown-label { color: var(--muted); }
+    .countdown-value { color: var(--gold); font-weight: 600; }
+
+    /* hero buttons */
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .btn-red {
+      padding: 11px 24px;
+      border-radius: 99px;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 28px rgba(232,55,44,.5);
+      transition: transform .18s var(--ease), box-shadow .18s;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .btn-red:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 42px rgba(232,55,44,.7);
+    }
+
+    .btn-ghost {
+      padding: 10px 22px;
+      border-radius: 99px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.2);
+      color: var(--muted);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color .18s, color .18s, transform .18s var(--ease);
+    }
+    .btn-ghost:hover {
+      border-color: var(--text);
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    .hero-note {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: .04em;
+    }
+    .hero-note span { color: var(--text); }
+
+    /* hero card */
+    .hero-right { position: relative; }
+
+    .hero-card {
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #1a1e2a, #090b12);
+      border: 1px solid var(--border);
+      box-shadow: 0 32px 64px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.06);
+    }
+
+    .hero-img-wrap {
+      padding: 16px 16px 12px;
+      position: relative;
+    }
+
+    .hero-img {
+      height: 220px;
+      border-radius: 12px;
+      background:
+        linear-gradient(130deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.7) 100%),
+        url("images/evanvale-cover.jpg") center/cover no-repeat;
+      background-color: #0d1018;
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 12px 32px rgba(0,0,0,.7);
+      position: relative;
+    }
+
+    /* diagonal stripe corner accent */
+    .hero-img::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 60px;
+      background: linear-gradient(to top, rgba(0,0,0,.6), transparent);
+      border-radius: 0 0 12px 12px;
+    }
+
+    .hero-float {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      padding: 6px 12px;
+      border-radius: 99px;
+      background: rgba(4,7,18,.92);
+      border: 1px solid rgba(255,255,255,.15);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      backdrop-filter: blur(8px);
+      z-index: 2;
+    }
+
+    .dot-yellow {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 10px rgba(212,168,50,.9);
+      flex-shrink: 0;
+    }
+
+    .hero-strip {
+      padding: 0 16px 14px;
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hero-strip strong { color: var(--text); }
+
+    /* horizontal divider line with icon */
+    .hero-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border) 20%, var(--border) 80%, transparent);
+      margin: 0 16px;
+    }
+
+    /* stats row inside card */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--border);
+    }
+
+    .hero-stat {
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      border-right: 1px solid var(--border);
+    }
+    .hero-stat:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: .06em;
+      color: var(--text);
+    }
+    .stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ────────── SECTION SHELL ────────── */
+    .section {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 16px 22px 36px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 22px;
+      border-radius: 99px;
+      background: var(--red);
+      box-shadow: 0 0 12px rgba(232,55,44,.7);
+      flex-shrink: 0;
+    }
+
+    .section-sub {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .02em;
+    }
+
+    /* ────────── SERVICES ────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .svc-card {
+      background: linear-gradient(160deg, rgba(255,255,255,.04) 0%, rgba(255,255,255,.01) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s var(--ease), border-color .2s, box-shadow .2s;
+    }
+
+    .svc-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--red), var(--blue));
+      opacity: 0;
+      transition: opacity .2s;
+    }
+
+    .svc-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.12);
+      box-shadow: 0 16px 40px rgba(0,0,0,.6);
+    }
+    .svc-card:hover::before { opacity: 1; }
+
+    .svc-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--blue2);
+    }
+
+    .svc-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    .svc-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .svc-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    .svc-price { color: var(--text); font-weight: 500; }
+
+    .svc-link {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--red2);
+      transition: color .15s;
+    }
+    .svc-link:hover { color: #fff; }
+
+    /* ────────── WORKS GRIDS ────────── */
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .work-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .2s var(--ease), box-shadow .2s;
+    }
+    .work-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(0,0,0,.7);
+    }
+
+    .work-img {
+      height: 190px;
+      background-size: cover;
+      background-position: center;
+      background-color: #0d1018;
+      position: relative;
+    }
+
+    .work-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.75) 0%, transparent 55%);
+    }
+
+    .work-body { padding: 12px 13px 10px; display: flex; flex-direction: column; gap: 5px; }
+
+    .work-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    .work-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--muted);
+      font-family: 'Barlow Condensed', sans-serif;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    /* real jobs grid */
+    .real-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .real-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .2s var(--ease), box-shadow .2s;
+    }
+    .real-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 48px rgba(0,0,0,.7);
+    }
+
+    .photos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(86px, 1fr));
+      gap: 5px;
+      padding: 10px 10px 6px;
+      background: rgba(0,0,0,.3);
+    }
+
+    .photos-grid img {
+      width: 100%;
+      height: 86px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.07);
+      background: #0d121a;
+      transition: transform .2s var(--ease);
+    }
+    .photos-grid img:hover { transform: scale(1.04); }
+
+    .real-body { padding: 12px 13px 10px; display: flex; flex-direction: column; gap: 6px; }
+
+    .real-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    .real-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--muted);
+      font-family: 'Barlow Condensed', sans-serif;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .real-desc { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+    /* ────────── BOOKING ────────── */
+    .booking-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .booking-card {
+      background: linear-gradient(140deg, rgba(255,255,255,.04) 0%, rgba(255,255,255,.01) 100%);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 24px 56px rgba(0,0,0,.6);
+    }
+
+    .bk-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--blue2);
+      margin-bottom: 4px;
+    }
+
+    .bk-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .bk-desc { font-size: 12px; color: var(--muted); margin-bottom: 16px; line-height: 1.7; }
+    .bk-desc strong { color: var(--text); }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .form-field { display: flex; flex-direction: column; gap: 4px; }
+
+    .form-field label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(4,6,14,.95);
+      padding: 8px 11px;
+      color: var(--text);
+      font-size: 13px;
+      outline: none;
+      resize: vertical;
+      transition: border-color .18s, box-shadow .18s;
+    }
+    .form-field textarea { min-height: 80px; }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 2px rgba(232,55,44,.2);
+    }
+
+    .full-row { grid-column: 1 / -1; }
+
+    .bk-footer { margin-top: 12px; display: flex; flex-direction: column; gap: 12px; }
+
+    .bk-hours {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .bk-hours strong { color: var(--text); }
+
+    /* generated box */
+    .bk-generated {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(2,4,14,.95);
+      font-size: 12px;
+    }
+
+    .bk-generated label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    #bookingSummary {
+      width: 100%;
+      min-height: 90px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(3,5,14,.95);
+      padding: 8px 10px;
+      color: var(--text);
+      font-size: 12px;
+      resize: vertical;
+    }
+
+    .bk-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+
+    .btn-sm {
+      padding: 7px 14px;
+      border-radius: 99px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(5,7,14,.95);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform .15s var(--ease);
+    }
+    .btn-sm-blue {
+      border-color: var(--blue);
+      background: linear-gradient(135deg, var(--blue), var(--blue2));
+      box-shadow: 0 0 18px rgba(29,111,219,.4);
+    }
+    .btn-sm:hover { transform: translateY(-1px); }
+
+    .bk-hint {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: .02em;
+    }
+
+    /* contact card */
+    .contact-card {
+      background: rgba(2,4,14,.9);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .c-row { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+
+    .c-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .c-value { font-weight: 400; }
+
+    .c-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .c-map {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+      padding: 5px 11px;
+      border-radius: 99px;
+      border: 1px solid rgba(74,154,255,.5);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--blue2);
+      background: rgba(3,8,22,.95);
+      transition: border-color .15s, background .15s;
+    }
+    .c-map:hover { border-color: var(--blue2); background: rgba(29,111,219,.12); }
+
+    .c-fb {
+      font-weight: 600;
+      color: var(--blue2);
+      text-decoration: underline;
+      transition: color .15s;
+    }
+    .c-fb:hover { color: #fff; }
+
+    /* ────────── ABOUT ────────── */
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .about-text { display: flex; flex-direction: column; gap: 12px; }
+
+    .about-pill {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--blue2);
+    }
+
+    .about-text p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .about-text strong { color: var(--text); font-weight: 500; }
+
+    .about-card {
+      background: rgba(2,4,14,.9);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .about-card p { color: var(--muted); line-height: 1.7; }
+
+    .about-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .about-list li {
+      padding-left: 14px;
+      position: relative;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .about-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 8px rgba(232,55,44,.6);
+    }
+
+    /* ────────── FOOTER ────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 16px;
+    }
+
+    .footer-in {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .footer-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: .18em;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    /* ────────── AI CHAT ────────── */
+    .ai-fab {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 80;
+      border-radius: 99px;
+      padding: 10px 18px;
+      background: linear-gradient(135deg, var(--blue), var(--blue2));
+      border: 1px solid rgba(255,255,255,.2);
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 12px 32px rgba(0,0,0,.7), 0 0 24px rgba(29,111,219,.4);
+      color: #fff;
+      transition: transform .18s var(--ease), box-shadow .18s;
+    }
+    .ai-fab:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.8), 0 0 36px rgba(29,111,219,.6);
+    }
+
+    .ai-panel {
+      position: fixed;
+      right: 20px;
+      bottom: 76px;
+      width: 290px;
+      max-height: 400px;
+      background: rgba(4,6,18,.97);
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 24px 56px rgba(0,0,0,.9);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 80;
+      backdrop-filter: blur(20px);
+    }
+    .ai-panel.show { display: flex; }
+
+    .ai-head {
+      padding: 12px 14px 10px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ai-head-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: .18em;
+    }
+
+    .ai-head-sub {
+      font-size: 10px;
+      color: var(--muted);
+      font-family: 'Barlow Condensed', sans-serif;
+      letter-spacing: .12em;
+    }
+
+    .ai-close {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 18px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0 2px;
+      transition: color .15s;
+    }
+    .ai-close:hover { color: var(--text); }
+
+    .ai-msgs {
+      padding: 10px 12px;
+      font-size: 12px;
+      color: var(--muted);
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .ai-msg {
+      margin-bottom: 10px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .ai-msg-u { color: var(--text); }
+    .ai-msg-b { color: var(--muted); }
+
+    .ai-input {
+      border-top: 1px solid var(--border);
+      padding: 8px 10px;
+      display: flex;
+      gap: 7px;
+      align-items: center;
+      background: rgba(0,0,0,.5);
+    }
+
+    .ai-input input {
+      flex: 1;
+      border-radius: 99px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(5,7,14,.95);
+      padding: 7px 11px;
+      color: var(--text);
+      font-size: 12px;
+      outline: none;
+      min-width: 0;
+      transition: border-color .15s;
+    }
+    .ai-input input:focus { border-color: var(--blue); }
+
+    .ai-send {
+      border-radius: 99px;
+      border: none;
+      padding: 7px 13px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      background: var(--red);
+      color: #fff;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: transform .15s var(--ease);
+    }
+    .ai-send:hover { transform: scale(1.05); }
+
+    /* ────────── SNOW ────────── */
+    #snow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    /* ────────── ENTRY ANIMATIONS ────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .anim { opacity: 0; animation: fadeUp .55s var(--ease) forwards; }
+    .anim-d1 { animation-delay: .05s; }
+    .anim-d2 { animation-delay: .15s; }
+    .anim-d3 { animation-delay: .25s; }
+    .anim-d4 { animation-delay: .35s; }
+    .anim-d5 { animation-delay: .45s; }
+    .anim-d6 { animation-delay: .55s; }
+    .anim-d7 { animation-delay: .65s; }
+
+    /* ────────── RESPONSIVE ────────── */
+    @media (max-width: 900px) {
+      .hero, .booking-wrap, .about-wrap {
+        grid-template-columns: 1fr;
+      }
+      .hero { padding-top: 24px; }
+      .hero-right { order: -1; }
+      .nav-links, .nav-book { display: none; }
+      .nav-toggle { display: flex; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .works-grid { grid-template-columns: 1fr; }
+      .real-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 580px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: clamp(42px, 12vw, 60px); }
+      .ai-panel { right: 10px; width: calc(100% - 20px); }
+      .ai-fab { right: 10px; bottom: 10px; }
+    }
+  </style>
+</head>
+<body>
+<div id="page">
+
+  <!-- ════ HEADER ════ -->
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <img src="images/evanvale-logo.png" alt="Evan Vale Garage" class="brand-logo">
+        <div class="brand-text">
+          <div class="brand-name">EVAN VALE GARAGE</div>
+          <div class="brand-sub">Garage P • Nongbua Rayong</div>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#works">Concept</a>
+        <a href="#realworks">Real Jobs</a>
+        <a href="#booking">Booking</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="nav-book" onclick="scrollTo('booking')">BOOK SLOT</button>
+
+      <button class="nav-toggle" onclick="toggleMobileNav()" aria-label="เมนู">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-mobile" id="mobileNav">
+        <a href="#services" onclick="toggleMobileNav(false)">Services</a>
+        <a href="#works" onclick="toggleMobileNav(false)">Concept</a>
+        <a href="#realworks" onclick="toggleMobileNav(false)">Real Jobs</a>
+        <a href="#booking" onclick="toggleMobileNav(false)">Booking</a>
+        <a href="#about" onclick="toggleMobileNav(false)">About</a>
+        <a href="#contact" onclick="toggleMobileNav(false)">Contact</a>
+        <button class="nav-book-m" onclick="toggleMobileNav(false);scrollTo('booking');">BOOK SLOT</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ════ HERO ════ -->
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <div class="pill anim anim-d1">
+          <span class="dot-green"></span>
+          GARAGE P • NONGBUA RAYONG → USA VIBE
+        </div>
+
+        <h1 class="hero-title anim anim-d2">
+          <span>BIG BIKE &amp; PICKUP</span>
+          <span class="hero-title-flag">AMERICAN STYLE GARAGE</span>
+        </h1>
+
+        <p class="hero-desc anim anim-d3">
+          ตอนนี้บ้านเปิดอู่ <strong>Garage P ช่างป๊อป</strong> รับงานซ่อมรถใช้งานประจำ
+          และ <strong>EVAN VALE GARAGE</strong> คือโปรเจ็กต์หน้าใหม่ที่ผมอยากพัฒนาให้เป็นอู่สไตล์อเมริกัน
+          งานเนี๊ยบ โปร่งใส ดูดีทั้งออนไลน์และหน้าร้านจริง
+        </p>
+
+        <div class="tags anim anim-d3">
+          <div class="tag"><span class="tag-dot"></span>Engine • Suspension • Detail</div>
+          <div class="tag"><span class="tag-dot"></span>Big Bike & Muscle Pickup</div>
+          <div class="tag"><span class="tag-dot"></span>Transparent Pricing</div>
+        </div>
+
+        <div class="countdown anim anim-d4">
+          <span class="countdown-label">NEW YEAR GARAGE GOAL</span>
+          <span class="countdown-value" id="newYearCountdown">-- วัน</span>
+        </div>
+
+        <div class="hero-btns anim anim-d5">
+          <button class="btn-red" onclick="scrollTo('booking')">
+            จองคิวเข้าอู่
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+          <button class="btn-ghost" onclick="scrollTo('realworks')">ดูงานจริงจากอู่</button>
+        </div>
+
+        <p class="hero-note anim anim-d6">
+          เว็บนี้คือ <span>หน้าโปรไฟล์ทดลอง</span> สำหรับอู่ที่บ้านในปัจจุบัน และใช้วางแผนเปิด EVAN VALE GARAGE แบบจริงจังในอนาคต
+        </p>
+      </div>
+
+      <div class="hero-right anim anim-d2">
+        <div class="hero-card">
+          <div class="hero-img-wrap">
+            <div class="hero-img">
+              <div class="hero-float">
+                <span class="dot-yellow"></span>
+                REAL WORKSHOP • FUTURE BRAND
+              </div>
+            </div>
+          </div>
+          <div class="hero-strip">
+            <span>NONGBUA • RAYONG GARAGE</span>
+            <span><strong>EVAN VALE</strong> CONCEPT</span>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="stat-num">100%</div>
+              <div class="stat-label">Real Parts</div>
+            </div>
+            <div class="hero-stat">
+              <div class="stat-num">07:30</div>
+              <div class="stat-label">Open Daily</div>
+            </div>
+            <div class="hero-stat">
+              <div class="stat-num">USA</div>
+              <div class="stat-label">Garage Style</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ SERVICES ════ -->
+    <section id="services" class="section">
+      <div class="section-head">
+        <h2 class="section-title">SERVICES</h2>
+        <p class="section-sub">โครงบริการที่อยากให้มีจริงในอู่ EVAN VALE GARAGE ที่หนองบัว ระยอง</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="svc-card">
+          <div class="svc-tag">ENGINE & PERFORMANCE</div>
+          <div class="svc-name">เช็คระยะ • จูนเครื่อง • ตั้งวาล์ว</div>
+          <div class="svc-desc">ดูแลเครื่องยนต์ทั้งมอไซค์และรถยนต์ งานเครื่องดีเซล–เบนซิน เน้นวัดจริง ปรับจริง ไม่มั่ว</div>
+          <div class="svc-foot">
+            <div class="svc-price">เริ่มต้น –</div>
+            <a href="#contact" class="svc-link">สอบถามราคา →</a>
+          </div>
+        </article>
+
+        <article class="svc-card">
+          <div class="svc-tag">SUSPENSION & BRAKE</div>
+          <div class="svc-name">โหลดเตี้ย • เซ็ตช่วงล่าง • เบรก</div>
+          <div class="svc-desc">จัดทรงกระบะ โหลดเตี้ยเซ็ตหล่อ เน้นขับได้จริง ไม่กัดซุ้ม พร้อมจูนช่วงล่างตามสไตล์ที่เจ้าของรถอยากได้</div>
+          <div class="svc-foot">
+            <div class="svc-price">เริ่มต้น –</div>
+            <a href="#contact" class="svc-link">สอบถามราคา →</a>
+          </div>
+        </article>
+
+        <article class="svc-card">
+          <div class="svc-tag">BIG BIKE</div>
+          <div class="svc-name">ดูแลสายรถใหญ่ • แต่งสไตล์เมกา</div>
+          <div class="svc-desc">วางแผนรับรถใหญ่: เปลี่ยนของเหลว เซ็ตแฮนด์ ท่อ แม็กรถ แต่งหล่อฟีล American street ให้ตรงสไตล์เจ้าของ</div>
+          <div class="svc-foot">
+            <div class="svc-price">เริ่มต้น –</div>
+            <a href="#contact" class="svc-link">สอบถามราคา →</a>
+          </div>
+        </article>
+
+        <article class="svc-card">
+          <div class="svc-tag">DETAILING</div>
+          <div class="svc-name">เคลือบสี • ล้างห้องเครื่อง</div>
+          <div class="svc-desc">ทำความสะอาดทั้งภายใน–ภายนอก ให้รถใช้งานทุกวันดูเหมือนคันโชว์ในลานอเมริกันคาร์มีต</div>
+          <div class="svc-foot">
+            <div class="svc-price">เริ่มต้น –</div>
+            <a href="#contact" class="svc-link">สอบถามราคา →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ════ CONCEPT WORKS ════ -->
+    <section id="works" class="section">
+      <div class="section-head">
+        <h2 class="section-title">GARAGE WORK • CONCEPT</h2>
+        <p class="section-sub">ตัวอย่างสไตล์งานในฝัน • ใช้รูป Mockup อารมณ์อเมริกันประกอบก่อน</p>
+      </div>
+
+      <div class="works-grid">
+        <article class="work-card">
+          <div class="work-img" style="background-image: linear-gradient(150deg,rgba(0,0,0,.4),rgba(0,0,0,.75)), url('https://images.pexels.com/photos/7568663/pexels-photo-7568663.jpeg?auto=compress&cs=tinysrgb&w=1200');">
+            <div class="work-img-overlay"></div>
+          </div>
+          <div class="work-body">
+            <div class="work-title">Ninja 400 • Street Build</div>
+            <div class="work-meta"><span>Big Bike Concept</span><span>US Style</span></div>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-img" style="background-image: linear-gradient(150deg,rgba(0,0,0,.4),rgba(0,0,0,.75)), url('https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&w=1200');">
+            <div class="work-img-overlay"></div>
+          </div>
+          <div class="work-body">
+            <div class="work-title">Pickup • Slammed & Clean</div>
+            <div class="work-meta"><span>โหลดเตี้ยสะอาดๆ</span><span>Daily Use</span></div>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-img" style="background-image: linear-gradient(150deg,rgba(0,0,0,.4),rgba(0,0,0,.75)), url('https://images.pexels.com/photos/7390801/pexels-photo-7390801.jpeg?auto=compress&cs=tinysrgb&w=1200');">
+            <div class="work-img-overlay"></div>
+          </div>
+          <div class="work-body">
+            <div class="work-title">Night Garage • Evan Vale</div>
+            <div class="work-meta"><span>Brand Atmosphere</span><span>Neon Vibes</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ════ REAL JOBS ════ -->
+    <section id="realworks" class="section">
+      <div class="section-head">
+        <h2 class="section-title">REAL JOBS • GARAGE P</h2>
+        <p class="section-sub">ตัวอย่างงานจริงจากอู่ช่างป๊อปที่หนองบัว ระยอง</p>
+      </div>
+
+      <div class="real-grid">
+        <article class="real-card">
+          <div class="photos-grid">
+            <img src="images/revo-clutch-1.jpg" alt="รีโว่ 2.8 4x4 ชุดคลัทช์เก่า–ใหม่" loading="lazy">
+            <img src="images/revo-clutch-2.jpg" alt="รีโว่ 2.8 4x4 เปรียบเทียบแผ่นคลัทช์" loading="lazy">
+            <img src="images/revo-clutch-3.jpg" alt="รีโว่ 2.8 4x4 หน้างาน" loading="lazy">
+          </div>
+          <div class="real-body">
+            <div class="real-title">Revo 2.8 4x4 • ยกครัชทั้งชุด</div>
+            <div class="real-meta"><span>ยกเกียร์ลง – เปลี่ยนคลัทช์ทั้งชุด</span><span>รูป 1–3</span></div>
+            <p class="real-desc">งานยกครัช เปลี่ยนแผ่นครัช จานกดครัช ลูกปืนครัช และน้ำมันเกียร์ 2 ห้อง ตรวจสอบประกอบกลับให้ครบ ส่งงานเรียบร้อย ขับออกตัวนิ่ม มั่นใจขึ้น</p>
+          </div>
+        </article>
+
+        <article class="real-card">
+          <div class="photos-grid">
+            <img src="images/dmax-clutch-1.jpg" alt="D-Max ตู้ทึบ ภาพรวมรถ" loading="lazy">
+            <img src="images/dmax-clutch-2.jpg" alt="D-Max ตู้ทึบ อะไหล่ชุดคลัทช์" loading="lazy">
+            <img src="images/dmax-clutch-3.jpg" alt="D-Max ตู้ทึบ ชุดคลัทช์ใหม่" loading="lazy">
+            <img src="images/dmax-clutch-4.jpg" alt="D-Max ตู้ทึบ หลังประกอบ" loading="lazy">
+          </div>
+          <div class="real-body">
+            <div class="real-title">D-Max ตู้ทึบ • ยกครัชหวีสองชั้น ผ้าผสม</div>
+            <div class="real-meta"><span>คลัทช์ใหม่ + ซ่อมรอบเกียร์</span><span>รูป 4–7</span></div>
+            <p class="real-desc">งานยกครัชหวีสองชั้นผ้าผสม เปลี่ยนปั้มครัชล่าง ลูกปืนคลัช ลูกปืนปลายเกียร์ ฝาหน้าเกียร์ และน้ำมันเกียร์ จบงานครัชนิ่ม ออกตัวไม่สั่น ขับสบาย ขอบคุณลูกค้าที่ไว้วางใจครับ</p>
+          </div>
+        </article>
+
+        <article class="real-card">
+          <div class="photos-grid">
+            <img src="images/4jj1_01.jpg" alt="ชุดอะไหล่ 4JJ1" loading="lazy">
+            <img src="images/4jj1_02.jpg" alt="ห้องเครื่อง 4JJ1" loading="lazy">
+            <img src="images/4jj1_03.jpg" alt="ไอดีเดิม 4JJ1" loading="lazy">
+            <img src="images/4jj1_04.jpg" alt="ถอดท่อไอดี 4JJ1" loading="lazy">
+            <img src="images/4jj1_05.jpg" alt="ระบบไอดีก่อน" loading="lazy">
+            <img src="images/4jj1_06.jpg" alt="ประกอบท่อไอดีใหม่" loading="lazy">
+          </div>
+          <div class="real-body">
+            <div class="real-title">D-Max 4JJ1 • เปลี่ยนท่อไอดี + ปะเก็น + ทำความสะอาดไอดี</div>
+            <div class="real-meta"><span>แก้แรงอืด ควันดำ ไอดีรั่ว</span><span>รูป 8–13</span></div>
+            <p class="real-desc">รถเข้ามาด้วยอาการเหยียบไม่ออก มีควันดำ รอบต้นอืด ตรวจสอบพบท่อไอดีเสื่อมและปะเก็นรั่ว ทำการเปลี่ยนท่อไอดีใหม่ทั้งชุด พร้อมโอริง ปะเก็น และทำความสะอาดระบบทางเดินอากาศ หลังซ่อมแรงกลับมา ควันดำหาย</p>
+          </div>
+        </article>
+
+        <article class="real-card">
+          <div class="photos-grid">
+            <img src="images/job19-01.jpg" alt="หน้างาน 01" loading="lazy">
+            <img src="images/job19-02.jpg" alt="หน้างาน 02" loading="lazy">
+            <img src="images/job19-03.jpg" alt="หน้างาน 03" loading="lazy">
+            <img src="images/job19-04.jpg" alt="หน้างาน 04" loading="lazy">
+            <img src="images/job19-05.jpg" alt="หน้างาน 05" loading="lazy">
+            <img src="images/job19-06.jpg" alt="หน้างาน 06" loading="lazy">
+            <img src="images/job19-07.jpg" alt="หน้างาน 07" loading="lazy">
+            <img src="images/job19-08.jpg" alt="หน้างาน 08" loading="lazy">
+            <img src="images/job19-09.jpg" alt="หน้างาน 09" loading="lazy">
+            <img src="images/job19-10.jpg" alt="หน้างาน 10" loading="lazy">
+            <img src="images/job19-11.jpg" alt="หน้างาน 11" loading="lazy">
+            <img src="images/job19-12.jpg" alt="หน้างาน 12" loading="lazy">
+          </div>
+          <div class="real-body">
+            <div class="real-title">Isuzu D-MAX All New ปี 2022 สี่ประตู</div>
+            <div class="real-meta"><span>เปลี่ยนโครง เปลี่ยนกระบะ ย้ายอุปกรณ์ทั้งคัน</span><span>รูป 14–32</span></div>
+            <p class="real-desc">รถอุบัติเหตุหนัก เปลี่ยนโครง เปลี่ยนกระบะ ย้ายอุปกรณ์ทั้งคัน จบงานส่งลูกค้าเรียบร้อย ขอบคุณลูกค้าที่ไว้วางใจเข้ามาใช้บริการครับ</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ════ BOOKING ════ -->
+    <section id="booking" class="section">
+      <div class="section-head">
+        <h2 class="section-title">BOOKING</h2>
+        <p class="section-sub">กรอกฟอร์ม → สร้างข้อความ → คัดลอก → ส่งในเพจ → รอช่างยืนยันคิว</p>
+      </div>
+
+      <div class="booking-wrap">
+        <div class="booking-card">
+          <div class="bk-label">REQUEST A SLOT</div>
+          <div class="bk-title">จองคิวเข้าอู่</div>
+          <p class="bk-desc">กรอกรายละเอียด แล้วกด <strong>สร้างข้อความ</strong> → คัดลอกไปส่งในเพจ Facebook ของอู่ได้เลยครับ</p>
+
+          <form onsubmit="return false;">
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="name">ชื่อเล่น / ชื่อลูกค้า</label>
+                <input id="name" type="text" placeholder="เช่น ริว, พี่เอก, คุณต้น">
+              </div>
+              <div class="form-field">
+                <label for="phone">เบอร์โทร / ไลน์</label>
+                <input id="phone" type="text" placeholder="เบอร์ หรือ Line ID">
+              </div>
+              <div class="form-field">
+                <label for="vehicle">ประเภทรถ</label>
+                <select id="vehicle">
+                  <option>เลือกประเภทรถ</option>
+                  <option>มอเตอร์ไซค์</option>
+                  <option>Big Bike</option>
+                  <option>รถกระบะ</option>
+                  <option>รถเก๋ง</option>
+                  <option>อื่น ๆ</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="date">วันที่สะดวก (โดยประมาณ)</label>
+                <input id="date" type="text" placeholder="เช่น เสาร์–อาทิตย์, หลังเลิกงาน">
+              </div>
+              <div class="form-field full-row">
+                <label for="details">รายละเอียดงานที่อยากทำ</label>
+                <textarea id="details" placeholder="เช่น ถ่ายน้ำมันเครื่อง, เปลี่ยนคลัตช์, เช็คช่วงล่าง, มีเสียงดัง ฯลฯ"></textarea>
+              </div>
+            </div>
+
+            <div class="bk-footer">
+              <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+                <button type="button" class="btn-red" onclick="generateBookingText()">สร้างข้อความจองคิว</button>
+                <span style="font-size:11px;color:var(--muted);">*กดสร้างก่อน แล้วค่อยกดคัดลอก*</span>
+              </div>
+
+              <div class="bk-hours">
+                เวลาเปิด–ปิด (อู่ที่บ้านปัจจุบัน): <strong>07:30 – 19:30</strong> • เปิดเกือบทุกวัน
+              </div>
+
+              <div class="bk-generated" id="bkBox">
+                <label for="bookingSummary">ข้อความจองคิว (คัดลอกไปส่งในเพจได้เลย)</label>
+                <textarea id="bookingSummary" readonly></textarea>
+                <div class="bk-actions">
+                  <button type="button" class="btn-sm btn-sm-blue" onclick="copyBookingText()">คัดลอกข้อความ</button>
+                  <button type="button" class="btn-sm btn-sm-blue" onclick="openFB()">เปิดเพจ Facebook</button>
+                </div>
+                <p class="bk-hint">หลังกดเปิดเพจ ให้วางข้อความในแชท แล้วรอช่างยืนยันวัน–เวลา</p>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <aside class="contact-card" id="contact">
+          <div class="c-row">
+            <div>
+              <div class="c-label">Primary Contact</div>
+              <div class="c-value">EVAN VALE (Ryu)</div>
+            </div>
+            <span class="c-chip">LINE • FACEBOOK</span>
+          </div>
+
+          <div>
+            <div class="c-label">Location</div>
+            <div class="c-value">ต.หนองบัว อ.บ้านค่าย จ.ระยอง<br>อู่ Garage P ช่างป๊อป</div>
+            <a class="c-map" href="https://maps.app.goo.gl/jZsPhG7qR1MqRbYd7" target="_blank" rel="noopener">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              เปิดใน Google Maps
+            </a>
+          </div>
+
+          <div>
+            <div class="c-label">Social</div>
+            <div class="c-value">
+              เพจ: <a href="https://www.facebook.com/share/1KcFHbNt7A/" target="_blank" rel="noopener" class="c-fb">Evan Vale Garage – อู่ช่างป๊อป ระยอง</a>
+              <br><span style="color:var(--muted);font-size:11px;">คลิกชื่อด้านบนเพื่อเปิดเพจ Facebook ของอู่</span>
+            </div>
+          </div>
+
+          <p style="color:var(--muted);font-size:12px;">ช่องนี้ไว้แปะลิงก์จริงที่มี เช่น Facebook Page, TikTok, IG, YouTube เพื่อให้ลูกค้าเห็นงานและติดต่อได้ง่ายขึ้น</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ════ ABOUT ════ -->
+    <section id="about" class="section">
+      <div class="section-head">
+        <h2 class="section-title">ABOUT</h2>
+        <p class="section-sub">เล่าให้รู้ว่าอู่นี้ในปัจจุบันทำอะไร และอยากพัฒนาไปทางไหนต่อ</p>
+      </div>
+
+      <div class="about-wrap">
+        <div class="about-text">
+          <div class="about-pill">OWNER STORY • RYU / EVAN VALE</div>
+          <p>ตอนนี้ที่บ้านของ <strong>ผม</strong> มีอู่ซ่อมรถกระบะ–รถใช้งานอยู่แล้วในชื่อ <strong>Garage P ช่างป๊อป</strong> รับงานเครื่อง ช่วงล่าง เกียร์ และรถวิ่งงานของลูกค้าแถวหนองบัว ระยอง ทุกวันแบบบ้าน ๆ แต่เต็มไปด้วยประสบการณ์จริงจากหน้างาน</p>
+          <p><strong>EVAN VALE GARAGE</strong> คือโปรเจ็กต์ที่ผมอยากทำให้เป็นหน้าตาใหม่ของอู่: เพิ่มความเป็นระเบียบ สะอาด มีคาแร็กเตอร์สไตล์อเมริกัน และมีระบบออนไลน์ชัดเจนทั้งเว็บและเพจ</p>
+          <p>แนวคิดหลักคือ <strong>โปร่งใส, งานเนี๊ยบ, เคารพรถลูกค้าเหมือนรถตัวเอง</strong> บอกงานตามจริง ไม่ฟัน ไม่ยัด</p>
+        </div>
+
+        <aside class="about-card">
+          <div class="c-label">VISION</div>
+          <p>เป้าหมายต่อไปของ EVAN VALE GARAGE x อู่ช่างป๊อป:</p>
+          <ul class="about-list">
+            <li>ยกหน้าตาอู่ที่บ้านให้ดูสะอาดเป็นระเบียบ แต่ยังคงฟีลอู่บ้าน ๆ ที่คุยง่ายเหมือนเดิม</li>
+            <li>รับงานบิ๊กไบค์และกระบะโหลดเตี้ยเพิ่มขึ้น พร้อมโซนแต่งรถสไตล์อเมริกันโดยเฉพาะ</li>
+            <li>มีโซนนั่งรอ/คาเฟ่เล็ก ๆ ให้ลูกค้านั่งชิว ดูรถตัวเองทำงานแบบโปร่งใส</li>
+            <li>สร้างคอมมูนิตี้ EVAN VALE ให้คนรู้ว่า "อยากซ่อม อยากแต่งสไตล์เมกา" ให้นึกถึงอู่นี้ก่อน</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- ════ FOOTER ════ -->
+  <footer>
+    <div class="footer-in">
+      <div class="footer-brand">EVAN VALE GARAGE × GARAGE P</div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <span>© Concept & Current Garage Site for Ryu</span>
+        <span>Nongbua • Rayong • American Garage Dream</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ════ AI CHAT ════ -->
+<div class="ai-panel" id="aiPanel">
+  <div class="ai-head">
+    <div>
+      <div class="ai-head-name">EVAN VALE AI</div>
+      <div class="ai-head-sub">Demo helper • ตอบคำถามพื้นฐาน</div>
+    </div>
+    <button class="ai-close" onclick="toggleAI(false)">×</button>
+  </div>
+  <div class="ai-msgs" id="aiMsgs">
+    <div class="ai-msg ai-msg-b">👋 สวัสดีครับ ผมคือ EVAN VALE ASSISTANT
+ผู้ช่วยตอบคำถามเบื้องต้นของอู่
+
+ลองถามเรื่อง:
+• เวลาเปิด–ปิดอู่
+• อู่อยู่ที่ไหน
+• จองคิวยังไง
+• รับงานบิ๊กไบค์ไหม
+• กระบะโหลดเตี้ยทำแบบไหนได้บ้าง
+
+(DEMO ตอบตามข้อมูลที่ตั้งไว้ ยังไม่ใช่ AI จริง)</div>
+  </div>
+  <div class="ai-input">
+    <input id="aiIn" type="text" placeholder="พิมพ์คำถามที่นี่..." onkeydown="if(event.key==='Enter')sendAI()">
+    <button class="ai-send" onclick="sendAI()">ส่ง</button>
+  </div>
+</div>
+
+<button class="ai-fab" onclick="toggleAI()">
+  <span class="dot-green"></span>
+  EVAN VALE AI
+</button>
+
+<canvas id="snow"></canvas>
+
+<script>
+  const FB_URL = "https://www.facebook.com/share/1KcFHbNt7A/";
+
+  /* scroll helper */
+  function scrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /* countdown */
+  (function () {
+    const el = document.getElementById('newYearCountdown');
+    if (!el) return;
+    function tick() {
+      const now = new Date();
+      const target = new Date(now.getFullYear() + 1, 0, 1);
+      const diff = target - now;
+      if (diff <= 0) { el.textContent = 'HAPPY NEW YEAR!'; return; }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      el.textContent = `${d} วัน ${h} ชม. ${m} นาที`;
+    }
+    tick();
+    setInterval(tick, 30000);
+  })();
+
+  /* booking */
+  function generateBookingText() {
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const vehicle = document.getElementById('vehicle').value;
+    const date = document.getElementById('date').value.trim();
+    const details = document.getElementById('details').value.trim();
+
+    if (!name || !phone || vehicle === 'เลือกประเภทรถ') {
+      alert('กรุณากรอกชื่อ เบอร์โทร/ไลน์ และเลือกประเภทรถก่อนนะครับ 🙏');
+      return;
+    }
+
+    const now = new Date();
+    const code = `EVG-${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}-${String(now.getHours()).padStart(2,'0')}${String(now.getMinutes()).padStart(2,'0')}-${Math.floor(100+Math.random()*900)}`;
+
+    const lines = [
+      'คิวจองซ่อมรถที่ EVAN VALE GARAGE x อู่ช่างป๊อป ระยอง',
+      '',
+      `ชื่อ: ${name}`,
+      `เบอร์โทร / ไลน์: ${phone}`,
+      `ประเภทรถ: ${vehicle}`,
+      date ? `วันที่สะดวก: ${date}` : '',
+      details ? `รายละเอียดงาน: ${details}` : '',
+      '',
+      'รบกวนช่วยเช็กคิวว่างและยืนยันวัน–เวลาให้ด้วยนะครับ 🙏',
+      `รหัสคำขอ: ${code}`
+    ].filter(Boolean);
+
+    document.getElementById('bookingSummary').value = lines.join('\n');
+    const box = document.getElementById('bkBox');
+    box.style.display = 'flex';
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  async function copyBookingText() {
+    const t = document.getElementById('bookingSummary');
+    if (!t || !t.value.trim()) { alert('กดสร้างข้อความก่อนนะครับ'); return; }
+    try {
+      if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(t.value);
+      else { t.focus(); t.select(); document.execCommand('copy'); }
+      alert('คัดลอกข้อความเรียบร้อยแล้วครับ ✅');
+    } catch { alert('กดค้างแล้วเลือกคัดลอกเองนะครับ'); }
+  }
+
+  function openFB() {
+    if (!FB_URL) { alert('ยังไม่ได้ใส่ลิงก์เพจจริงนะครับ'); return; }
+    window.open(FB_URL, '_blank', 'noopener');
+  }
+
+  /* mobile nav */
+  function toggleMobileNav(force) {
+    const nav = document.getElementById('mobileNav');
+    if (!nav) return;
+    if (typeof force === 'boolean') { nav.classList.toggle('show', force); return; }
+    nav.classList.toggle('show');
+  }
+
+  document.addEventListener('click', e => {
+    const nav = document.getElementById('mobileNav');
+    const toggle = document.querySelector('.nav-toggle');
+    if (nav && toggle && !nav.contains(e.target) && !toggle.contains(e.target))
+      nav.classList.remove('show');
+  });
+
+  /* AI chat */
+  function toggleAI(force) {
+    const p = document.getElementById('aiPanel');
+    if (!p) return;
+    if (typeof force === 'boolean') p.classList.toggle('show', force);
+    else p.classList.toggle('show');
+  }
+
+  function addMsg(text, isUser) {
+    const box = document.getElementById('aiMsgs');
+    const d = document.createElement('div');
+    d.className = 'ai-msg ' + (isUser ? 'ai-msg-u' : 'ai-msg-b');
+    d.textContent = text;
+    box.appendChild(d);
+    box.scrollTop = box.scrollHeight;
+  }
+
+  function getReply(msg) {
+    const m = msg.toLowerCase();
+    if (m.includes('เปิด') || m.includes('ปิด') || m.includes('เวลา'))
+      return 'เปิดประมาณ 07:30 – 19:30 ครับ ถ้ามีปรับจะอัปเพจทันที 😊';
+    if (m.includes('อยู่ไหน') || m.includes('ที่ไหน') || m.includes('แผนที่'))
+      return 'อู่อยู่ ต.หนองบัว อ.บ้านค่าย ระยอง ชื่อ Garage P ช่างป๊อปครับ 🧭';
+    if (m.includes('จอง') || m.includes('คิว') || m.includes('นัด'))
+      return 'จองได้เลยครับ → กรอกฟอร์ม BOOKING → กดสร้างข้อความ → คัดลอกไปส่งในเพจ 🙏';
+    if (m.includes('บิ๊กไบค์') || m.includes('big bike'))
+      return 'รับงาน Big Bike มากขึ้น ทั้งซ่อมทั่วไปและแต่งสไตล์เมกา 🔥 ส่งรูปมาคุยในเพจได้เลย';
+    if (m.includes('โหลด') || m.includes('กระบะ'))
+      return 'โหลดเตี้ยเน้นทรงสะอาด ขับได้จริง ส่งทรงที่ชอบมาทางเพจได้เลยครับ 🛻';
+    return 'รายละเอียดลึกต้องดูหน้างานนะครับ ส่งรูปไปเพจได้เลย เดี๋ยวผมให้ช่างดูให้ 🙌';
+  }
+
+  function sendAI() {
+    const inp = document.getElementById('aiIn');
+    const t = inp.value.trim();
+    if (!t) return;
+    addMsg(t, true);
+    inp.value = '';
+    setTimeout(() => addMsg(getReply(t), false), 280);
+  }
+
+  /* snow */
+  (function () {
+    const canvas = document.getElementById('snow');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let w, h, id;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize, { passive: true });
+    resize();
+
+    const count = window.innerWidth <= 768 ? 40 : 65;
+    const flakes = Array.from({ length: count }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 1.8 + 0.4,
+      d: Math.random() * 1.0 + 0.3
+    }));
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = 'rgba(255,255,255,.65)';
+      ctx.beginPath();
+      for (const f of flakes) {
+        ctx.moveTo(f.x, f.y);
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+        f.y += f.d;
+        if (f.y > h + 4) { f.y = -5; f.x = Math.random() * w; }
+      }
+      ctx.fill();
+      id = requestAnimationFrame(draw);
+    }
+    draw();
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) cancelAnimationFrame(id);
+      else draw();
+    });
+  })();
+</script>
+</body>
+</html>
