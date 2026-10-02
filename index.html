@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EVAN VALE GARAGE x อู่ช่างป๊อป | Rayong Garage</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -72,10 +72,10 @@
       background: linear-gradient(
         to bottom,
         rgba(5, 5, 8, 0.95),
-        rgba(5, 5, 8, 0.82),
-        rgba(5, 5, 8, 0.25)
+        rgba(5, 5, 8, 0.85),
+        rgba(5, 5, 8, 0.35)
       );
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .nav-container {
@@ -85,7 +85,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 14px;
       position: relative;
     }
 
@@ -97,13 +97,14 @@
     }
 
     .brand-logo {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       border: 2px solid var(--accent-red);
       object-fit: cover;
-      box-shadow: 0 0 24px rgba(229, 57, 53, 0.6);
+      box-shadow: 0 0 20px rgba(229, 57, 53, 0.6);
       flex-shrink: 0;
+      background: #111;
     }
 
     .brand-text {
@@ -115,8 +116,8 @@
 
     .brand-title {
       font-family: 'Oswald', sans-serif;
-      letter-spacing: 0.18em;
-      font-size: 13px;
+      letter-spacing: 0.16em;
+      font-size: 14px;
       text-transform: uppercase;
       white-space: nowrap;
     }
@@ -125,52 +126,63 @@
       font-size: 11px;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
     }
 
     .nav-links {
       display: flex;
-      gap: 18px;
+      gap: 16px;
       align-items: center;
       font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
     }
 
     .nav-links a {
       color: var(--text-muted);
       padding: 4px 0;
       border-bottom: 1px solid transparent;
-      transition: color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+      transition: color var(--transition-fast), border-color var(--transition-fast);
     }
 
     .nav-links a:hover {
       color: #ffffff;
       border-color: var(--accent-red);
-      transform: translateY(-1px);
+    }
+
+    .call-btn {
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(76, 175, 80, 0.18);
+      border: 1px solid rgba(76, 175, 80, 0.5);
+      color: #81c784;
+      font-size: 11px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--transition-fast);
+      white-space: nowrap;
+    }
+    .call-btn:hover {
+      background: rgba(76, 175, 80, 0.35);
+      color: #fff;
     }
 
     .nav-cta {
       padding: 7px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      background: radial-gradient(circle at 0 0, rgba(25, 118, 210, 0.4), rgba(5, 5, 8, 0.95));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: radial-gradient(circle at 0 0, rgba(229, 57, 53, 0.6), rgba(5, 5, 8, 0.95));
       display: flex;
       align-items: center;
       gap: 8px;
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      box-shadow: 0 0 18px rgba(25, 118, 210, 0.4);
+      letter-spacing: 0.16em;
+      box-shadow: 0 0 18px rgba(229, 57, 53, 0.4);
       cursor: pointer;
       color: #fff;
-    }
-
-    .nav-cta span {
-      font-size: 9px;
-      opacity: 0.8;
-      text-transform: none;
-      letter-spacing: normal;
     }
 
     .nav-toggle {
@@ -190,7 +202,6 @@
       border-radius: 999px;
       background: #ffffff;
     }
-
     .nav-toggle span:last-child {
       width: 12px;
     }
@@ -200,51 +211,30 @@
       position: absolute;
       top: calc(100% + 8px);
       right: 18px;
-      width: min(260px, calc(100vw - 36px));
-      background: rgba(3, 7, 18, 0.98);
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 10px 12px;
+      width: min(280px, calc(100vw - 36px));
+      background: rgba(5, 9, 20, 0.98);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 14px;
       flex-direction: column;
-      gap: 8px;
-      font-size: 12px;
+      gap: 10px;
+      font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      box-shadow: 0 18px 30px rgba(0, 0, 0, 0.85);
+      letter-spacing: 0.14em;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
     }
-
-    .nav-links-mobile.show {
-      display: flex;
-    }
-
+    .nav-links-mobile.show { display: flex; }
     .nav-links-mobile a {
       color: var(--text-muted);
       padding: 6px 0;
-      border-bottom: 1px solid transparent;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-    .nav-links-mobile a:hover {
-      color: #ffffff;
-      border-color: var(--accent-red);
-    }
-
-    .nav-links-mobile .nav-cta-mobile {
-      margin-top: 4px;
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: radial-gradient(circle at 0 0, rgba(25, 118, 210, 0.4), rgba(5, 5, 8, 0.95));
-      font-size: 10px;
-      text-align: center;
-      letter-spacing: 0.18em;
-      color: #ffffff;
-      cursor: pointer;
-    }
-
+    /* Hero */
     .hero {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 26px 18px 48px;
+      padding: 24px 18px 40px;
       display: grid;
       grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
       gap: 26px;
@@ -254,7 +244,7 @@
     .hero-left {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
       min-width: 0;
     }
 
@@ -262,13 +252,13 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: linear-gradient(90deg, rgba(229, 57, 53, 0.3), rgba(25, 118, 210, 0.3));
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: linear-gradient(90deg, rgba(229, 57, 53, 0.25), rgba(25, 118, 210, 0.25));
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       color: #fff;
       width: fit-content;
       max-width: 100%;
@@ -276,8 +266,8 @@
     }
 
     .hero-tag-dot {
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: #4caf50;
       box-shadow: 0 0 12px rgba(76, 175, 80, 0.9);
@@ -286,14 +276,10 @@
 
     .hero-title {
       font-family: 'Oswald', sans-serif;
-      font-size: clamp(32px, 5vw, 42px);
+      font-size: clamp(32px, 5vw, 44px);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       line-height: 1.1;
-    }
-
-    .hero-title span {
-      display: block;
     }
 
     .hero-title-flag {
@@ -306,12 +292,27 @@
     .hero-subtitle {
       font-size: 14px;
       color: var(--text-muted);
-      max-width: 460px;
+      max-width: 520px;
+      line-height: 1.65;
     }
 
     .hero-subtitle strong {
       color: #ffffff;
       font-weight: 600;
+    }
+
+    /* Honest Notice Card */
+    .honest-box {
+      background: rgba(18, 24, 38, 0.85);
+      border: 1px solid rgba(25, 118, 210, 0.4);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .honest-box strong {
+      color: #fff;
     }
 
     .hero-badges {
@@ -322,16 +323,14 @@
     }
 
     .badge {
-      padding: 5px 10px;
+      padding: 5px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       background: rgba(10, 10, 18, 0.95);
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      flex-wrap: wrap;
     }
-
     .badge-pill {
       width: 7px;
       height: 7px;
@@ -349,28 +348,28 @@
 
     .btn-primary,
     .btn-ghost {
-      padding: 9px 18px;
+      padding: 10px 20px;
       border-radius: 999px;
       font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       cursor: pointer;
       border: none;
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+      gap: 8px;
+      font-weight: 600;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--accent-red), #ff7043);
       color: #ffffff;
-      box-shadow: 0 18px 32px rgba(229, 57, 53, 0.5);
+      box-shadow: 0 12px 28px rgba(229, 57, 53, 0.5);
     }
-
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 22px 40px rgba(229, 57, 53, 0.7);
+      box-shadow: 0 16px 36px rgba(229, 57, 53, 0.7);
     }
 
     .btn-ghost {
@@ -378,49 +377,10 @@
       background: rgba(10, 10, 16, 0.96);
       color: var(--text-muted);
     }
-
     .btn-ghost:hover {
       border-color: #ffffff;
       color: #ffffff;
       transform: translateY(-1px);
-    }
-
-    .hero-meta {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    .hero-meta span {
-      color: #ffffff;
-      font-weight: 500;
-    }
-
-    .countdown-box {
-      margin-top: 6px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      font-size: 11px;
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      background: rgba(5, 8, 16, 0.85);
-      width: fit-content;
-      max-width: 100%;
-      flex-wrap: wrap;
-    }
-
-    .countdown-label {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      font-size: 10px;
-    }
-
-    .countdown-time {
-      font-weight: 600;
-      color: #ffffff;
     }
 
     .hero-right {
@@ -429,25 +389,23 @@
     }
 
     .hero-card {
-      position: relative;
       border-radius: var(--radius-xl);
       overflow: hidden;
       background: radial-gradient(circle at top, #37474f, #000000);
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .hero-image-overlay {
-      position: relative;
       padding: 18px 18px 16px;
     }
 
     .hero-garage {
-      height: 210px;
+      height: 220px;
       border-radius: 16px;
       border: 1px solid rgba(255, 255, 255, 0.18);
       background-image:
-        linear-gradient(120deg, rgba(0,0,0,0.3), rgba(0,0,0,0.8)),
+        linear-gradient(120deg, rgba(0,0,0,0.3), rgba(0,0,0,0.85)),
         url("images/evanvale-cover.jpg");
       background-size: cover;
       background-position: center;
@@ -456,55 +414,50 @@
       position: relative;
     }
 
-    .hero-strip {
-      margin-top: 12px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .hero-strip strong {
-      color: #ffffff;
-      font-weight: 600;
-    }
-
     .hero-floating-tag {
       position: absolute;
       top: 14px;
       right: 18px;
-      padding: 7px 12px;
+      padding: 6px 12px;
       border-radius: 999px;
       background: rgba(2, 8, 20, 0.94);
       border: 1px solid rgba(255, 255, 255, 0.18);
       font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      z-index: 2;
-      max-width: calc(100% - 24px);
-      flex-wrap: wrap;
+      color: #fff;
     }
-
     .hero-floating-dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
       background: #ffeb3b;
       box-shadow: 0 0 10px rgba(255, 235, 59, 0.95);
-      flex-shrink: 0;
+    }
+
+    .hero-strip {
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .hero-strip strong {
+      color: #ffffff;
+      font-weight: 600;
     }
 
     .section {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 20px 18px 30px;
+      padding: 24px 18px 32px;
     }
 
     .section-header {
@@ -518,8 +471,8 @@
 
     .section-title {
       font-family: 'Oswald', sans-serif;
-      font-size: 18px;
-      letter-spacing: 0.18em;
+      font-size: 20px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
@@ -531,18 +484,23 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
+      gap: 14px;
     }
 
     .service-card {
       background: linear-gradient(145deg, #090b10, #05060a);
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 12px 12px 11px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
       font-size: 12px;
+      transition: transform var(--transition-fast), border-color var(--transition-fast);
+    }
+    .service-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-red);
     }
 
     .service-tag {
@@ -550,91 +508,63 @@
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: var(--accent-blue);
-      opacity: 0.9;
+      font-weight: 600;
     }
 
     .service-name {
       font-weight: 600;
+      font-size: 14px;
+      color: #fff;
     }
 
     .service-desc {
       font-size: 11px;
       color: var(--text-muted);
+      line-height: 1.5;
     }
 
     .service-footer {
-      margin-top: 4px;
+      margin-top: auto;
+      padding-top: 8px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 11px;
       color: var(--text-muted);
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .service-price {
-      color: #ffffff;
-      font-weight: 600;
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
 
     .service-link {
       font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       color: var(--accent-red);
+      font-weight: 600;
     }
 
+    /* Real Works */
     .works-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      gap: 16px;
     }
 
     .work-card {
       background: var(--card-bg);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
       flex-direction: column;
       font-size: 12px;
-      min-width: 0;
-    }
-
-    .work-image {
-      height: 180px;
-      background-size: cover;
-      background-position: center;
-      background-color: #0b1018;
-    }
-
-    .work-body {
-      padding: 10px 11px 9px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .work-title {
-      font-weight: 600;
-    }
-
-    .work-meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      color: var(--text-muted);
-      flex-wrap: wrap;
-      gap: 4px;
     }
 
     .work-photos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
       gap: 6px;
-      padding: 8px 10px 6px;
-      background: rgba(0,0,0,0.25);
+      padding: 10px;
+      background: rgba(0,0,0,0.3);
     }
 
     .work-photos-grid img {
@@ -642,13 +572,42 @@
       height: 90px;
       object-fit: cover;
       border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: #0d121a;
+      border: 1px solid rgba(255,255,255,0.1);
+      cursor: pointer;
+      transition: transform var(--transition-fast), filter var(--transition-fast);
+    }
+    .work-photos-grid img:hover {
+      transform: scale(1.04);
+      filter: brightness(1.15);
     }
 
+    .work-body {
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .work-title {
+      font-weight: 700;
+      font-size: 13px;
+      color: #fff;
+    }
+
+    .work-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--accent-blue);
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    /* Booking & Map Layout */
     .booking {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
       gap: 18px;
       align-items: flex-start;
     }
@@ -656,7 +615,7 @@
     .booking-card {
       background: linear-gradient(135deg, #101320, #05060a);
       border-radius: var(--radius-xl);
-      padding: 16px 16px 14px;
+      padding: 18px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: var(--shadow-soft);
     }
@@ -667,58 +626,59 @@
       letter-spacing: 0.16em;
       color: var(--accent-blue);
       margin-bottom: 5px;
+      font-weight: 600;
     }
 
     .booking-title {
       font-family: 'Oswald', sans-serif;
-      font-size: 18px;
-      letter-spacing: 0.16em;
+      font-size: 20px;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .booking-desc {
       font-size: 12px;
       color: var(--text-muted);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      line-height: 1.6;
     }
 
     .booking-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
+      gap: 12px;
     }
 
     .form-field {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 4px;
       font-size: 12px;
-      min-width: 0;
     }
 
     .form-field label {
       color: var(--text-muted);
+      font-weight: 500;
     }
 
     .form-field input,
     .form-field select,
     .form-field textarea {
-      margin-top: 1px;
       border-radius: 10px;
       border: 1px solid rgba(255, 255, 255, 0.16);
       background: rgba(5, 7, 14, 0.95);
-      padding: 7px 9px;
+      padding: 9px 12px;
       color: #ffffff;
-      font-size: 12px;
+      font-size: 13px;
       outline: none;
-      resize: vertical;
-      min-height: 0;
       width: 100%;
+      transition: border-color var(--transition-fast);
     }
 
     .form-field textarea {
-      min-height: 70px;
+      min-height: 75px;
+      resize: vertical;
     }
 
     .form-field input:focus,
@@ -733,51 +693,32 @@
     }
 
     .booking-footer {
-      margin-top: 10px;
+      margin-top: 14px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .booking-footer-top {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .booking-hours {
-      font-size: 11px;
-      color: var(--text-muted);
+      gap: 12px;
     }
 
     .booking-generated {
-      margin-top: 10px;
-      padding: 10px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: rgba(2, 6, 17, 0.92);
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(25, 118, 210, 0.5);
+      background: rgba(3, 8, 22, 0.95);
       display: none;
       flex-direction: column;
-      gap: 6px;
-      font-size: 11px;
-    }
-
-    .booking-generated label {
-      color: var(--text-muted);
+      gap: 8px;
     }
 
     #bookingSummary {
       width: 100%;
-      min-height: 90px;
+      min-height: 110px;
       border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      background: rgba(3, 6, 14, 0.95);
-      padding: 7px 9px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(2, 4, 10, 0.95);
+      padding: 10px;
       color: #ffffff;
-      font-size: 11px;
+      font-size: 12px;
+      line-height: 1.5;
       resize: vertical;
     }
 
@@ -785,43 +726,57 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 6px;
     }
 
     .btn-small {
-      padding: 6px 12px;
+      padding: 8px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       background: rgba(5, 7, 14, 0.95);
-      font-size: 10px;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       cursor: pointer;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
       color: #fff;
+      font-weight: 600;
+      transition: all var(--transition-fast);
     }
-
     .btn-small-primary {
+      border-color: var(--accent-red);
+      background: linear-gradient(135deg, var(--accent-red), #ff7043);
+      box-shadow: 0 0 16px rgba(229, 57, 53, 0.4);
+    }
+    .btn-small-blue {
       border-color: var(--accent-blue);
       background: linear-gradient(135deg, var(--accent-blue), #42a5f5);
-      color: #fff;
-      box-shadow: 0 0 18px rgba(25, 118, 210, 0.4);
+      box-shadow: 0 0 16px rgba(25, 118, 210, 0.4);
     }
+    .btn-small:hover { transform: translateY(-1px); }
 
-    .btn-small:hover {
-      transform: translateY(-1px);
-    }
-
+    /* Map & Contact Card */
     .contact-card {
-      background: rgba(2, 6, 17, 0.9);
+      background: rgba(2, 6, 17, 0.92);
       border-radius: var(--radius-xl);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 14px 14px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 16px;
       font-size: 12px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      word-break: break-word;
+      gap: 12px;
+    }
+
+    .map-frame-box {
+      width: 100%;
+      height: 220px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #0b1018;
+    }
+    .map-frame-box iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     .contact-row {
@@ -836,39 +791,32 @@
       letter-spacing: 0.16em;
       font-size: 10px;
       color: var(--text-muted);
+      font-weight: 600;
     }
 
     .contact-value {
       font-weight: 500;
-    }
-
-    .contact-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
+      color: #fff;
     }
 
     .contact-map-button {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      margin-top: 6px;
-      padding: 5px 10px;
+      padding: 8px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(66, 165, 245, 0.8);
-      font-size: 10px;
+      border: 1px solid #42a5f5;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: #42a5f5;
-      background: rgba(3, 10, 24, 0.95);
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent-blue), #1e88e5);
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 4px;
     }
 
+    /* About Section */
     .about {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
@@ -881,54 +829,76 @@
       color: var(--text-muted);
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
+      line-height: 1.65;
     }
-
     .about-text strong {
       color: #ffffff;
       font-weight: 600;
     }
-
     .about-pill {
       text-transform: uppercase;
       letter-spacing: 0.16em;
       font-size: 11px;
       color: var(--accent-blue);
+      font-weight: 600;
     }
 
     .about-card {
       background: rgba(2, 6, 17, 0.92);
       border-radius: var(--radius-xl);
-      padding: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
       font-size: 12px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
-
     .about-list {
       list-style: none;
       padding-left: 0;
     }
-
     .about-list li {
       padding-left: 14px;
       position: relative;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      color: var(--text-muted);
     }
-
     .about-list li::before {
       content: "•";
       position: absolute;
       left: 0;
       color: var(--accent-red);
+      font-weight: bold;
     }
 
+    /* Image Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      cursor: zoom-out;
+    }
+    .lightbox-modal.open { display: flex; }
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 0 50px rgba(0,0,0,0.9);
+    }
+
+    /* Footer */
     footer {
       border-top: 1px solid rgba(255, 255, 255, 0.06);
       margin-top: auto;
-      padding: 12px 18px 14px;
+      padding: 16px 18px;
       font-size: 11px;
       color: var(--text-muted);
     }
@@ -943,26 +913,14 @@
       align-items: center;
     }
 
-    .footer-brand {
-      font-family: 'Oswald', sans-serif;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-size: 11px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
+    /* AI Assistant */
     .ai-fab {
       position: fixed;
       right: 18px;
       bottom: 18px;
       z-index: 80;
       border-radius: 999px;
-      padding: 8px 14px;
+      padding: 10px 16px;
       background: linear-gradient(135deg, var(--accent-blue), #42a5f5);
       border: 1px solid rgba(255,255,255,0.22);
       display: flex;
@@ -974,6 +932,7 @@
       cursor: pointer;
       box-shadow: 0 18px 30px rgba(0,0,0,0.7);
       color: #fff;
+      font-weight: 600;
     }
 
     .ai-fab-dot {
@@ -982,31 +941,27 @@
       border-radius: 999px;
       background: #4caf50;
       box-shadow: 0 0 10px rgba(76,175,80,0.9);
-      flex-shrink: 0;
     }
 
     .ai-panel {
       position: fixed;
       right: 18px;
-      bottom: 70px;
-      width: 280px;
-      max-height: 380px;
-      background: rgba(3,7,18,0.96);
+      bottom: 74px;
+      width: 300px;
+      max-height: 420px;
+      background: rgba(3,7,18,0.98);
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.16);
       box-shadow: 0 22px 40px rgba(0,0,0,0.85);
       display: none;
       flex-direction: column;
       overflow: hidden;
       z-index: 80;
     }
-
-    .ai-panel.show {
-      display: flex;
-    }
+    .ai-panel.show { display: flex; }
 
     .ai-panel-header {
-      padding: 10px 12px 8px;
+      padding: 10px 14px;
       border-bottom: 1px solid rgba(255,255,255,0.06);
       display: flex;
       justify-content: space-between;
@@ -1018,77 +973,74 @@
       font-family: 'Oswald', sans-serif;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      font-size: 11px;
-    }
-
-    .ai-panel-badge {
-      font-size: 10px;
-      color: var(--text-muted);
+      font-size: 12px;
+      color: #fff;
     }
 
     .ai-close-btn {
       border: none;
       background: transparent;
       color: var(--text-muted);
-      font-size: 14px;
+      font-size: 16px;
       cursor: pointer;
     }
 
     .ai-messages {
-      padding: 8px 10px;
-      font-size: 11px;
+      padding: 10px 12px;
+      font-size: 12px;
       color: var(--text-muted);
       overflow-y: auto;
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
     .ai-msg {
-      margin-bottom: 8px;
       line-height: 1.45;
-      white-space: pre-wrap;
+      padding: 8px 10px;
+      border-radius: 12px;
       word-break: break-word;
     }
-
     .ai-msg-user {
-      color: #ffffff;
+      align-self: flex-end;
+      background: linear-gradient(135deg, var(--accent-red), #ff7043);
+      color: #fff;
     }
-
     .ai-msg-bot {
-      color: var(--text-muted);
+      align-self: flex-start;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #eaf8ff;
     }
 
     .ai-input-area {
       border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 6px 8px;
+      padding: 8px 10px;
       display: flex;
       gap: 6px;
-      align-items: center;
       background: rgba(0,0,0,0.6);
     }
-
     .ai-input-area input {
       flex: 1;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.16);
       background: rgba(5,7,14,0.95);
-      padding: 6px 9px;
+      padding: 7px 12px;
       color: #ffffff;
-      font-size: 11px;
+      font-size: 12px;
       outline: none;
-      min-width: 0;
     }
-
     .ai-input-area button {
       border-radius: 999px;
       border: none;
-      padding: 6px 10px;
-      font-size: 10px;
+      padding: 7px 12px;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       background: linear-gradient(135deg, var(--accent-red), #ff7043);
       color: #ffffff;
       cursor: pointer;
-      flex-shrink: 0;
     }
 
     .glow-text {
@@ -1107,73 +1059,23 @@
     }
 
     @media (max-width: 880px) {
-      .hero,
-      .booking,
-      .about {
+      .hero, .booking, .about {
         grid-template-columns: minmax(0, 1fr);
       }
-
-      .hero {
-        padding-top: 16px;
-      }
-
-      .hero-right {
-        order: -1;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .nav-toggle {
-        display: flex;
-      }
-
-      .services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .works-grid {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-      }
-
-      .work-photos-grid img {
-        height: 88px;
-      }
+      .hero-right { order: -1; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .works-grid { grid-template-columns: repeat(1, minmax(0, 1fr)); }
     }
 
     @media (max-width: 600px) {
-      .services-grid,
-      .booking-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .booking-card,
-      .contact-card,
-      .about-card,
-      .hero-card {
-        border-radius: 16px;
-      }
-
-      .ai-panel {
-        right: 10px;
-        width: calc(100% - 20px);
-      }
-
-      .ai-fab {
-        right: 10px;
-        bottom: 10px;
-      }
-
-      .hero-strip,
-      .section-header,
-      .footer-inner {
+      .services-grid, .booking-grid { grid-template-columns: minmax(0, 1fr); }
+      .ai-panel { right: 10px; width: calc(100% - 20px); }
+      .ai-fab { right: 10px; bottom: 10px; }
+      .hero-strip, .section-header, .footer-inner {
         flex-direction: column;
         align-items: flex-start;
-      }
-
-      .brand-title {
-        white-space: normal;
       }
     }
   </style>
@@ -1181,26 +1083,31 @@
 <body>
 <div class="page-wrap">
 
+  <!-- Header -->
   <header>
     <div class="nav-container">
       <div class="brand">
-        <img src="images/evanvale-logo.png" alt="Evan Vale Garage Logo" class="brand-logo">
+        <img src="images/evanvale-logo.png" alt="Evan Vale Garage Logo" class="brand-logo" onerror="this.style.display='none'">
         <div class="brand-text">
           <div class="brand-title">EVAN VALE GARAGE</div>
-          <div class="brand-sub">garage p • nongbua rayong</div>
+          <div class="brand-sub">Garage P • หนองบัว ระยอง</div>
         </div>
       </div>
 
       <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#works">Concept Work</a>
-        <a href="#realworks">Real Jobs</a>
-        <a href="#booking">Booking</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#services">บริการ</a>
+        <a href="#realworks">งานซ่อมจริง</a>
+        <a href="#booking">จองคิว</a>
+        <a href="#about">เรื่องราวอู่</a>
+        <a href="#contact">พิกัด/ติดต่อ</a>
+
+        <!-- ปุ่มโทรด่วน (แก้เบอร์ตรง href="tel:..." และข้อความได้เลย) -->
+        <a href="tel:08XXXXXXXX" class="call-btn" id="headerPhone">
+          📞 <span>โทรช่าง: 08X-XXX-XXXX</span>
+        </a>
+
         <button type="button" class="nav-cta" onclick="scrollToSection('booking')">
-          BOOK SLOT
-          <span>จองคิวเข้าอู่</span>
+          จองคิวเข้าอู่
         </button>
       </nav>
 
@@ -1211,28 +1118,30 @@
       </button>
 
       <nav class="nav-links-mobile" id="mobileNav">
-        <a href="#services" onclick="toggleMobileNav(false)">Services</a>
-        <a href="#works" onclick="toggleMobileNav(false)">Concept Work</a>
-        <a href="#realworks" onclick="toggleMobileNav(false)">Real Jobs</a>
-        <a href="#booking" onclick="toggleMobileNav(false)">Booking</a>
-        <a href="#about" onclick="toggleMobileNav(false)">About</a>
-        <a href="#contact" onclick="toggleMobileNav(false)">Contact</a>
+        <a href="#services" onclick="toggleMobileNav(false)">บริการ</a>
+        <a href="#realworks" onclick="toggleMobileNav(false)">งานซ่อมจริง</a>
+        <a href="#booking" onclick="toggleMobileNav(false)">จองคิว</a>
+        <a href="#about" onclick="toggleMobileNav(false)">เรื่องราวอู่</a>
+        <a href="#contact" onclick="toggleMobileNav(false)">พิกัด/ติดต่อ</a>
+        <a href="tel:08XXXXXXXX" style="color:#81c784">📞 โทรช่าง: 08X-XXX-XXXX</a>
         <button
           type="button"
-          class="nav-cta-mobile"
+          class="nav-cta"
+          style="width:100%; justify-content:center; margin-top:6px;"
           onclick="toggleMobileNav(false); scrollToSection('booking');">
-          BOOK SLOT
+          จองคิวเข้าอู่
         </button>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- Hero Section -->
     <section class="hero">
       <div class="hero-left">
         <div class="hero-tag">
           <span class="hero-tag-dot"></span>
-          GARAGE P • NONGBUA RAYONG → USA VIBE
+          🟢 อู่เปิดบริการ 07:30 – 19:30 น. • หนองบัว ระยอง
         </div>
 
         <h1 class="hero-title glow-text">
@@ -1241,33 +1150,32 @@
         </h1>
 
         <p class="hero-subtitle">
-          ตอนนี้บ้านเปิดอู่ <strong>Garage P ช่างป๊อป</strong> รับงานซ่อมรถใช้งานประจำ
-          และ <strong>EVAN VALE GARAGE</strong> คือโปรเจ็กต์หน้าใหม่ที่ผมอยากพัฒนาให้เป็นอู่สไตล์อเมริกัน
-          งานเนี๊ยบ โปร่งใส ดูดีทั้งออนไลน์และหน้าร้านจริง
+          อู่ซ่อมรถบ้าน ๆ ที่จริงใจ โดย <strong>Garage P ช่างป๊อป</strong> ร่วมกับ <strong>EVAN VALE GARAGE</strong> 
+          รับงานเครื่อง เกียร์ คลัตช์ ช่วงล่าง กระบะ และบิ๊กไบค์ เน้นงานฝีมือ ซ่อมตรงจุด ไม่ยัดเยียด
         </p>
 
-        <div class="hero-badges">
-          <div class="badge"><div class="badge-pill"></div> Engine • Suspension • Detail</div>
-          <div class="badge"><div class="badge-pill"></div> Big Bike & Muscle Pickup</div>
-          <div class="badge"><div class="badge-pill"></div> Transparent Pricing</div>
+        <!-- ข้อความชี้แจงความโปร่งใสเรื่องอะไหล่และช่าง -->
+        <div class="honest-box">
+          <strong>ℹ️ เงื่อนไขงานซ่อมแบบอู่บ้าน ๆ โปร่งใส:</strong>
+          <div style="margin-top:4px;">
+            • อู่เราทำกันเองในครอบครัว <strong>1–2 คน</strong> เน้นงานละเอียดทำทีละคัน ไม่เร่งงานชุ่ย (จึงไม่ได้ส่งรถวันต่อวันนะครับ)<br>
+            • <strong>ค่าอะไหล่:</strong> คิดตามบิลจริง ลูกค้าสามารถโอนค่าอะไหล่ให้ช่างไปเบิกหน้างาน หรือจะซื้ออะไหล่ที่ชอบมาเองให้ช่างใส่ก็ได้ ช่างคิดเฉพาะค่าแรงที่เป็นธรรมครับ
+          </div>
         </div>
 
-        <div class="countdown-box">
-          <span class="countdown-label">COUNTDOWN TO NEW YEAR GARAGE GOAL</span>
-          <span class="countdown-time" id="newYearCountdown">-- วัน -- ชม. -- นาที</span>
+        <div class="hero-badges">
+          <div class="badge"><div class="badge-pill"></div> ยกคลัตช์ • เกียร์ • ท่อไอดี</div>
+          <div class="badge"><div class="badge-pill"></div> จัดทรงกระบะ • โหลดเตี้ย</div>
+          <div class="badge"><div class="badge-pill"></div> ค่าแรงเป็นธรรม คิดอะไหล่ตามจริง</div>
         </div>
 
         <div class="hero-actions">
           <button type="button" class="btn-primary" onclick="scrollToSection('booking')">
-            จองคิวเข้าอู่ (Demo)
+            จองคิว / ปรึกษาอาการซ่อม
           </button>
-          <button type="button" class="btn-ghost" onclick="scrollToSection('realworks')">
-            ดูรูปงานจริงจากอู่
-          </button>
-        </div>
-
-        <div class="hero-meta">
-          เว็บนี้คือ <span>หน้าโปรไฟล์ทดลอง</span> สำหรับอู่ที่บ้านในปัจจุบัน และใช้วางแผนเปิด EVAN VALE GARAGE แบบจริงจังในอนาคต
+          <a href="tel:08XXXXXXXX" class="btn-ghost" style="color:#81c784; border-color:rgba(76,175,80,0.5)">
+            📞 โทรคุยกับช่างทันที
+          </a>
         </div>
       </div>
 
@@ -1277,461 +1185,365 @@
             <div class="hero-garage">
               <div class="hero-floating-tag">
                 <span class="hero-floating-dot"></span>
-                REAL WORKSHOP • FUTURE BRAND
+                หนองบัว • บ้านค่าย • ระยอง
               </div>
             </div>
             <div class="hero-strip">
-              <span>NONGBUA • RAYONG GARAGE</span>
-              <span><strong>EVAN VALE</strong> CONCEPT</span>
+              <span>GARAGE P x EVAN VALE</span>
+              <span><strong>ช่างป๊อป</strong> ดูแลเองทุกคัน</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Services -->
     <section id="services" class="section">
       <div class="section-header">
         <h2 class="section-title">SERVICES</h2>
-        <p class="section-sub">โครงบริการที่อยากให้มีจริงในอู่ EVAN VALE GARAGE ที่หนองบัว ระยอง</p>
+        <p class="section-sub">บริการหลักที่อู่ช่างป๊อป x EVAN VALE GARAGE หนองบัว ระยอง</p>
       </div>
 
       <div class="services-grid">
         <article class="service-card">
-          <div class="service-tag">ENGINE & PERFORMANCE</div>
-          <div class="service-name">เช็คระยะ • จูนเครื่อง • ตั้งวาล์ว</div>
+          <div class="service-tag">ENGINE & CLUTCH</div>
+          <div class="service-name">ยกคลัตช์ • เกียร์ • เครื่องยนต์</div>
           <div class="service-desc">
-            ดูแลเครื่องยนต์ทั้งมอไซค์และรถยนต์ งานเครื่องดีเซล–เบนซิน เน้นวัดจริง ปรับจริง ไม่มั่ว
+            แก้คลัตช์ลื่น เข้าเกียร์ยาก ยกคลัตช์เดิม/คลัตช์แต่งสองชั้นผ้าผสม เปลี่ยนถ่ายน้ำมันเกียร์ ไล่ลมคลัตช์นิ่มออกตัวไม่สั่น
           </div>
           <div class="service-footer">
-            <div class="service-price">เริ่มต้น –</div>
-            <a href="#contact" class="service-link">สอบถามราคา</a>
+            <span>คิดค่าแรงตามหน้างาน</span>
+            <a href="#booking" class="service-link">จองคิว</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-tag">INTAKE & POWER</div>
+          <div class="service-name">แก้รถอืด • ควันดำ • ระบบไอดี</div>
+          <div class="service-desc">
+            เปลี่ยนท่อไอดี ปะเก็นรั่ว โอริง ล้างทำความสะอาดเขม่าทางเดินอากาศ ให้กำลังเครื่องยนต์กลับมาแน่น ขับสนุกเหมือนเดิม
+          </div>
+          <div class="service-footer">
+            <span>คิดค่าแรงตามหน้างาน</span>
+            <a href="#booking" class="service-link">จองคิว</a>
           </div>
         </article>
 
         <article class="service-card">
           <div class="service-tag">SUSPENSION & BRAKE</div>
-          <div class="service-name">โหลดเตี้ย • เซ็ตช่วงล่าง • เบรก</div>
+          <div class="service-name">โหลดเตี้ย • จัดทรง • ช่วงล่าง</div>
           <div class="service-desc">
-            จัดทรงกระบะ โหลดเตี้ยเซ็ตหล่อ เน้นขับได้จริง ไม่กัดซุ้ม พร้อมจูนช่วงล่างตามสไตล์ที่เจ้าของรถอยากได้
+            เซ็ตทรงกระบะ โหลดเตี้ยสายคลีนใช้งานได้จริง ไม่ขูดซุ้ม เปลี่ยนบูช ลูกหมาก โช้คอัพ ผ้าเบรก
           </div>
           <div class="service-footer">
-            <div class="service-price">เริ่มต้น –</div>
-            <a href="#contact" class="service-link">สอบถามราคา</a>
+            <span>คิดค่าแรงตามหน้างาน</span>
+            <a href="#booking" class="service-link">จองคิว</a>
           </div>
         </article>
 
         <article class="service-card">
-          <div class="service-tag">BIG BIKE</div>
-          <div class="service-name">ดูแลสายรถใหญ่ • แต่งสไตล์เมกา</div>
+          <div class="service-tag">ACCIDENT & BODY</div>
+          <div class="service-name">เปลี่ยนกระบะ • ย้ายโครงตัวถัง</div>
           <div class="service-desc">
-            วางแผนรับรถใหญ่: เปลี่ยนของเหลว เซ็ตแฮนด์ ท่อ แม็กรถ แต่งหล่อฟีล American street ให้ตรงสไตล์เจ้าของ
+            รับงานเปลี่ยนโครง ย้ายอุปกรณ์ สลับของ ทั้งกระบะและรถบ้าน งานประกอบกลับแน่นหนา ตรวจเช็คระบบไฟครบถ้วน
           </div>
           <div class="service-footer">
-            <div class="service-price">เริ่มต้น –</div>
-            <a href="#contact" class="service-link">สอบถามราคา</a>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <div class="service-tag">DETAILING</div>
-          <div class="service-name">เคลือบสี • ล้างห้องเครื่อง</div>
-          <div class="service-desc">
-            ทำความสะอาดทั้งภายใน–ภายนอก ให้รถใช้งานทุกวันดูเหมือนคันโชว์ในลานอเมริกันคาร์มีต
-          </div>
-          <div class="service-footer">
-            <div class="service-price">เริ่มต้น –</div>
-            <a href="#contact" class="service-link">สอบถามราคา</a>
+            <span>คิดค่าแรงตามหน้างาน</span>
+            <a href="#booking" class="service-link">จองคิว</a>
           </div>
         </article>
       </div>
     </section>
 
-    <section id="works" class="section">
-      <div class="section-header">
-        <h2 class="section-title">GARAGE WORK • CONCEPT</h2>
-        <p class="section-sub">ตัวอย่างสไตล์งานในฝัน • ใช้รูป Mockup อารมณ์อเมริกันประกอบก่อน</p>
-      </div>
-
-      <div class="works-grid">
-        <article class="work-card">
-          <div class="work-image" style="background-image: linear-gradient(120deg, rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://images.pexels.com/photos/7568663/pexels-photo-7568663.jpeg?auto=compress&cs=tinysrgb&w=1200');"></div>
-          <div class="work-body">
-            <div class="work-title">Ninja 400 • Street Build</div>
-            <div class="work-meta">
-              <span>Big Bike Concept</span>
-              <span>US Style</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="work-card">
-          <div class="work-image" style="background-image: linear-gradient(120deg, rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&w=1200');"></div>
-          <div class="work-body">
-            <div class="work-title">Pickup • Slammed & Clean</div>
-            <div class="work-meta">
-              <span>โหลดเตี้ยสะอาดๆ</span>
-              <span>Daily Use</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="work-card">
-          <div class="work-image" style="background-image: linear-gradient(120deg, rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://images.pexels.com/photos/7390801/pexels-photo-7390801.jpeg?auto=compress&cs=tinysrgb&w=1200');"></div>
-          <div class="work-body">
-            <div class="work-title">Night Garage • Evan Vale</div>
-            <div class="work-meta">
-              <span>Brand Atmosphere</span>
-              <span>Neon Vibes</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
+    <!-- Real Jobs -->
     <section id="realworks" class="section">
       <div class="section-header">
-        <h2 class="section-title">REAL JOBS • GARAGE P</h2>
-        <p class="section-sub">
-          ตัวอย่างงานจริงจากอู่ช่างป๊อปที่หนองบัว ระยอง เอามาลงให้ลูกค้าเห็นสไตล์งานและความละเอียดหน้างาน
-        </p>
+        <div>
+          <h2 class="section-title">REAL JOBS • ผลงานจริงจากอู่</h2>
+          <p class="section-sub">
+            ผลงานจริงจากอู่ช่างป๊อป หนองบัว ระยอง (แตะที่รูปเพื่อดูรูปขยายใหญ่ได้ครับ)
+          </p>
+        </div>
       </div>
 
       <div class="works-grid">
+        <!-- Job 1 -->
         <article class="work-card">
           <div class="work-photos-grid">
-            <img src="images/revo-clutch-1.jpg" alt="รีโว่ 2.8 4x4 ยกครัช ภาพชุดคลัทช์เก่า–ใหม่" loading="lazy">
-            <img src="images/revo-clutch-2.jpg" alt="รีโว่ 2.8 4x4 แผ่นคลัทช์เก่ากับใหม่เปรียบเทียบ" loading="lazy">
-            <img src="images/revo-clutch-3.jpg" alt="รีโว่ 2.8 4x4 ระหว่างทำงานหน้างาน" loading="lazy">
+            <img src="images/revo-clutch-1.jpg" alt="รีโว่ 2.8 4x4 ยกครัช" onclick="openLightbox(this.src)" loading="lazy">
+            <img src="images/revo-clutch-2.jpg" alt="รีโว่ 2.8 4x4 เปรียบเทียบแผ่นคลัทช์" onclick="openLightbox(this.src)" loading="lazy">
+            <img src="images/revo-clutch-3.jpg" alt="รีโว่ 2.8 4x4 หน้างาน" onclick="openLightbox(this.src)" loading="lazy">
           </div>
           <div class="work-body">
             <div class="work-title">Revo 2.8 4x4 • ยกครัชทั้งชุด</div>
             <div class="work-meta">
               <span>ยกเกียร์ลง – เปลี่ยนคลัทช์ทั้งชุด</span>
-              <span>รูป 1 – 3</span>
             </div>
             <p style="font-size:11px;color:var(--text-muted);margin-top:4px;">
-              งานยกครัช เปลี่ยนแผ่นครัช จานกดครัช ลูกปืนครัช และน้ำมันเกียร์ 2 ห้อง
-              ตรวจสอบประกอบกลับให้ครบ ส่งงานเรียบร้อย ขับออกตัวนิ่ม มั่นใจขึ้น
+              เปลี่ยนแผ่นครัช จานกดครัช ลูกปืนครัช และน้ำมันเกียร์ 2 ห้อง ประกอบกลับครบถ้วน คลัตช์นิ่ม ออกตัวมั่นใจ
             </p>
           </div>
         </article>
 
+        <!-- Job 2 -->
         <article class="work-card">
           <div class="work-photos-grid">
-            <img src="images/dmax-clutch-1.jpg" alt="D-Max ตู้ทึบ งานยกครัช ภาพรวมรถ" loading="lazy">
-            <img src="images/dmax-clutch-2.jpg" alt="D-Max ตู้ทึบ อะไหล่ชุดคลัทช์และชิ้นส่วนรอบเกียร์" loading="lazy">
-            <img src="images/dmax-clutch-3.jpg" alt="D-Max ตู้ทึบ ชุดคลัทช์ใหม่" loading="lazy">
-            <img src="images/dmax-clutch-4.jpg" alt="D-Max ตู้ทึบ หน้ารังคลัทช์หลังประกอบ" loading="lazy">
+            <img src="images/dmax-clutch-1.jpg" alt="D-Max ตู้ทึบ" onclick="openLightbox(this.src)" loading="lazy">
+            <img src="images/dmax-clutch-2.jpg" alt="D-Max อะไหล่คลัทช์" onclick="openLightbox(this.src)" loading="lazy">
+            <img src="images/dmax-clutch-3.jpg" alt="D-Max คลัทช์ใหม่" onclick="openLightbox(this.src)" loading="lazy">
+            <img src="images/dmax-clutch-4.jpg" alt="D-Max ประกอบเสร็จ" onclick="openLightbox(this.src)" loading="lazy">
           </div>
           <div class="work-body">
             <div class="work-title">D-Max ตู้ทึบ • ยกครัชหวีสองชั้น ผ้าผสม</div>
             <div class="work-meta">
-              <span>คลัทช์ใหม่ + ซ่อมรอบเกียร์</span>
-              <span>รูป 4 – 7</span>
+              <span>คลัทช์ใหม่ + เซ็ตระบบเกียร์</span>
             </div>
             <p style="font-size:11px;color:var(--text-muted);margin-top:4px;">
-              งานยกครัชหวีสองชั้นผ้าผสม เปลี่ยนปั้มครัชล่าง ลูกปืนคลัช ลูกปืนปลายเกียร์ ฝาหน้าเกียร์ และน้ำมันเกียร์
-              จบงานครัชนิ่ม ออกตัวไม่สั่น ขับสบาย ขอบคุณลูกค้าที่ไว้วางใจเข้ามาใช้บริการครับ
+              เปลี่ยนปั้มครัชล่าง ลูกปืนคลัช ลูกปืนปลายเกียร์ ฝาหน้าเกียร์ และน้ำมันเกียร์ จบงานออกตัวไม่สั่น วิ่งงานยาวสบายใจ
             </p>
           </div>
         </article>
 
+        <!-- Job 3 -->
         <article class="work-card">
           <div class="work-photos-grid">
-            <img src="images/4jj1_01.jpg" alt="ชุดอะไหล่ใหม่ D-Max 4JJ1 ท่อไอดี ปะเก็น โอริง" loading="lazy">
-            <img src="images/4jj1_02.jpg" alt="ภาพห้องเครื่อง 4JJ1 ก่อนเริ่มงาน" loading="lazy">
-            <img src="images/4jj1_03.jpg" alt="ไอดีเดิมและตำแหน่งเซ็นเซอร์" loading="lazy">
-            <img src="images/4jj1_04.jpg" alt="กำลังถอดท่อไอดีเก่าเพื่อทำความสะอาด" loading="lazy">
-            <img src="images/4jj1_05.jpg" alt="สภาพระบบไอดีก่อนเปลี่ยน" loading="lazy">
-            <img src="images/4jj1_06.jpg" alt="หลังประกอบท่อไอดีใหม่ 4JJ1" loading="lazy">
+            <img src="images/4jj1_01.jpg" alt="D-Max 4JJ1 อะไหล่ใหม่" onclick="openLightbox(this.src)" loading="lazy">
+            <img src="images/4jj1_02.jpg" alt="D-Max 4JJ1 ห้องเครื่อง" onclick="openLightbox(this.src)" loading="lazy">
+            <img src="images/4jj1_03.jpg" alt="D-Max 4JJ1 ท่อไอดีเดิม" onclick="openLightbox(this.src)" loading="lazy">
+            <img src="images/4jj1_04.jpg" alt="D-Max 4JJ1 ถอดทำความสะอาด" onclick="openLightbox(this.src)" loading="lazy">
+            <img src="images/4jj1_05.jpg" alt="D-Max 4JJ1 สภาพก่อนเปลี่ยน" onclick="openLightbox(this.src)" loading="lazy">
+            <img src="images/4jj1_06.jpg" alt="D-Max 4JJ1 ประกอบเสร็จ" onclick="openLightbox(this.src)" loading="lazy">
           </div>
           <div class="work-body">
-            <div class="work-title">D-Max 4JJ1 • เปลี่ยนท่อไอดี + ปะเก็น + ทำความสะอาดไอดี</div>
+            <div class="work-title">D-Max 4JJ1 • เปลี่ยนท่อไอดี + ปะเก็น + ล้างไอดี</div>
             <div class="work-meta">
-              <span>แก้แรงอืด ควันดำ ไอดีรั่ว</span>
-              <span>รูป 8 – 13</span>
+              <span>แก้รถอืด ควันดำ ลมไอดีรั่ว</span>
             </div>
             <p style="font-size:11px;color:var(--text-muted);margin-top:4px;">
-              รถเข้ามาด้วยอาการเหยียบไม่ออก มีควันดำ และรอบต้นอืด ตรวจสอบพบว่าท่อไอดีเดิมเสื่อม
-              และปะเก็นรั่วทำให้ลมไหลย้อน จึงทำการเปลี่ยนท่อไอดีใหม่ทั้งชุด พร้อมเปลี่ยนโอริง
-              ปะเก็น และทำความสะอาดระบบทางเดินอากาศทั้งจุด หลังซ่อมแรงกลับมา ควันดำหาย รถตอบสนองดีขึ้นมาก
-            </p>
-          </div>
-        </article>
-
-        <article class="work-card">
-          <div class="work-photos-grid">
-            <img src="images/job19-01.jpg" alt="หน้างาน 01" loading="lazy">
-            <img src="images/job19-02.jpg" alt="หน้างาน 02" loading="lazy">
-            <img src="images/job19-03.jpg" alt="หน้างาน 03" loading="lazy">
-            <img src="images/job19-04.jpg" alt="หน้างาน 04" loading="lazy">
-            <img src="images/job19-05.jpg" alt="หน้างาน 05" loading="lazy">
-            <img src="images/job19-06.jpg" alt="หน้างาน 06" loading="lazy">
-            <img src="images/job19-07.jpg" alt="หน้างาน 07" loading="lazy">
-            <img src="images/job19-08.jpg" alt="หน้างาน 08" loading="lazy">
-            <img src="images/job19-09.jpg" alt="หน้างาน 09" loading="lazy">
-            <img src="images/job19-10.jpg" alt="หน้างาน 10" loading="lazy">
-            <img src="images/job19-11.jpg" alt="หน้างาน 11" loading="lazy">
-            <img src="images/job19-12.jpg" alt="หน้างาน 12" loading="lazy">
-            <img src="images/job19-13.jpg" alt="หน้างาน 13" loading="lazy">
-            <img src="images/job19-14.jpg" alt="หน้างาน 14" loading="lazy">
-            <img src="images/job19-15.jpg" alt="หน้างาน 15" loading="lazy">
-            <img src="images/job19-16.jpg" alt="หน้างาน 16" loading="lazy">
-            <img src="images/job19-17.jpg" alt="หน้างาน 17" loading="lazy">
-            <img src="images/job19-18.jpg" alt="หน้างาน 18" loading="lazy">
-            <img src="images/job19-19.jpg" alt="หน้างาน 19" loading="lazy">
-          </div>
-          <div class="work-body">
-            <div class="work-title">Isuzu D-MAX All New ปี 2022 สี่ประตู</div>
-            <div class="work-meta">
-              <span>เปลี่ยนโครง เปลี่ยนกระบะ ย้ายอุปกรณ์ทั้งคัน</span>
-              <span>รูป 14 – 32</span>
-            </div>
-            <p style="font-size:11px;color:var(--text-muted);margin-top:4px;">
-              รถอุบัติเหตุหนัก - เปลี่ยนโครง เปลี่ยนกระบะ ย้ายอุปกรณ์ทั้งคัน
-              จบงานส่งลูกค้าเรียบร้อย ขอบคุณลูกค้าที่ไว้วางใจเข้ามาใช้บริการครับ
+              แก้ปัญหาเหยียบไม่ออก ควันดำ เปลี่ยนท่อไอดี โอริง ปะเก็นใหม่ทั้งชุด ล้างทำความสะอาดเขม่าทางเดินลม กำลังรถกลับมาสมบูรณ์
             </p>
           </div>
         </article>
       </div>
     </section>
 
+    <!-- Booking & Contact/Map -->
     <section id="booking" class="section">
       <div class="section-header">
-        <h2 class="section-title">BOOKING</h2>
+        <h2 class="section-title">BOOKING & LOCATION</h2>
         <p class="section-sub">
-          ระบบจองคิวแบบง่าย ๆ สไตล์สุดคลาสสิค: กรอกฟอร์ม → สร้างข้อความจองคิว → กดคัดลอก → กดไปเพจ → วางรอช่างตอบคิวให้
+          กรอกอาการรถเพื่อสร้างข้อความจองคิว หรือเปิดแผนที่นำทางมาที่อู่หนองบัวได้ทันที
         </p>
       </div>
 
       <div class="booking">
+        <!-- Booking Form -->
         <div class="booking-card">
           <div class="booking-label">REQUEST A SLOT</div>
-          <div class="booking-title">จองคิวเข้าอู่ (กรอกรายละเอียดให้ครบด้วยนะครับ)</div>
+          <div class="booking-title">ฟอร์มจองคิว / แจ้งอาการซ่อม</div>
           <div class="booking-desc">
-            ฟอร์มนี้เอาไว้ให้ลูกค้า <strong>กรอกรายละเอียด</strong> แล้วระบบจะสร้าง
-            <strong>ข้อความจองคิว</strong> ให้กดคัดลอกไปส่งในเพจ Facebook ของอู่
+            กรอกข้อมูลให้ครบ ระบบจะสร้างข้อความสรุป เพื่อให้คุณกด <strong>"คัดลอกข้อความ"</strong> ไปส่งในแชทเพจ Facebook หรือทักไลน์ช่างได้ง่ายๆ
           </div>
 
           <form onsubmit="return false;">
             <div class="booking-grid">
               <div class="form-field">
-                <label for="name">ชื่อเล่น / ชื่อลูกค้า</label>
-                <input id="name" type="text" placeholder="เช่น ริว, พี่เอก, คุณต้น ฯลฯ">
+                <label for="name">ชื่อเล่น / ชื่อลูกค้า <span style="color:var(--accent-red)">*</span></label>
+                <input id="name" type="text" placeholder="เช่น ช่างป๊อป, พี่ริว, คุณเอก" required>
               </div>
 
               <div class="form-field">
-                <label for="phone">เบอร์โทร / ไลน์</label>
-                <input id="phone" type="text" placeholder="เบอร์ หรือ Line ID">
+                <label for="phone">เบอร์โทรศัพท์ / LINE ID <span style="color:var(--accent-red)">*</span></label>
+                <input id="phone" type="text" placeholder="เบอร์โทรที่ติดต่อได้สะดวก" required>
               </div>
 
               <div class="form-field">
-                <label for="vehicle">ประเภทรถ</label>
-                <select id="vehicle">
-                  <option>เลือกประเภทรถ</option>
-                  <option>มอเตอร์ไซค์</option>
-                  <option>Big Bike</option>
-                  <option>รถกระบะ</option>
-                  <option>รถเก๋ง</option>
-                  <option>อื่น ๆ</option>
+                <label for="vehicle">ประเภทรถ / ยี่ห้อ / รุ่น</label>
+                <input id="vehicle" type="text" placeholder="เช่น D-Max 1.9, Revo 2.8, Ninja 400">
+              </div>
+
+              <div class="form-field">
+                <label for="serviceType">อาการหลัก / งานที่ต้องการทำ</label>
+                <select id="serviceType">
+                  <option value="ยกคลัตช์ / คลัตช์ลื่น / เข้าเกียร์ยาก">ยกคลัตช์ / คลัตช์ลื่น / เข้าเกียร์ยาก</option>
+                  <option value="รถอืด / ควันดำ / ท่อไอดีรั่ว">รถอืด / ควันดำ / ท่อไอดีรั่ว</option>
+                  <option value="ถ่ายน้ำมันเครื่อง / เช็คระยะของเหลว">ถ่ายน้ำมันเครื่อง / เช็คระยะของเหลว</option>
+                  <option value="ช่วงล่างมีเสียงดัง / โหลดเตี้ย / จัดทรง">ช่วงล่างมีเสียงดัง / โหลดเตี้ย / จัดทรง</option>
+                  <option value="เบรกมีเสียง / เปลี่ยนผ้าเบรก">เบรกมีเสียง / เปลี่ยนผ้าเบรก</option>
+                  <option value="ซ่อมหนัก / เปลี่ยนกระบะ / สลับโครง">ซ่อมหนัก / เปลี่ยนกระบะ / สลับโครง</option>
+                  <option value="อื่นๆ (ระบุด้านล่าง)">อื่นๆ (ระบุด้านล่าง)</option>
                 </select>
               </div>
 
               <div class="form-field">
-                <label for="date">วันที่สะดวก (โดยประมาณ)</label>
-                <input id="date" type="text" placeholder="เช่น เสาร์–อาทิตย์, หลังเลิกงาน ฯลฯ">
+                <label for="partsOption">เรื่องอะไหล่</label>
+                <select id="partsOption">
+                  <option value="โอนให้ช่างช่วยเบิกอะไหล่ให้ตามบิลจริง">โอนให้ช่างช่วยเบิกอะไหล่ให้ตามบิลจริง</option>
+                  <option value="ลูกค้าจะซื้ออะไหล่มาเอง ให้ช่างคิดเฉพาะค่าแรง">ลูกค้าจะซื้ออะไหล่มาเอง ให้ช่างคิดเฉพาะค่าแรง</option>
+                  <option value="ให้ช่างช่วยตรวจสอบหน้างานก่อนสั่งอะไหล่">ให้ช่างช่วยตรวจสอบหน้างานก่อนสั่งอะไหล่</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="date">วันที่สะดวกนำรถเข้ามา (โดยประมาณ)</label>
+                <input id="date" type="text" placeholder="เช่น วันเสาร์นี้ช่วงเช้า, สะดวกหลัง 17:00">
               </div>
 
               <div class="form-field full-row">
-                <label for="details">รายละเอียดงานที่อยากทำ</label>
-                <textarea id="details" placeholder="เช่น ถ่ายน้ำมันเครื่อง, เปลี่ยนคลัตช์, เช็คช่วงล่าง, มีเสียงดัง ฯลฯ"></textarea>
+                <label for="details">รายละเอียดอาการเพิ่มเติม / ทะเบียนรถ</label>
+                <textarea id="details" placeholder="เช่น มีเสียงหอนตอนเหยียบคลัตช์, ทะเบียน บข 1234 ระยอง"></textarea>
               </div>
             </div>
 
             <div class="booking-footer">
-              <div class="booking-footer-top">
+              <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
                 <button type="button" class="btn-primary" onclick="generateBookingText();">
-                  สร้างข้อความจองคิว
+                  📝 สร้างข้อความจองคิว
                 </button>
                 <span style="font-size:11px;color:var(--text-muted);">
-                  *กดสร้างก่อน แล้วค่อยกดคัดลอกข้อความไปส่งในเพจ*
+                  *กดแล้วระบบจะทำข้อความให้กดคัดลอกทันที*
                 </span>
               </div>
 
-              <div class="booking-hours">
-                เวลาเปิด–ปิด (ปัจจุบันอู่ที่บ้าน):<br>
-                <strong>ประมาณ 07:30 – 19:30</strong> • เปิดเกือบทุกวัน (หยุดตามคิวงาน/ธุระ)
-              </div>
-
               <div class="booking-generated" id="bookingGeneratedBox">
-                <label for="bookingSummary">ข้อความจองคิว (คัดลอกไปส่งในเพจได้เลย)</label>
+                <label for="bookingSummary" style="font-size:11px; color:#81c784; font-weight:600;">
+                  ✅ สร้างข้อความจองคิวสำเร็จ (กดปุ่มด้านล่างเพื่อคัดลอกหรือเปิดแชท)
+                </label>
                 <textarea id="bookingSummary" readonly></textarea>
 
                 <div class="booking-generated-actions">
                   <button type="button" class="btn-small btn-small-primary" onclick="copyBookingText();">
-                    คัดลอกข้อความจองคิว
+                    📋 คัดลอกข้อความ
                   </button>
-                  <button type="button" class="btn-small btn-small-primary" onclick="openFacebookPage();">
-                    เปิดเพจ Facebook เพื่อส่งข้อความ
+                  <button type="button" class="btn-small btn-small-blue" onclick="openFacebookPage();">
+                    💬 เปิดแชทเพจ Facebook
                   </button>
                 </div>
-
-                <span style="font-size:10px;color:var(--text-muted);margin-top:4px;">
-                  หลังจากกดเปิดเพจแล้ว ให้กดวาง (Paste) ข้อความนี้ในแชทเพจ
-                  แล้วรอช่างตอบคิวและยืนยันวัน–เวลาอีกที
-                </span>
               </div>
             </div>
           </form>
         </div>
 
+        <!-- Contact & Interactive Map -->
         <aside class="contact-card" id="contact">
-          <div class="contact-row">
-            <div>
-              <div class="contact-label">PRIMARY CONTACT</div>
-              <div class="contact-value">EVAN VALE (Ryu)</div>
-            </div>
-            <div>
-              <span class="contact-chip">LINE • FACEBOOK PAGE</span>
-            </div>
+          <div class="contact-label">LOCATION & NAVIGATION</div>
+          <div class="contact-value" style="font-size:14px; font-weight:700;">
+            อู่ Garage P ช่างป๊อป x EVAN VALE GARAGE
           </div>
-
-          <div class="contact-row">
-            <div>
-              <div class="contact-label">LOCATION</div>
-              <div class="contact-value">
-                ต.หนองบัว อ.บ้านค่าย จ.ระยอง • อู่ Garage P ช่างป๊อป (อู่ปัจจุบัน)
-                <br>
-                <a class="contact-map-button"
-                   href="https://maps.app.goo.gl/jZsPhG7qR1MqRbYd7"
-                   target="_blank"
-                   rel="noopener">
-                  เปิดใน Google Maps
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-row">
-            <div>
-              <div class="contact-label">SOCIAL</div>
-              <div class="contact-value">
-                เพจ:
-                <a href="https://www.facebook.com/share/1KcFHbNt7A/"
-                   target="_blank"
-                   rel="noopener"
-                   style="font-weight:600; color:#42a5f5; text-decoration:underline;">
-                  Evan Vale Garage – อู่ช่างป๊อป ระยอง
-                </a>
-                <br>
-                <span style="color:#9ea4b8; font-size:11px;">
-                  (คลิกชื่อด้านบนเพื่อเปิดเพจ Facebook ของอู่)
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <p>
-            ช่องนี้ไว้แปะลิงก์จริงที่มี เช่น Facebook Page ของอู่ที่บ้าน, TikTok, IG, YouTube ฯลฯ
-            เพื่อให้ลูกค้าเห็นงานซ่อมและติดต่อได้ง่ายขึ้น
+          <p style="font-size:12px; color:var(--text-muted); line-height:1.5;">
+            📍 ต.หนองบัว อ.บ้านค่าย จ.ระยอง (เปิดบริการทุกวัน 07:30 – 19:30 น.)
           </p>
+
+          <!-- Interactive Embedded Google Maps -->
+          <div class="map-frame-box">
+            <iframe 
+              title="แผนที่อู่ช่างป๊อป ระยอง"
+              src="https://maps.google.com/maps?q=12.8021,101.3204&hl=th&z=14&output=embed"
+              loading="lazy">
+            </iframe>
+          </div>
+
+          <a class="contact-map-button"
+             href="https://maps.app.goo.gl/jZsPhG7qR1MqRbYd7"
+             target="_blank"
+             rel="noopener">
+            🧭 เปิดแอป Google Maps นำทางมาอู่
+          </a>
+
+          <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:10px; margin-top:4px;">
+            <div class="contact-label">CONTACT US</div>
+            <div style="margin-top:6px; display:flex; flex-direction:column; gap:6px;">
+              <div>📞 <b>เบอร์ช่าง:</b> <a href="tel:08XXXXXXXX" style="color:#81c784; text-decoration:underline;">08X-XXX-XXXX (แก้ไขเบอร์ตรงนี้)</a></div>
+              <div>💬 <b>Facebook:</b> <a href="https://www.facebook.com/share/1KcFHbNt7A/" target="_blank" rel="noopener" style="color:#42a5f5; text-decoration:underline;">Evan Vale Garage – อู่ช่างป๊อป ระยอง</a></div>
+            </div>
+          </div>
         </aside>
       </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="section">
       <div class="section-header">
-        <h2 class="section-title">ABOUT</h2>
-        <p class="section-sub">เล่าให้รู้ว่าอู่นี้ในปัจจุบันทำอะไร และอยากพัฒนาไปทางไหนต่อ</p>
+        <h2 class="section-title">ABOUT US</h2>
+        <p class="section-sub">เรื่องราวของอู่ช่างป๊อป และความตั้งใจของ EVAN VALE GARAGE</p>
       </div>
 
       <div class="about">
         <div class="about-text">
           <div class="about-pill">OWNER STORY • RYU / EVAN VALE</div>
           <p>
-            ตอนนี้ที่บ้านของ <strong>ผม</strong> มีอู่ซ่อมรถกระบะ–รถใช้งานอยู่แล้วในชื่อ <strong>Garage P ช่างป๊อป</strong>
-            รับงานเครื่อง ช่วงล่าง เกียร์ และรถวิ่งงานของลูกค้าแถวหนองบัว ระยอง ทุกวันแบบบ้าน ๆ แต่เต็มไปด้วยประสบการณ์จริงจากหน้างาน
+            อู่ที่บ้านของเราในชื่อ <strong>Garage P ช่างป๊อป</strong> เปิดรับซ่อมรถกระบะและรถใช้งานทั่วไปแถวหนองบัว บ้านค่าย ระยอง ดูแลงานเครื่อง ช่วงล่าง เกียร์ และคลัตช์ ด้วยประสบการณ์ช่างจริงหน้างาน ทำกันเองในครอบครัว <strong>1–2 คน</strong>
           </p>
           <p>
-            <strong>EVAN VALE GARAGE</strong> คือโปรเจ็กต์ที่ผมอยากทำให้เป็นหน้าตาใหม่ของอู่:
-            เพิ่มความเป็นระเบียบ สะอาด มีคาแร็กเตอร์สไตล์อเมริกัน และมีระบบออนไลน์ชัดเจนทั้งเว็บและเพจ
-            เพื่อให้ลูกค้าใหม่ ๆ หาอู่เจอง่ายและเชื่อใจได้ตั้งแต่เห็นหน้าแรก
+            <strong>EVAN VALE GARAGE</strong> คือโปรเจ็กต์ที่ผมต้องการยกระดับอู่ที่บ้านให้มีหน้าตาทันสมัย สไตล์ American Garage มีระบบจองคิวออนไลน์ชัดเจน เพื่อให้ลูกค้าทั้งคนในพื้นที่และคนนอกพื้นที่สามารถเข้าถึงและไว้วางใจได้
           </p>
           <p>
-            แนวคิดหลักของอู่ในปัจจุบันและอนาคตคือ
-            <strong>โปร่งใส, งานเนี๊ยบ, เคารพรถลูกค้าเหมือนรถตัวเอง</strong>
-            บอกงานตามจริง ไม่ฟัน ไม่ยัด และพยายามทำทุกคันให้จบแบบที่เจ้าของรถสบายใจที่สุด
+            หลักการของอู่เราคือ <strong>"จริงใจ โปร่งใส งานละเอียด คุยง่าย"</strong> อะไหล่ชิ้นไหนเสียบอกเสีย ชิ้นไหนยังใช้ได้บอกตามตรง ค่าอะไหล่คิดตามบิลจริงไม่บวกกำไรเกินเหตุ ช่างคิดเฉพาะค่าแรงที่เป็นธรรมครับ
           </p>
         </div>
 
         <aside class="about-card">
-          <div class="contact-label">VISION</div>
-          <p>
-            เป้าหมายต่อไปของ EVAN VALE GARAGE x อู่ช่างป๊อป ที่ผมอยากให้กลายเป็นจริง:
-          </p>
+          <div class="contact-label">GARAGE STANDARDS</div>
           <ul class="about-list">
-            <li>ยกหน้าตาอู่ที่บ้านให้ดูสะอาดเป็นระเบียบ แต่ยังคงฟีลอู่บ้าน ๆ ที่คุยง่ายเหมือนเดิม</li>
-            <li>รับงานบิ๊กไบค์และกระบะโหลดเตี้ยเพิ่มขึ้น พร้อมโซนแต่งรถสไตล์อเมริกันโดยเฉพาะ</li>
-            <li>มีโซนนั่งรอ/คาเฟ่เล็ก ๆ ให้ลูกค้านั่งชิว ดูรถตัวเองทำงานแบบโปร่งใส</li>
-            <li>สร้างคอมมูนิตี้ EVAN VALE ให้คนรู้ว่า “อยากซ่อม อยากแต่งสไตล์เมกา” ให้นึกถึงอู่นี้ก่อน</li>
+            <li><strong>ทำทีละคัน:</strong> ไม่เร่งงานชุ่ย เพื่อให้งานซ่อมออกมาจบและปลอดภัยที่สุด</li>
+            <li><strong>โปร่งใสเรื่องอะไหล่:</strong> ซื้ออะไหล่ตามบิลจริง หรือลูกค้าสามารถหาซื้ออะไหล่มาเองได้</li>
+            <li><strong>ตรวจเช็คก่อนส่งมอบ:</strong> ลองขับและตรวจเช็คความเรียบร้อยก่อนส่งรถคืนลูกค้าทุกครั้ง</li>
+            <li><strong>คุยตรงกับช่าง:</strong> ช่างเป็นคนทำเอง ตอบคำถามเอง ไม่ผ่านคนกลาง</li>
           </ul>
         </aside>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">EVAN VALE GARAGE x GARAGE P</div>
-      <div class="footer-links">
-        <span>© Concept & Current Garage Site for Ryu</span>
-        <span>Nongbua • Rayong • American Garage Dream</span>
+      <div style="font-size:11px; color:var(--text-muted);">
+        ต.หนองบัว อ.บ้านค่าย จ.ระยอง • อู่ช่างป๊อป
       </div>
     </div>
   </footer>
 </div>
 
+<!-- Image Lightbox Modal -->
+<div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+  <img src="" id="lightboxImg" class="lightbox-img" alt="Enlarged Job Photo">
+</div>
+
+<!-- AI Chat Assistant -->
 <div class="ai-panel" id="aiPanel">
   <div class="ai-panel-header">
     <div>
-      <div class="ai-panel-title">EVAN VALE AI</div>
-      <div class="ai-panel-badge">Demo helper • ตอบคำถามพื้นฐาน</div>
+      <div class="ai-panel-title">EVAN VALE ASSISTANT</div>
+      <div style="font-size:10px; color:var(--text-muted);">สอบถามข้อมูลอู่ช่างป๊อป ระยอง</div>
     </div>
     <button type="button" class="ai-close-btn" onclick="toggleAiPanel(false)">×</button>
   </div>
 
   <div class="ai-messages" id="aiMessages">
     <div class="ai-msg ai-msg-bot">
-👋 สวัสดีครับ ผมคือ EVAN VALE ASSISTANT
-ผู้ช่วยตอบคำถามเบื้องต้นของอู่ EVAN VALE / Garage P
-
-ลองถามผมได้เลย เช่น
-• เวลาเปิด–ปิดอู่
-• อู่ตั้งอยู่ตรงไหน
-• จองคิวยังไง
-• รับงานบิ๊กไบค์ไหม
-• กระบะโหลดเตี้ยทำแบบไหนได้บ้าง
-
-ถ้าคำถามเกี่ยวกับงานซ่อมลงลึก
-แนะนำส่งรูปไปเพจครับ เดี๋ยวผมให้ช่างตอบละเอียดอีกที 🙂
-
-(บอทนี้เป็น DEMO ตอบตามข้อมูลที่ตั้งไว้ ยังไม่ใช่ AI จริง)
+👋 สวัสดีครับ! มีข้อสงสัยเรื่องงานซ่อม สอบถามได้เลยครับ:
+• เวลาเปิด-ปิด หรือทางไปอู่
+• ปรึกษาอาการคลัตช์ / รถอืด / ช่วงล่าง
+• ค่าอะไหล่และค่าแรงคิดยังไง
     </div>
   </div>
 
   <div class="ai-input-area">
-    <input id="aiInput" type="text" placeholder="พิมพ์คำถามที่นี่..." onkeydown="if(event.key==='Enter'){sendAiMessage();}">
+    <input id="aiInput" type="text" placeholder="พิมพ์คำถาม..." onkeydown="if(event.key==='Enter'){sendAiMessage();}">
     <button type="button" onclick="sendAiMessage();">ส่ง</button>
   </div>
 </div>
 
 <button type="button" class="ai-fab" onclick="toggleAiPanel();">
   <span class="ai-fab-dot"></span>
-  <span>EVAN VALE AI (DEMO)</span>
+  <span>สอบถามช่าง (บอท)</span>
 </button>
 
 <canvas id="snow"></canvas>
 
+<!-- JavaScript -->
 <script>
   const facebookPageUrl = "https://www.facebook.com/share/1KcFHbNt7A/";
 
@@ -1740,44 +1552,31 @@
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  (function() {
-    const countdownEl = document.getElementById('newYearCountdown');
-    if (!countdownEl) return;
+  // Lightbox
+  function openLightbox(src) {
+    const modal = document.getElementById('lightboxModal');
+    const img = document.getElementById('lightboxImg');
+    img.src = src;
+    modal.classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightboxModal').classList.remove('open');
+  }
 
-    function updateCountdown() {
-      const now = new Date();
-      const year = now.getFullYear();
-      const target = new Date(year + 1, 0, 1, 0, 0, 0);
-      const diff = target - now;
-
-      if (diff <= 0) {
-        countdownEl.textContent = "HAPPY NEW YEAR GARAGE!";
-        return;
-      }
-
-      const totalSeconds = Math.floor(diff / 1000);
-      const days = Math.floor(totalSeconds / (3600 * 24));
-      const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
-      const minutes = Math.floor((totalSeconds % 3600) / 60);
-
-      countdownEl.textContent = days + " วัน " + hours + " ชม. " + minutes + " นาที";
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 30000);
-  })();
-
+  // Booking Generator
   function generateBookingText() {
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
-    const vehicle = document.getElementById('vehicle').value;
+    const vehicle = document.getElementById('vehicle').value.trim() || "-";
+    const serviceType = document.getElementById('serviceType').value;
+    const partsOption = document.getElementById('partsOption').value;
     const date = document.getElementById('date').value.trim();
     const details = document.getElementById('details').value.trim();
     const box = document.getElementById('bookingGeneratedBox');
     const summary = document.getElementById('bookingSummary');
 
-    if (!name || !phone || vehicle === "เลือกประเภทรถ") {
-      alert("กรุณากรอกชื่อ เบอร์โทร/ไลน์ และเลือกประเภทรถก่อนนะครับ 🙏");
+    if (!name || !phone) {
+      alert("กรุณากรอกชื่อและเบอร์โทร/ไลน์ เพื่อให้ช่างติดต่อกลับได้นะครับ 🙏");
       return;
     }
 
@@ -1791,26 +1590,30 @@
     const bookingCode = `EVG-${y}${m}${d}-${hh}${mm}-${codeRand}`;
 
     const textLines = [
-      "คิวจองซ่อมรถที่ EVAN VALE GARAGE x อู่ช่างป๊อป ระยอง",
-      "",
-      `ชื่อ: ${name}`,
-      `เบอร์โทร / ไลน์: ${phone}`,
-      `ประเภทรถ: ${vehicle}`,
-      date ? `วันที่สะดวกโดยประมาณ: ${date}` : "",
-      details ? `รายละเอียดงานที่อยากทำ: ${details}` : "",
-      "",
-      "รบกวนช่วยเช็กคิวว่างและยืนยันวัน–เวลาให้ด้วยนะครับ 🙏",
-      `รหัสคำขอ: ${bookingCode}`
+      "🔧 ใบนัดหมายคิวซ่อมรถ: EVAN VALE GARAGE x อู่ช่างป๊อป ระยอง",
+      `รหัสคำขอ: ${bookingCode}`,
+      "------------------------------------",
+      `👤 ชื่อลูกค้า: ${name}`,
+      `📞 เบอร์โทร/ไลน์: ${phone}`,
+      `🚗 รุ่นรถ: ${vehicle}`,
+      `⚙️ อาการหลัก: ${serviceType}`,
+      `📦 เรื่องอะไหล่: ${partsOption}`,
+      date ? `📅 วันที่สะดวกนำรถเข้า: ${date}` : "",
+      details ? `📝 รายละเอียดเพิ่มเติม: ${details}` : "",
+      "------------------------------------",
+      "(รับทราบเงื่อนไข: อู่ทำละเอียดทีละคัน และค่าอะไหล่เบิกตามบิลจริง)",
+      "รบกวนช่างป๊อปช่วยเช็คคิวและประเมินเวลาให้ด้วยนะครับ 🙏"
     ].filter(Boolean);
 
     summary.value = textLines.join("\n");
     box.style.display = "flex";
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
   async function copyBookingText() {
     const summary = document.getElementById('bookingSummary');
     if (!summary || !summary.value.trim()) {
-      alert("ยังไม่มีข้อความให้คัดลอกครับ ลองกดปุ่ม 'สร้างข้อความจองคิว' ก่อน");
+      alert("ยังไม่มีข้อความให้คัดลอกครับ");
       return;
     }
 
@@ -1822,64 +1625,58 @@
         summary.select();
         document.execCommand('copy');
       }
-      alert("คัดลอกข้อความจองคิวเรียบร้อยแล้วครับ");
+      alert("คัดลอกข้อความเรียบร้อยแล้วครับ! สามารถกดปุ่มเปิดเพจเพื่อส่งข้อความได้เลย");
     } catch (e) {
-      alert("คัดลอกอัตโนมัติไม่ได้ ลองกดค้างแล้วคัดลอกเองนะ");
+      alert("กรุณากดเลือกข้อความในกล่องแล้วกดคัดลอกด้วยตนเองนะครับ");
     }
   }
 
   function openFacebookPage() {
-    if (!facebookPageUrl) {
-      alert("ยังไม่ได้ใส่ลิงก์เพจจริงนะครับ");
-      return;
-    }
     window.open(facebookPageUrl, "_blank", "noopener");
   }
 
+  // AI Helper Logic
   function getAiReply(message) {
     const msg = message.toLowerCase();
 
+    if (msg.includes('อะไหล่') || msg.includes('ซื้อ') || msg.includes('บิล')) {
+      return 'เรื่องอะไหล่อู่เราคิดตามบิลจริงครับ ลูกค้าสามารถโอนเงินให้ช่างไปเบิกอะไหล่หน้างาน หรือจะซื้ออะไหล่มาเองให้ช่างคิดเฉพาะค่าแรงก็ได้ครับ สบายใจทั้งสองฝ่าย 🙂';
+    }
+
+    if (msg.includes('วันเดียว') || msg.includes('เสร็จวันไหน') || msg.includes('นานไหม') || msg.includes('กี่วัน')) {
+      return 'เนื่องจากอู่เราทำกันเองในครอบครัว 1-2 คน จึงเน้นทำทีละคันอย่างละเอียด ไม่ได้ส่งรถวันต่อวันนะครับ ระยะเวลาจะประเมินตามหน้างานและอาการของรถครับ 🛠️';
+    }
+
     if (msg.includes('เปิด') || msg.includes('ปิด') || msg.includes('เวลา')) {
-      return 'ตอนนี้เปิดประมาณ 07:30 – 19:30 ครับ ถ้ามีปรับจะอัปเพจทันที 😊';
+      return 'อู่เปิดประมาณ 07:30 – 19:30 น. ทุกวันครับ (ถ้าวันไหนติดธุระจะแจ้งทางเพจครับ)';
     }
 
-    if (msg.includes('อยู่ไหน') || msg.includes('ที่ไหน') || msg.includes('แผนที่')) {
-      return 'อู่อยู่ ต.หนองบัว อ.บ้านค่าย ระยอง ชื่อ Garage P ช่างป๊อปครับ 🧭';
+    if (msg.includes('อยู่ไหน') || msg.includes('ที่ไหน') || msg.includes('พิกัด') || msg.includes('แผนที่')) {
+      return 'อู่อยู่ ต.หนองบัว อ.บ้านค่าย จ.ระยอง ครับ สามารถกดปุ่ม "เปิดแอป Google Maps นำทาง" ในหน้าเว็บเพื่อขับตาม GPS มาได้เลยครับ 🧭';
     }
 
-    if (msg.includes('จอง') || msg.includes('คิว') || msg.includes('นัด')) {
-      return 'จองคิวได้ที่ส่วน BOOKING → กรอกฟอร์ม → กดสร้างข้อความ → คัดลอกไปส่งในเพจครับ 🙏';
+    if (msg.includes('เบอร์') || msg.includes('โทร')) {
+      return 'สามารถโทรปรึกษาช่างได้ที่เบอร์ด้านบนหน้าเว็บ หรือทักแชทเพจ Facebook ส่งรูปหน้างานมาได้เลยครับ 📞';
     }
 
-    if (msg.includes('บิ๊กไบค์') || msg.includes('big bike')) {
-      return 'ตอนนี้รับงาน Big Bike มากขึ้น ทั้งซ่อมทั่วไปและแต่งสไตล์เมกา 🔥';
+    if (msg.includes('ครัช') || msg.includes('คลัตช์') || msg.includes('คลัทช์')) {
+      return 'งานคลัตช์เป็นงานถนัดของอู่เลยครับ มีทั้งยกคลัตช์เดิม คลัตช์แต่งสองชั้นผ้าผสม และซ่อมรอบเกียร์ ทักมาปรึกษาได้เลยครับ 🔥';
     }
 
-    if (msg.includes('โหลดเตี้ย') || msg.includes('กระบะ')) {
-      return 'โหลดเตี้ยเน้นทรงสะอาด ขับได้จริง ส่งทรงที่ชอบมาทางเพจได้เลยครับ 🛻';
-    }
-
-    return 'รายละเอียดลึกต้องดูหน้างานนะครับ ส่งรูปไปเพจได้เลย เดี๋ยวผมให้ช่างดูให้ 🙌';
+    return 'ถ้าเป็นอาการเชิงลึก แนะนำถ่ายรูปหรือคลิปเสียงส่งไปที่แชทเพจ Facebook ได้เลยครับ เดี๋ยวช่างป๊อปช่วยดูให้ครับ 🙌';
   }
 
   function toggleAiPanel(force) {
     const panel = document.getElementById('aiPanel');
     if (!panel) return;
-
-    if (typeof force === 'boolean') {
-      panel.classList.toggle('show', force);
-    } else {
-      panel.classList.toggle('show');
-    }
+    panel.classList.toggle('show', typeof force === 'boolean' ? force : undefined);
   }
 
   function appendAiMessage(text, isUser) {
     const box = document.getElementById('aiMessages');
     const div = document.createElement('div');
-
     div.className = 'ai-msg ' + (isUser ? 'ai-msg-user' : 'ai-msg-bot');
     div.textContent = text;
-
     box.appendChild(div);
     box.scrollTop = box.scrollHeight;
   }
@@ -1899,62 +1696,50 @@
   function toggleMobileNav(force) {
     const nav = document.getElementById("mobileNav");
     if (!nav) return;
-
-    if (typeof force === "boolean") {
-      nav.classList.toggle("show", force);
-      return;
-    }
-
-    nav.classList.toggle("show");
+    nav.classList.toggle("show", typeof force === "boolean" ? force : undefined);
   }
 
   document.addEventListener("click", function (e) {
     const nav = document.getElementById("mobileNav");
     const toggle = document.querySelector(".nav-toggle");
     if (!nav || !toggle) return;
-
     if (!nav.contains(e.target) && !toggle.contains(e.target)) {
       nav.classList.remove("show");
     }
   });
 
+  // Snow Background Animation
   (function () {
     const canvas = document.getElementById("snow");
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
-
-    let w = 0;
-    let h = 0;
-    let animationId = null;
+    let w = 0, h = 0, animationId = null;
 
     function resize() {
       w = canvas.width = window.innerWidth;
       h = canvas.height = window.innerHeight;
     }
-
     window.addEventListener("resize", resize, { passive: true });
     resize();
 
     const isMobile = window.innerWidth <= 768;
-    const flakeCount = isMobile ? 40 : 70;
+    const flakeCount = isMobile ? 35 : 65;
 
     const flakes = Array.from({ length: flakeCount }, () => ({
       x: Math.random() * w,
       y: Math.random() * h,
       r: Math.random() * 2 + 0.5,
-      d: Math.random() * 1.2 + 0.35
+      d: Math.random() * 1.1 + 0.3
     }));
 
     function drawSnow() {
       ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = "rgba(255,255,255,0.72)";
+      ctx.fillStyle = "rgba(255,255,255,0.65)";
       ctx.beginPath();
-
       for (const f of flakes) {
         ctx.moveTo(f.x, f.y);
         ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
       }
-
       ctx.fill();
 
       for (const f of flakes) {
@@ -1964,21 +1749,15 @@
           f.x = Math.random() * w;
         }
       }
-
       animationId = requestAnimationFrame(drawSnow);
     }
-
     drawSnow();
 
     document.addEventListener("visibilitychange", () => {
-      if (document.hidden) {
-        cancelAnimationFrame(animationId);
-      } else {
-        drawSnow();
-      }
+      if (document.hidden) cancelAnimationFrame(animationId);
+      else drawSnow();
     });
   })();
 </script>
-
 </body>
 </html>
