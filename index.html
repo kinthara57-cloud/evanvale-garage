@@ -1100,8 +1100,8 @@
         <a href="#about">เรื่องราวอู่</a>
         <a href="#contact">พิกัด/ติดต่อ</a>
 
-        <!-- ปุ่มโทรด่วน (แก้เบอร์ตรง href="tel:..." และข้อความได้เลย) -->
-        <a href="tel:" class="call-btn" id="headerPhone">
+        <!-- ปุ่มโทรด่วน: ใส่ 0861544474 ต่อท้าย tel: เรียบร้อย -->
+        <a href="tel:0861544474" class="call-btn" id="headerPhone">
           📞 <span>โทรช่าง: 086-154-4474</span>
         </a>
 
@@ -1122,7 +1122,8 @@
         <a href="#booking" onclick="toggleMobileNav(false)">จองคิว</a>
         <a href="#about" onclick="toggleMobileNav(false)">เรื่องราวอู่</a>
         <a href="#contact" onclick="toggleMobileNav(false)">พิกัด/ติดต่อ</a>
-        <a href="tel:" style="color:#81c784">📞 โทรช่าง: 086-154-4474</a>
+        <!-- เมนูมือถือ: ใส่ 0861544474 ต่อท้าย tel: เรียบร้อย -->
+        <a href="tel:0861544474" style="color:#81c784">📞 โทรช่าง: 086-154-4474</a>
         <button
           type="button"
           class="nav-cta"
@@ -1173,10 +1174,9 @@
           <button type="button" class="btn-primary" onclick="scrollToSection('booking')">
             จองคิว / ปรึกษาอาการซ่อม
           </button>
-          <a href="tel:" class="btn-ghost" style="color:#81c784; border-color:rgba(76,175,80,0.5)">
-           [
-  📞 โทรคุยกับช่างทันที
-](tel:0812345678)
+          <!-- ปุ่มโทรใน Hero: ใส่ 0861544474 ต่อท้าย tel: เรียบร้อย -->
+          <a href="tel:0861544474" class="btn-ghost" style="color:#81c784; border-color:rgba(76,175,80,0.5)">
+            📞 โทรคุยกับช่างทันที (086-154-4474)
           </a>
         </div>
       </div>
@@ -1493,7 +1493,8 @@
           <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:10px; margin-top:4px;">
             <div class="contact-label">CONTACT US</div>
             <div style="margin-top:6px; display:flex; flex-direction:column; gap:6px;">
-              <div>📞 <b>เบอร์ช่าง:</b> <a href="tel:" style="color:#81c784; text-decoration:underline;">0861544474</a></div>
+              <!-- ส่วนติดต่อ: ใส่ 0861544474 ต่อท้าย tel: เรียบร้อย -->
+              <div>📞 <b>เบอร์ช่าง:</b> <a href="tel:0861544474" style="color:#81c784; text-decoration:underline;">086-154-4474</a></div>
               <div>💬 <b>Facebook:</b> <a href="https://www.facebook.com/share/1KcFHbNt7A/" target="_blank" rel="noopener" style="color:#42a5f5; text-decoration:underline;">Evan Vale Garage – อู่ช่างป๊อป ระยอง</a></div>
             </div>
           </div>
@@ -1700,7 +1701,7 @@
     }
 
     if (msg.includes('เบอร์') || msg.includes('โทร')) {
-      return 'สามารถโทรปรึกษาช่างได้ที่เบอร์ด้านบนหน้าเว็บ หรือทักแชทเพจ Facebook ส่งรูปหน้างานมาได้เลยครับ 📞';
+      return 'สามารถโทรปรึกษาช่างป๊อปได้ที่เบอร์ 086-154-4474 หรือทักแชทเพจ Facebook ส่งรูปหน้างานมาได้เลยครับ 📞';
     }
 
     if (msg.includes('ครัช') || msg.includes('คลัตช์') || msg.includes('คลัทช์')) {
